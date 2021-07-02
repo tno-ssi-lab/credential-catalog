@@ -1,6 +1,6 @@
 # Credential Catalog Demonstrator
 
-(NOT IMPLEMENTED YET: Current master version is available on [Gitlab Pages](https://ssi-lab.cred-cat.gitlab-dv.tno.nl/credential-catalogue-ckan).)
+(NOT IMPLEMENTED YET: Current master version is available on [Gitlab Pages](http://ssi-lab.pages.ci.tno.nl/cred-cat/credential-catalogue-ckan/).)
 
 This is the Vue.js project for the Credential Catalog demonstrator.
 

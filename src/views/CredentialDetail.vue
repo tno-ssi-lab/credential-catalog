@@ -1,0 +1,259 @@
+<template>
+  <div>
+    <v-layout>
+      <v-breadcrumbs :items="navItems" large class="px-0 py-5"></v-breadcrumbs>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        class="mx-2"
+        :to="{
+          name: 'edit',
+          params: { id: id },
+        }"
+      >
+        <v-icon left>mdi-pencil</v-icon>
+        Edit
+      </v-btn>
+      <v-btn class="mx-2" :to="{ name: 'changelog', params: { id: id } }">
+        <v-icon left>mdi-history</v-icon>
+        Change log
+      </v-btn>
+    </v-layout>
+
+    <v-row>
+      <v-col cols="12" lg="8" md="6">
+        <h1>{{ credential.name }}</h1>
+        <p class="text-justify">
+          {{ credential.description }}
+        </p>
+      </v-col>
+
+      <v-col cols="12" lg="4" md="6">
+        <DetailsTable :headers="headers" :item="credential">
+          <template #item.credentialType="{ value }">
+            <div :class="{ 'grey--text': !value }">
+              {{ value || "-" }}
+            </div>
+          </template>
+
+          <template #item.categoryDisplay="{ value }">
+            <div :class="{ 'grey--text': !value }">
+              {{ value || "-" }}
+            </div>
+          </template>
+
+          <template #item.version="{ value }">
+            <div :class="{ 'grey--text': !value }">
+              {{ value || "-" }}
+            </div>
+          </template>
+
+          <template #item.phaseDisplay="{ value }">
+            <v-chip-group v-for="Phase in value" :key="Phase">
+              <v-chip>
+                {{ Phase }}
+              </v-chip>
+            </v-chip-group>
+          </template>
+
+          <template #item.supportedHardware="{ value }">
+            <v-chip-group v-if="value.length > 0">
+              <v-chip v-for="hw in value" :key="hw.hardware">
+                {{ hw.hardware }}: {{ hw.versions }}
+              </v-chip>
+            </v-chip-group>
+            <div v-else class="grey--text">-</div>
+          </template>
+
+          <template #item.supportedOses="{ value }">
+            <v-chip-group v-if="value.length > 0">
+              <v-chip v-for="os in value" :key="os.os">
+                {{ os.os }}: {{ os.versions }}
+              </v-chip>
+            </v-chip-group>
+            <div v-else class="grey--text">-</div>
+          </template>
+
+          <template #item.supportedApps="{ value }">
+            <v-chip-group v-if="value.length > 0">
+              <v-chip v-for="app in value" :key="app.application">
+                {{ app.application }}: {{ app.versions }}
+              </v-chip>
+            </v-chip-group>
+            <div v-else class="grey--text">-</div>
+          </template>
+
+          <template #item.documentation="{ value }">
+            <a :href="value" v-text="value"></a>
+          </template>
+
+          <template #item.location="{ value }">
+            <a :href="value" v-text="value"></a>
+          </template>
+
+          <template #item.constituents="{ value }">
+            <div v-if="value.length > 0">
+              <ul v-for="fieldId in value" :key="fieldId">
+                <li>
+                  <router-link
+                    :to="{ name: 'details', params: { id: fieldId } }"
+                  >
+                    {{ credentialById(fieldId).name }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+            <div v-else class="grey--text">-</div>
+          </template>
+
+          <template #item.deploymentRequirements="{ value }">
+            <div :class="{ 'grey--text': !value }">
+              <span style="white-space: pre-wrap;">{{ value || "-" }}</span>
+            </div>
+          </template>
+
+          <template #item.testReport="{ value }">
+            <v-simple-table v-if="value !== null && value.location != ''">
+              <tbody>
+                <tr>
+                  <td>
+                    <a :href="value.location" v-text="value.location"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{ value.author }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <em>{{ value.time }}</em>
+                  </td>
+                </tr>
+              </tbody>
+            </v-simple-table>
+            <div v-else class="grey--text">
+              -
+            </div>
+          </template>
+        </DetailsTable>
+      </v-col>
+    </v-row>
+
+    <reviews :id="credential.id" :reviews="credential.reviews"></reviews>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from "vuex"
+import DetailsTable from "@/components/DetailsTable"
+import Reviews from "@/components/Reviews"
+
+export default {
+  name: "CredentialDetail",
+  components: {
+    DetailsTable,
+    Reviews,
+  },
+  props: {
+    id: {
+      type: Number,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      headers: [
+        {
+          text: "Credential ID",
+          value: "id",
+        },
+        {
+          text: "Credential Type",
+          value: "credentialType",
+        },
+        {
+          text: "Category",
+          value: "categoryDisplay",
+        },
+        {
+          text: "Version",
+          value: "version",
+        },
+        {
+          text: "Phase",
+          value: "phaseDisplay",
+        },
+        {
+          text: "Hardware",
+          value: "supportedHardware",
+        },
+        {
+          text: "Operating System",
+          value: "supportedOses",
+        },
+        {
+          text: "Application",
+          value: "supportedApps",
+        },
+        {
+          text: "Maturity",
+          value: "maturityDisplay",
+        },
+        {
+          text: "Classification",
+          value: "classificationDisplay",
+        },
+        {
+          text: "Documentation",
+          value: "documentation",
+        },
+        {
+          text: "Location",
+          value: "location",
+        },
+        {
+          text: "Contact",
+          value: "contact",
+        },
+        {
+          text: "Used Credentials",
+          value: "constituents",
+        },
+        {
+          text: "Deployment Requirements",
+          value: "deploymentRequirements",
+        },
+        {
+          text: "Test Report",
+          value: "testReport",
+        },
+      ],
+    }
+  },
+  computed: {
+    ...mapGetters(["getCredentialById"]),
+    credential() {
+      return this.getCredentialById(this.id)
+    },
+    navItems() {
+      return [
+        {
+          text: "Search",
+          to: { name: "search" },
+        },
+        {
+          text: this.credential.name,
+          disabled: true,
+        },
+      ]
+    },
+  },
+  methods: {
+    credentialById(id) {
+      return this.getCredentialById(id)
+    },
+  },
+}
+</script>

@@ -71,9 +71,9 @@
         ></select-single-dropdown>
 
         <select-dropdown
-          v-model="attributes.phase"
-          :items="phases"
-          v-bind="fieldProps('phase')"
+          v-model="attributes.issuer"
+          :items="issuers"
+          v-bind="fieldProps('issuer')"
         ></select-dropdown>
 
         <select-single-dropdown
@@ -141,7 +141,7 @@ const KEY_TO_FIELD_NAME = {
   credentialType: "Credential Type",
   category: "Category",
   version: "Version",
-  phase: "Phase",
+  issuer: "Issuer",
   os: "Operating System",
   protocol: "Protocol",
   maturity: "Maturity",
@@ -164,7 +164,7 @@ const REQUIRED_FIELDS = [
   "contact",
   "visibility",
   "maturity",
-  "phase",
+  "issuer",
 ]
 
 const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]
@@ -200,7 +200,7 @@ export default {
       valid: null,
       attributes,
       maturityLevels: constants.MATURITY_LEVELS,
-      phases: constants.PROCESS_ITEMS,
+      issuers: constants.PROCESS_ITEMS,
       categories: constants.CATEGORIES,
       visibilities: constants.VISIBILITIES,
       sidebarFields: SIDEBAR_FIELDS,

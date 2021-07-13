@@ -63,9 +63,9 @@
 
       <v-col cols="12" sm="4">
         <select-dropdown
-          v-model="search.phase"
-          :items="processPhases"
-          label="Phase"
+          v-model="search.issuer"
+          :items="processIssuers"
+          label="Issuer"
           @input="$emit('input', search)"
         ></select-dropdown>
       </v-col>
@@ -122,7 +122,7 @@ export default {
       search: JSON.parse(JSON.stringify(this.value)),
       incrementalSearch: true,
       oses: constants.OSES,
-      processPhases: constants.PROCESS_ITEMS,
+      processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
       visibilities: constants.VISIBILITIES,
@@ -158,8 +158,8 @@ export default {
     updateOs(event) {
       this.$store.commit("updateOs", event)
     },
-    updatePhase(event) {
-      this.$store.commit("updatePhase", event)
+    updateIssuer(event) {
+      this.$store.commit("updateIssuer", event)
     },
     updateCategory(event) {
       this.$store.commit("updateCategory", event)

@@ -12,16 +12,16 @@ function sortByMaturity(a, b) {
   )
 }
 
-export function credentialsByPhase(credentials) {
-  const phases = constants.PROCESS_ITEMS.filter(e => e.value)
+export function credentialsByIssuer(credentials) {
+  const issuers = constants.PROCESS_ITEMS.filter(e => e.value)
 
-  return phases.map(phase => {
-    const phaseCredentials = credentials.filter(c => c.phase.includes(phase.value))
-    phaseCredentials.sort(sortByMaturity)
+  return issuers.map(issuer => {
+    const issuerCredentials = credentials.filter(c => c.issuer.includes(issuer.value))
+    issuerCredentials.sort(sortByMaturity)
 
     return {
-      phase,
-      credentials: phaseCredentials,
+      issuer,
+      credentials: issuerCredentials,
     }
   })
 }
@@ -63,7 +63,7 @@ const bundleModule = {
         return {
           ...bundle,
           credentials: credentials,
-          credentialsByPhase: credentialsByPhase(credentials),
+          credentialsByIssuer: credentialsByIssuer(credentials),
         }
       }
 
@@ -133,7 +133,7 @@ const searchModule = {
   state: {
     currentSearch: {
       query: null,
-      phase: [],
+      issuer: [],
       category: [],
       maturity: [],
       visibility: [],
@@ -218,7 +218,7 @@ const searchModule = {
       if (storedSearch) {
         state.currentSearch = {
           query: null,
-          phase: [],
+          issuer: [],
           category: [],
           maturity: [],
           visibility: [],

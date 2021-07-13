@@ -2,7 +2,11 @@
   <table class="matrix-credential">
     <credential-matrix-header></credential-matrix-header>
     <tbody>
-      <credential-matrix-row v-for="item in items" :key="item.title" :item="item">
+      <credential-matrix-row
+        v-for="item in items"
+        :key="item.title"
+        :item="item"
+      >
       </credential-matrix-row>
     </tbody>
     <credential-matrix-footer></credential-matrix-footer>
@@ -58,32 +62,32 @@ export default {
   padding-right: 18px;
 }
 
-.matrix-phase-phase-one {
+.matrix-issuer-government {
   background: rgb(255, 201, 192);
   /* box-shadow: inset 0px -4px 8px rgba(255, 201, 192, 0.9); */
 }
 
-.matrix-phase-phase-two {
+.matrix-issuer-public {
   background: rgb(255, 233, 171);
 }
 
-.matrix-phase-phase-three {
+.matrix-issuer-semi-public {
   background: rgb(239, 255, 166);
 }
 
-.matrix-phase-phase-four {
+.matrix-issuer-private {
   background: rgb(205, 255, 192);
 }
 
-.matrix-phase-phase-five {
+.matrix-issuer-issuer-five {
   background: rgb(192, 255, 239);
 }
 
-.matrix-phase-phase-six {
+.matrix-issuer-issuer-six {
   background: rgb(192, 214, 255);
 }
 
-.matrix-phase-phase-seven {
+.matrix-issuer-issuer-seven {
   background: rgb(216, 192, 255);
 }
 </style>

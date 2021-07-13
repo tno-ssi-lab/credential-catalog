@@ -82,8 +82,8 @@ export default {
           value: "credentialType",
         },
         {
-          text: "Process Phase",
-          value: "phaseDisplay",
+          text: "Issuer",
+          value: "issuerDisplay",
           sortable: false,
         },
         {

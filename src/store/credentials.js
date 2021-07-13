@@ -11,7 +11,7 @@ export class Credential {
         credentialType: null,
         category: null,
         version: null,
-        phase: [],
+        issuer: [],
         maturity: null,
         visibility: null,
         description: null,
@@ -37,7 +37,7 @@ export class Credential {
       credentialType: this.credentialType,
       category: this.category,
       version: this.version,
-      phase: this.phase,
+      issuer: this.issuer,
       hardware: this.hardware,
       os: this.oses,
       protocol: this.prots,
@@ -98,8 +98,8 @@ export class Credential {
     return constants.MATURITY_MAP[this.maturity]
   }
 
-  get phaseDisplay() {
-    return this.phase.map(phase => constants.PROCESS_MAP[phase])
+  get issuerDisplay() {
+    return this.issuer.map(issuer => constants.PROCESS_MAP[issuer])
   }
 
   get categoryDisplay() {
@@ -118,7 +118,7 @@ export const credentials = [
     credentialType: "NameCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub7"],
+    issuer: ["sub7"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -148,7 +148,7 @@ export const credentials = [
     credentialType: "AddressCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub10"],
+    issuer: ["sub10"],
     maturity: "in-development",
     visibility: "internal",
     description: `
@@ -170,7 +170,7 @@ export const credentials = [
     credentialType: "EmailCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
     visibility: "confidential",
     description: `
@@ -196,7 +196,7 @@ export const credentials = [
     credentialType: "TelephoneCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1", "sub4"],
+    issuer: ["irs", "sub4"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -235,7 +235,7 @@ export const credentials = [
     credentialType: "ContactDetailsCredential",
     category: "category-five",
     version: "1.0",
-    phase: ["sub1", "sub8"],
+    issuer: ["irs", "sub8"],
     maturity: "proposed",
     visibility: "unclassified",
     description: `
@@ -257,7 +257,7 @@ export const credentials = [
     credentialType: "CertificateOfEnheritanceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3", "sub8"],
+    issuer: ["sub3", "sub8"],
     maturity: "ready-for-review",
     visibility: "internal",
     description: `
@@ -288,7 +288,7 @@ export const credentials = [
     credentialType: "GuardianshipCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub6", "sub10", "sub7"],
+    issuer: ["sub6", "sub10", "sub7"],
     maturity: "planned",
     visibility: "unclassified",
     description: `
@@ -314,7 +314,7 @@ export const credentials = [
     credentialType: "PoBCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -340,7 +340,7 @@ export const credentials = [
     credentialType: "VaccinationCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
     visibility: "internal",
     description: `
@@ -366,7 +366,7 @@ export const credentials = [
     credentialType: "NegTestCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub2"],
+    issuer: ["sub2"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -392,7 +392,7 @@ export const credentials = [
     credentialType: "TestResultCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3"],
+    issuer: ["sub3"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -431,7 +431,7 @@ export const credentials = [
     credentialType: "PassportCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -457,7 +457,7 @@ export const credentials = [
     credentialType: "DriversLicenseCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "in-development",
     visibility: "internal",
     description: `
@@ -479,7 +479,7 @@ export const credentials = [
     credentialType: "LicenseCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3", "sub8"],
+    issuer: ["sub3", "sub8"],
     maturity: "planned",
     visibility: "confidential",
     description: `
@@ -506,7 +506,7 @@ export const credentials = [
     credentialType: "EmploymentCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -532,7 +532,7 @@ export const credentials = [
     credentialType: "HealthInsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -567,7 +567,7 @@ export const credentials = [
     credentialType: "CarInsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "ready-for-review",
     visibility: "internal",
     description: `
@@ -589,7 +589,7 @@ export const credentials = [
     credentialType: "InsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3"],
+    issuer: ["sub3"],
     maturity: "in-development",
     visibility: "confidential",
     description: `
@@ -611,7 +611,7 @@ export const credentials = [
     credentialType: "BankAccountCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
     visibility: "internal",
     description: `
@@ -637,7 +637,7 @@ export const credentials = [
     credentialType: "PersonalDataCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "ready-for-review",
     visibility: "internal",
     description: `
@@ -664,7 +664,7 @@ export const credentials = [
     credentialType: "AgeCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "in-development",
     visibility: "internal",
     description: `
@@ -686,7 +686,7 @@ export const credentials = [
     credentialType: "BSNCredential",
     category: "category-two",
     version: "0.6",
-    phase: ["sub12", "sub2", "sub9"],
+    issuer: ["sub12", "sub2", "sub9"],
     maturity: "complete",
     visibility: "internal",
     description: `
@@ -730,7 +730,7 @@ export const credentials = [
     credentialType: "TravelDocumentCredential",
     category: "category-two",
     version: "0.6",
-    phase: ["sub6", "sub11"],
+    issuer: ["sub6", "sub11"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
@@ -773,7 +773,7 @@ export const credentials = [
     credentialType: "DiplomaCredential",
     category: "category-two",
     version: "0.1",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "complete",
     visibility: "internal",
     description: `
@@ -807,7 +807,7 @@ export const credentials = [
     credentialType: "BirthCertificateCredential",
     category: "category-two",
     version: "1.3",
-    phase: ["sub4", "sub5", "sub6", "sub2"],
+    issuer: ["sub4", "sub5", "sub6", "sub2"],
     maturity: "in-development",
     visibility: "confidential",
     description: `
@@ -852,7 +852,7 @@ export const credentials = [
     credentialType: "ParkingPermitCredential",
     category: "category-two",
     version: "3.1",
-    phase: ["sub8", "sub9", "sub10"],
+    issuer: ["sub8", "sub9", "sub10"],
     maturity: "complete",
     visibility: "internal",
     description: `
@@ -878,7 +878,7 @@ export const credentials = [
     credentialType: "UniversityCredential",
     category: "category-two",
     version: "0.8",
-    phase: ["sub11", "sub9", "sub10", "sub5"],
+    issuer: ["sub11", "sub9", "sub10", "sub5"],
     maturity: "ready-for-review",
     visibility: "internal",
     description: `
@@ -904,7 +904,7 @@ export const credentials = [
     credentialType: "PrescriptionCredential",
     category: "category-two",
     version: "0.8",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "complete",
     visibility: "action",
     description: `
@@ -945,7 +945,7 @@ export const credentials = [
     credentialType: "ConservatorshipCredential",
     category: "category-two",
     version: "0.8",
-    phase: ["sub4", "sub5", "sub6"],
+    issuer: ["sub4", "sub5", "sub6"],
     maturity: "proposed",
     visibility: "confidential",
     description: `

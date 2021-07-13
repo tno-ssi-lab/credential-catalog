@@ -6,13 +6,17 @@
       </slot>
     </th>
     <td
-      v-for="phaseItem in credentialsByPhase"
-      :key="phaseItem.phase.value"
+      v-for="issuerItem in credentialsByIssuer"
+      :key="issuerItem.issuer.value"
       class="matrix-credential-cell"
-      :class="`matrix-phase-${phaseItem.phase.phase}`"
+      :class="`matrix-issuer-${issuerItem.issuer.issuer}`"
     >
       <div>
-        <v-tooltip v-for="credential in phaseItem.credentials" :key="credential.id" bottom>
+        <v-tooltip
+          v-for="credential in issuerItem.credentials"
+          :key="credential.id"
+          bottom
+        >
           <template #activator="{ on }">
             <span
               class="matrix-credential-badge"
@@ -20,7 +24,9 @@
               @mouseover="hover = credential.id"
               @mouseleave="hover = ''"
             >
-              <router-link :to="{ name: 'details', params: { id: credential.id } }">
+              <router-link
+                :to="{ name: 'details', params: { id: credential.id } }"
+              >
                 <v-badge
                   :color="badgeColor(credential.maturity)"
                   inline
@@ -40,7 +46,7 @@
 
 <script>
 import constants from "@/constants"
-import { credentialsByPhase } from "@/store"
+import { credentialsByIssuer } from "@/store"
 
 export default {
   name: "CredentialMatrixRow",
@@ -56,10 +62,10 @@ export default {
     }
   },
   computed: {
-    credentialsByPhase() {
-      const phases = credentialsByPhase(this.item.credentials)
+    credentialsByIssuer() {
+      const issuers = credentialsByIssuer(this.item.credentials)
 
-      return phases.map(({ phase, credentials }) => {
+      return issuers.map(({ issuer, credentials }) => {
         const maturityCount = {}
 
         for (let maturity in constants.MATURITY_MAP) {
@@ -71,7 +77,7 @@ export default {
         }
 
         return {
-          phase,
+          issuer,
           credentials,
           maturityCount,
         }

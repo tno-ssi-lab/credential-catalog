@@ -68,10 +68,10 @@
 
       <v-col cols="12" sm="3">
         <select-dropdown
-          :value="phase"
-          :items="processPhases"
-          label="Phase"
-          @input="updatePhase"
+          :value="issuer"
+          :items="processIssuers"
+          label="Issuer"
+          @input="updateIssuer"
         ></select-dropdown>
       </v-col>
 
@@ -119,7 +119,7 @@ export default {
       search: this.$store.state.search.currentSearch.query,
       incrementalSearch: true,
       oses: constants.OSES,
-      processPhases: constants.PROCESS_ITEMS,
+      processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
       visibilities: constants.VISIBILITIES,
@@ -129,7 +129,7 @@ export default {
     ...mapState({
       query: state => state.search.currentSearch.query,
       os: state => state.search.currentSearch.os,
-      phase: state => state.search.currentSearch.phase,
+      issuer: state => state.search.currentSearch.issuer,
       category: state => state.search.currentSearch.category,
       visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,
@@ -162,8 +162,8 @@ export default {
     updateOs(event) {
       this.$store.commit("updateOs", event)
     },
-    updatePhase(event) {
-      this.$store.commit("updatePhase", event)
+    updateIssuer(event) {
+      this.$store.commit("updateIssuer", event)
     },
     updateCategory(event) {
       this.$store.commit("updateCategory", event)

@@ -49,10 +49,10 @@
             </div>
           </template>
 
-          <template #item.phaseDisplay="{ value }">
-            <v-chip-group v-for="Phase in value" :key="Phase">
+          <template #item.issuerDisplay="{ value }">
+            <v-chip-group v-for="Issuer in value" :key="Issuer">
               <v-chip>
-                {{ Phase }}
+                {{ Issuer }}
               </v-chip>
             </v-chip-group>
           </template>
@@ -182,8 +182,8 @@ export default {
           value: "version",
         },
         {
-          text: "Phase",
-          value: "phaseDisplay",
+          text: "Issuer",
+          value: "issuerDisplay",
         },
         {
           text: "Hardware",

@@ -224,7 +224,7 @@ const searchModule = {
           classification: [],
           supportedHardware: [],
           supportedOSes: [],
-          supportedApplications: [],
+          supportedProtocols: [],
           ...storedSearch,
         }
       }
@@ -292,12 +292,12 @@ export default new Vuex.Store({
       oses.sort()
       return oses
     },
-    appChoices: (state, { credentials }) => {
+    protChoices: (state, { credentials }) => {
       const set = new Set()
-      credentials.forEach(c => c.apps.forEach(app => set.add(app)))
-      const apps = Array.from(set)
-      apps.sort()
-      return apps
+      credentials.forEach(c => c.prots.forEach(prot => set.add(prot)))
+      const prots = Array.from(set)
+      prots.sort()
+      return prots
     },
   },
   mutations: {

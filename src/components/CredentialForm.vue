@@ -32,10 +32,10 @@
 
           <v-col cols="4">
             <version-add
-              v-model="attributes.supportedApps"
-              :items="appChoices"
-              type="application"
-              label="Supported Apps"
+              v-model="attributes.supportedProts"
+              :items="protChoices"
+              type="protocol"
+              label="Supported Protocols"
             >
             </version-add>
           </v-col>
@@ -143,7 +143,7 @@ const KEY_TO_FIELD_NAME = {
   version: "Version",
   phase: "Phase",
   os: "Operating System",
-  application: "Application",
+  protocol: "Protocol",
   maturity: "Maturity",
   classification: "Classification",
   description: "Description",
@@ -210,7 +210,7 @@ export default {
     "credentials",
     "hardwareChoices",
     "osChoices",
-    "appChoices",
+    "protChoices",
   ]),
   methods: {
     isRequired(field) {

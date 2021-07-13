@@ -21,10 +21,10 @@
       <div v-else class="grey--text">-</div>
     </template>
 
-    <template #item.supportedApps="{ item }">
-      <v-chip-group v-if="item.supportedApps.length > 0">
-        <v-chip v-for="app in item.supportedApps" :key="app.application">
-          {{ app.application }}: {{ app.versions }}
+    <template #item.supportedProts="{ item }">
+      <v-chip-group v-if="item.supportedProts.length > 0">
+        <v-chip v-for="prot in item.supportedProts" :key="prot.protocol">
+          {{ prot.protocol }}: {{ prot.versions }}
         </v-chip>
       </v-chip-group>
       <div v-else class="grey--text">-</div>
@@ -92,8 +92,8 @@ export default {
           sortable: false,
         },
         {
-          text: "Application",
-          value: "supportedApps",
+          text: "Protocol",
+          value: "supportedProts",
           sortable: false,
         },
         {

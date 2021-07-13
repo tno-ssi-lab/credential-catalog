@@ -27,7 +27,10 @@
     </v-layout>
 
     <credential-matrix v-if="!expand" :items="bundleRows"></credential-matrix>
-    <credential-matrix v-if="expand" :items="bundleRowsExpand"></credential-matrix>
+    <credential-matrix
+      v-if="expand"
+      :items="bundleRowsExpand"
+    ></credential-matrix>
 
     <h2>Credentials</h2>
 
@@ -93,7 +96,9 @@ export default {
       // return [{ title: "Bundle", credentials: this.bundle.credentials }]
     },
     filteredPhases() {
-      return this.bundle.credentialsByPhase.filter(({ credentials }) => credentials.length > 0)
+      return this.bundle.credentialsByPhase.filter(
+        ({ credentials }) => credentials.length > 0
+      )
     },
     navItems() {
       return [

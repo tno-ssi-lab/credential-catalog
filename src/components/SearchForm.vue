@@ -54,8 +54,8 @@
       <v-col cols="12" sm="4">
         <version-select2
           v-model="search.supportedVersions"
-          :choice-categories="['appChoices']"
-          label="Supported applications"
+          :choice-categories="['protChoices']"
+          label="Supported protocols"
           @input="$emit('input', search)"
         >
         </version-select2>

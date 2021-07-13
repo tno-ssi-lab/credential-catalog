@@ -20,13 +20,13 @@
               </v-chip>
             </div>
             <div>
-              <strong>APP: </strong>
+              <strong>Protocol: </strong>
               <v-chip
-                v-for="app in item.supportedApps"
-                :key="app.application"
+                v-for="prot in item.supportedProts"
+                :key="prot.protocol"
                 x-small
               >
-                {{ app.application }}: {{ app.versions }}
+                {{ prot.protocol }}: {{ prot.versions }}
               </v-chip>
             </div>
             <div>

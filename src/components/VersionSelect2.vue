@@ -13,7 +13,7 @@
       <v-list-item v-for="item in selectedItems" :key="item.id">
         <v-list-item-content>
           <v-list-item-title>{{
-            item.os || item.application || item.hardware
+            item.os || item.protocol || item.hardware
           }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
@@ -65,22 +65,22 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["hardwareChoices", "osChoices", "appChoices"]),
+    ...mapGetters(["hardwareChoices", "osChoices", "protChoices"]),
     items() {
       // const oses = this.osChoices.map(os => {
       //   return { text: os, value: os, type: "os" }
       // })
 
-      // const apps = this.appChoices.map(app => {
-      //   return { text: app, value: app, type: "application" }
+      // const prots = this.protChoices.map(prot => {
+      //   return { text: prot, value: prot, type: "protocol" }
       // })
 
       // return [
       //   { header: "Operating Systems " },
       //   ...oses,
       //   { divider: true },
-      //   { header: "Applications" },
-      //   ...apps,
+      //   { header: "Protocols" },
+      //   ...prots,
       // ]
 
       var itemsArray = []
@@ -95,14 +95,14 @@ export default {
             return { text: os, value: os, type: "os" }
           })
           itemsArray = itemsArray.concat([...oses])
-        } else if (choiceStr == "appChoices") {
+        } else if (choiceStr == "protChoices") {
           if (showHeader) {
-            itemsArray.push({ header: "Application" })
+            itemsArray.push({ header: "Protocol" })
           }
-          const apps = this.appChoices.map(app => {
-            return { text: app, value: app, type: "application" }
+          const prots = this.protChoices.map(prot => {
+            return { text: prot, value: prot, type: "protocol" }
           })
-          itemsArray = itemsArray.concat([...apps])
+          itemsArray = itemsArray.concat([...prots])
         } else if (choiceStr == "hardwareChoices") {
           if (showHeader) {
             itemsArray.push({ header: "Hardware" })
@@ -122,7 +122,7 @@ export default {
         if (
           (item.hardware &&
             this.choiceCategories.includes("hardwareChoices")) ||
-          (item.application && this.choiceCategories.includes("appChoices")) ||
+          (item.protocol && this.choiceCategories.includes("protChoices")) ||
           (item.os && this.choiceCategories.includes("osChoices"))
         ) {
           selected_array.push(item)

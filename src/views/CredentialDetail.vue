@@ -75,10 +75,10 @@
             <div v-else class="grey--text">-</div>
           </template>
 
-          <template #item.supportedApps="{ value }">
+          <template #item.supportedProts="{ value }">
             <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="app in value" :key="app.application">
-                {{ app.application }}: {{ app.versions }}
+              <v-chip v-for="prot in value" :key="prot.protocol">
+                {{ prot.protocol }}: {{ prot.versions }}
               </v-chip>
             </v-chip-group>
             <div v-else class="grey--text">-</div>
@@ -194,8 +194,8 @@ export default {
           value: "supportedOses",
         },
         {
-          text: "Application",
-          value: "supportedApps",
+          text: "Protocol",
+          value: "supportedProts",
         },
         {
           text: "Maturity",

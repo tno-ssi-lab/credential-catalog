@@ -59,9 +59,9 @@
 
       <v-col cols="12" sm="3">
         <version-select2
-          label="Supported applications"
-          :value="supportedApplications"
-          @input="updateSupportedApplications"
+          label="Supported protocols"
+          :value="supportedProtocols"
+          @input="updateSupportedProtocols"
         >
         </version-select2>
       </v-col>
@@ -136,7 +136,7 @@ export default {
       supportedVersions: state => state.search.currentSearch.supportedVersions,
       supportedHardware: state => state.search.currentSearch.supportedHardware,
       supportedOS: state => state.search.currentSearch.supportedOS,
-      supportedApplications: state => state.search.currentSearch.supportedApplications,
+      supportedProtocols: state => state.search.currentSearch.supportedProtocols,
     }),
     incrementalSearchEnabled() {
       return this.incremental && this.incrementalSearch
@@ -183,8 +183,8 @@ export default {
     updateSupportedOS(event) {
       this.$store.commit("updateSupportedOS", event)
     },
-    updateSupportedApplications(event) {
-      this.$store.commit("updateSupportedApplications", event)
+    updateSupportedProtocols(event) {
+      this.$store.commit("updateSupportedProtocols", event)
     },
   },
 }

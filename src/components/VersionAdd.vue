@@ -13,7 +13,7 @@
       <v-list-item v-for="(item, i) in lazyValue" :key="item.id">
         <v-list-item-content>
           <v-list-item-title>
-            {{ item.hardware || item.os || item.application }}
+            {{ item.hardware || item.os || item.protocol }}
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>

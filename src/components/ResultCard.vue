@@ -4,7 +4,7 @@
       <v-list-item three-line>
         <v-list-item-content>
           <div class="overline mb-4">
-            {{ item.classification }}
+            {{ item.visibility }}
           </div>
           <v-list-item-title class="headline mb-2">
             {{ item.name }}

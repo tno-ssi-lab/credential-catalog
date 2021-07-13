@@ -177,7 +177,7 @@ const CATEGORY_MAP = CATEGORIES.reduce((acc, { text, value }) => {
   return acc
 }, {})
 
-const CLASSIFICATIONS = [
+const VISIBILITIES = [
   {
     value: "unclassified",
     text: "Unclassified",
@@ -192,7 +192,7 @@ const CLASSIFICATIONS = [
   },
 ]
 
-const CLASSIFICATION_MAP = CLASSIFICATIONS.reduce((acc, { text, value }) => {
+const VISIBILITY_MAP = VISIBILITIES.reduce((acc, { text, value }) => {
   acc[value] = text
   return acc
 }, {})
@@ -246,8 +246,8 @@ export default {
   PROCESS_MAP,
   CATEGORIES,
   CATEGORY_MAP,
-  CLASSIFICATIONS,
-  CLASSIFICATION_MAP,
+  VISIBILITIES,
+  VISIBILITY_MAP,
   MATURITY_LEVELS,
   MATURITY_MAP,
   MATURITY_ORDER,

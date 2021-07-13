@@ -202,8 +202,8 @@ export default {
           value: "maturityDisplay",
         },
         {
-          text: "Classification",
-          value: "classificationDisplay",
+          text: "Visibility",
+          value: "visibilityDisplay",
         },
         {
           text: "Documentation",

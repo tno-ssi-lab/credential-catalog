@@ -13,7 +13,7 @@ export class Credential {
         version: null,
         phase: [],
         maturity: null,
-        classification: null,
+        visibility: null,
         description: null,
         documentation: null,
         location: null,
@@ -42,7 +42,7 @@ export class Credential {
       os: this.oses,
       protocol: this.prots,
       maturity: this.maturity,
-      classification: this.classification,
+      visibility: this.visibility,
       description: this.description,
       documentation: this.documentation,
       location: this.location,
@@ -106,8 +106,8 @@ export class Credential {
     return constants.CATEGORY_MAP[this.category]
   }
 
-  get classificationDisplay() {
-    return constants.CLASSIFICATION_MAP[this.classification]
+  get visibilityDisplay() {
+    return constants.VISIBILITY_MAP[this.visibility]
   }
 }
 
@@ -120,7 +120,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub7"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Name of an individual.
       `,
@@ -150,7 +150,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub10"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Address of an individual.
       `,
@@ -172,7 +172,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6"],
     maturity: "complete",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       Email of an individual.
       `,
@@ -198,7 +198,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1", "sub4"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Telephone number of an individual.
       `,
@@ -237,7 +237,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1", "sub8"],
     maturity: "proposed",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Contact details of an individual, including ...
       `,
@@ -259,7 +259,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub3", "sub8"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Certificate of Enheritance, intended for ...
       `,
@@ -290,7 +290,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6", "sub10", "sub7"],
     maturity: "planned",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Credential intended to proof ...
       `,
@@ -316,7 +316,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Place of birth of an individual.
       `,
@@ -342,7 +342,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Proof of vaccination with one of: Pfizer, Moderna, Janssen, or AZ.
       `,
@@ -368,7 +368,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub2"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Proof of recent negative test for Covid-19.
       `,
@@ -394,7 +394,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub3"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Result of recent test for Covid-19.
       `,
@@ -433,7 +433,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Passport.
       `,
@@ -459,7 +459,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Driver's license.
       `,
@@ -481,7 +481,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub3", "sub8"],
     maturity: "planned",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       Proof of having a license to ...
       `,
@@ -508,7 +508,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Employment details of individual.
       `,
@@ -534,7 +534,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Health insurance details of individual.
       `,
@@ -569,7 +569,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub6"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Car Insurance details of individual.
       `,
@@ -591,7 +591,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub3"],
     maturity: "in-development",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
     Insurance information of individual.
       `,
@@ -613,7 +613,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub1"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     General information about an individual's bank account.
       `,
@@ -639,7 +639,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub12"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your personal data, from the Dutch population register (BRP)
       `,
@@ -666,7 +666,7 @@ export const credentials = [
     version: "1.0",
     phase: ["sub12"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your age limits, derived from your birthdate from the Dutch population register.
       `,
@@ -688,7 +688,7 @@ export const credentials = [
     version: "0.6",
     phase: ["sub12", "sub2", "sub9"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your Dutch Citizen service number (BSN), from the Dutch population register.
       `,
@@ -732,7 +732,7 @@ export const credentials = [
     version: "0.6",
     phase: ["sub6", "sub11"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
     Your Dutch passport or identity card, from the Dutch population register.
       `,
@@ -775,7 +775,7 @@ export const credentials = [
     version: "0.1",
     phase: ["sub12"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Data extracted from your diploma provided by DUO.
       `,
@@ -809,7 +809,7 @@ export const credentials = [
     version: "1.3",
     phase: ["sub4", "sub5", "sub6", "sub2"],
     maturity: "in-development",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       An individual's birth certificate
       `,
@@ -854,7 +854,7 @@ export const credentials = [
     version: "3.1",
     phase: ["sub8", "sub9", "sub10"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Parking permit for use in ...
       `,
@@ -880,7 +880,7 @@ export const credentials = [
     version: "0.8",
     phase: ["sub11", "sub9", "sub10", "sub5"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Proof of enrollment at a Dutch university.
       `,
@@ -906,7 +906,7 @@ export const credentials = [
     version: "0.8",
     phase: ["sub12"],
     maturity: "complete",
-    classification: "action",
+    visibility: "action",
     description: `
       Prescription for picking up medication at the apothecary.
       `,
@@ -947,7 +947,7 @@ export const credentials = [
     version: "0.8",
     phase: ["sub4", "sub5", "sub6"],
     maturity: "proposed",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
     Proof of conservatorship.
       `,

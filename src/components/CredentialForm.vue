@@ -83,9 +83,9 @@
         ></select-single-dropdown>
 
         <select-single-dropdown
-          v-model="attributes.classification"
-          :items="classifications"
-          v-bind="fieldProps('classification')"
+          v-model="attributes.visibility"
+          :items="visibilities"
+          v-bind="fieldProps('visibility')"
         ></select-single-dropdown>
 
         <v-text-field
@@ -145,7 +145,7 @@ const KEY_TO_FIELD_NAME = {
   os: "Operating System",
   protocol: "Protocol",
   maturity: "Maturity",
-  classification: "Classification",
+  visibility: "Visibility",
   description: "Description",
   documentation: "Documentation",
   location: "Location",
@@ -162,7 +162,7 @@ const REQUIRED_FIELDS = [
   "category",
   "description",
   "contact",
-  "classification",
+  "visibility",
   "maturity",
   "phase",
 ]
@@ -202,7 +202,7 @@ export default {
       maturityLevels: constants.MATURITY_LEVELS,
       phases: constants.PROCESS_ITEMS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
       sidebarFields: SIDEBAR_FIELDS,
     }
   },

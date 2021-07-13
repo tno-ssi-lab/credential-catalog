@@ -122,7 +122,7 @@ export default {
       processPhases: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
     }
   },
   computed: {
@@ -131,7 +131,7 @@ export default {
       os: state => state.search.currentSearch.os,
       phase: state => state.search.currentSearch.phase,
       category: state => state.search.currentSearch.category,
-      classification: state => state.search.currentSearch.classification,
+      visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,
       supportedVersions: state => state.search.currentSearch.supportedVersions,
       supportedHardware: state => state.search.currentSearch.supportedHardware,
@@ -168,8 +168,8 @@ export default {
     updateCategory(event) {
       this.$store.commit("updateCategory", event)
     },
-    updateClassification(event) {
-      this.$store.commit("updateClassification", event)
+    updateVisibility(event) {
+      this.$store.commit("updateVisibility", event)
     },
     updateMaturity(event) {
       this.$store.commit("updateMaturity", event)

@@ -125,7 +125,7 @@ export default {
       processPhases: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
     }
   },
   computed: {
@@ -164,8 +164,8 @@ export default {
     updateCategory(event) {
       this.$store.commit("updateCategory", event)
     },
-    updateClassification(event) {
-      this.$store.commit("updateClassification", event)
+    updateVisibility(event) {
+      this.$store.commit("updateVisibility", event)
     },
     updateMaturity(event) {
       this.$store.commit("updateMaturity", event)

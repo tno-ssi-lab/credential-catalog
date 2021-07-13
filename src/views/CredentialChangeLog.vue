@@ -62,12 +62,12 @@ function generateLogEntry(cred, successorUnixTime, entryId, initialEntry) {
     updateTypes.forEach(updateType => {
       let before = "<empty>"
       let after = "<empty>"
-      if (updateType === "classification") {
-        after = cred.classification
+      if (updateType === "visibility") {
+        after = cred.visibility
         do {
           before =
-            constants.CLASSIFICATIONS[
-              Math.floor(Math.random() * constants.CLASSIFICATIONS.length)
+            constants.VISIBILITIES[
+              Math.floor(Math.random() * constants.VISIBILITIES.length)
             ].text
         } while (before === after)
       } else if (updateType === "maturity") {
@@ -190,8 +190,9 @@ export default {
           credCopy.changeLog = fullLog.reverse()
           // Add hardcoded documentation change to Android Worm
           if (this.credential.id === 1) {
-            credCopy.changeLog[credCopy.changeLog.length - 1]["changesSummary"] +=
-              ", description"
+            credCopy.changeLog[credCopy.changeLog.length - 1][
+              "changesSummary"
+            ] += ", description"
             credCopy.changeLog[credCopy.changeLog.length - 1]["changesFull"][
               "description"
             ] = [

@@ -9,7 +9,7 @@ import { Credential } from "./credentials"
 //   function stripVersionFunction(token) {
 //     const fields = token.metadata["fields"]
 
-//     if (fields.indexOf("protocol") >= 0 || fields.indexOf("os") >= 0) {
+//     if (fields.indexOf("protocol") >= 0) {
 //       return token.update(() => stripper(token.toString()))
 //     } else {
 //       return token
@@ -30,7 +30,6 @@ export function buildIndex(data) {
     this.field("credentialType")
     this.field("issuer")
     this.field("hardware")
-    this.field("os")
     this.field("protocol")
     this.field("category")
     this.field("maturity")
@@ -62,9 +61,7 @@ export function buildQueryString(search) {
   if (search.supportedVersions) {
     search.supportedVersions.forEach(spec => {
       let field
-      if (spec.os) {
-        field = "os"
-      } else if (spec.protocol) {
+      if (spec.protocol) {
         field = "protocol"
       } else if (spec.hardware) {
         field = "hardware"
@@ -98,15 +95,6 @@ export function filterByField(credential, search) {
 
   if (!match) {
     return false
-  }
-
-  let osSpecs = (search.supportedVersions || []).filter(spec => spec.os)
-  if (osSpecs.length) {
-    if (
-      !osSpecs.some(spec => credential.matchesOs(spec.os, spec.versions))
-    ) {
-      return false
-    }
   }
 
   let protSpecs = (search.supportedVersions || []).filter(

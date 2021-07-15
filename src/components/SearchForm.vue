@@ -44,16 +44,6 @@
       <v-col cols="12" sm="4">
         <version-select2
           v-model="search.supportedVersions"
-          :choice-categories="['osChoices']"
-          label="Supported OS"
-          @input="$emit('input', search)"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="4">
-        <version-select2
-          v-model="search.supportedVersions"
           :choice-categories="['protChoices']"
           label="Supported protocols"
           @input="$emit('input', search)"
@@ -121,7 +111,6 @@ export default {
     return {
       search: JSON.parse(JSON.stringify(this.value)),
       incrementalSearch: true,
-      oses: constants.OSES,
       processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
@@ -131,9 +120,6 @@ export default {
   computed: {
     incrementalSearchEnabled() {
       return this.incremental && this.incrementalSearch
-    },
-    supportedOSes() {
-      return this.search.supportedVersions
     },
   },
   watch: {

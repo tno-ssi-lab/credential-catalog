@@ -13,7 +13,7 @@
       <v-list-item v-for="item in selectedItems" :key="item.id">
         <v-list-item-content>
           <v-list-item-title>{{
-            item.os || item.protocol || item.hardware
+            item.protocol || item.hardware
           }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
@@ -65,37 +65,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["hardwareChoices", "osChoices", "protChoices"]),
+    ...mapGetters(["hardwareChoices", "protChoices"]),
     items() {
-      // const oses = this.osChoices.map(os => {
-      //   return { text: os, value: os, type: "os" }
-      // })
-
-      // const prots = this.protChoices.map(prot => {
-      //   return { text: prot, value: prot, type: "protocol" }
-      // })
-
-      // return [
-      //   { header: "Operating Systems " },
-      //   ...oses,
-      //   { divider: true },
-      //   { header: "Protocols" },
-      //   ...prots,
-      // ]
-
       var itemsArray = []
       var showHeader = itemsArray.length > 1
       for (let idx = 0; idx < this.choiceCategories.length; idx++) {
         const choiceStr = this.choiceCategories[idx]
-        if (choiceStr == "osChoices") {
-          if (showHeader) {
-            itemsArray.push({ header: "Operating system" })
-          }
-          const oses = this.osChoices.map(os => {
-            return { text: os, value: os, type: "os" }
-          })
-          itemsArray = itemsArray.concat([...oses])
-        } else if (choiceStr == "protChoices") {
+        if (choiceStr == "protChoices") {
           if (showHeader) {
             itemsArray.push({ header: "Protocol" })
           }
@@ -122,8 +98,7 @@ export default {
         if (
           (item.hardware &&
             this.choiceCategories.includes("hardwareChoices")) ||
-          (item.protocol && this.choiceCategories.includes("protChoices")) ||
-          (item.os && this.choiceCategories.includes("osChoices"))
+          (item.protocol && this.choiceCategories.includes("protChoices"))
         ) {
           selected_array.push(item)
         }

@@ -22,16 +22,6 @@
 
           <v-col cols="4">
             <version-add
-              v-model="attributes.supportedOses"
-              :items="osChoices"
-              type="os"
-              label="Supported OSes"
-            >
-            </version-add>
-          </v-col>
-
-          <v-col cols="4">
-            <version-add
               v-model="attributes.supportedProts"
               :items="protChoices"
               type="protocol"
@@ -142,7 +132,6 @@ const KEY_TO_FIELD_NAME = {
   category: "Category",
   version: "Version",
   issuer: "Issuer",
-  os: "Operating System",
   protocol: "Protocol",
   maturity: "Maturity",
   visibility: "Visibility",
@@ -206,12 +195,7 @@ export default {
       sidebarFields: SIDEBAR_FIELDS,
     }
   },
-  computed: mapGetters([
-    "credentials",
-    "hardwareChoices",
-    "osChoices",
-    "protChoices",
-  ]),
+  computed: mapGetters(["credentials", "hardwareChoices", "protChoices"]),
   methods: {
     isRequired(field) {
       return REQUIRED_FIELDS.includes(field)

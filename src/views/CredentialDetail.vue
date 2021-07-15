@@ -66,15 +66,6 @@
             <div v-else class="grey--text">-</div>
           </template>
 
-          <template #item.supportedOses="{ value }">
-            <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="os in value" :key="os.os">
-                {{ os.os }}: {{ os.versions }}
-              </v-chip>
-            </v-chip-group>
-            <div v-else class="grey--text">-</div>
-          </template>
-
           <template #item.supportedProts="{ value }">
             <v-chip-group v-if="value.length > 0">
               <v-chip v-for="prot in value" :key="prot.protocol">
@@ -188,10 +179,6 @@ export default {
         {
           text: "Hardware",
           value: "supportedHardware",
-        },
-        {
-          text: "Operating System",
-          value: "supportedOses",
         },
         {
           text: "Protocol",

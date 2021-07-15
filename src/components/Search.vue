@@ -50,15 +50,6 @@
 
       <v-col cols="12" sm="3">
         <version-select2
-          label="Supported OS"
-          :value="supportedOS"
-          @input="updateSupportedOS"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="3">
-        <version-select2
           label="Supported protocols"
           :value="supportedProtocols"
           @input="updateSupportedProtocols"
@@ -118,7 +109,6 @@ export default {
     return {
       search: this.$store.state.search.currentSearch.query,
       incrementalSearch: true,
-      oses: constants.OSES,
       processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
@@ -128,14 +118,12 @@ export default {
   computed: {
     ...mapState({
       query: state => state.search.currentSearch.query,
-      os: state => state.search.currentSearch.os,
       issuer: state => state.search.currentSearch.issuer,
       category: state => state.search.currentSearch.category,
       visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,
       supportedVersions: state => state.search.currentSearch.supportedVersions,
       supportedHardware: state => state.search.currentSearch.supportedHardware,
-      supportedOS: state => state.search.currentSearch.supportedOS,
       supportedProtocols: state => state.search.currentSearch.supportedProtocols,
     }),
     incrementalSearchEnabled() {
@@ -179,9 +167,6 @@ export default {
     },
     updateSupportedHardware(event) {
       this.$store.commit("updateSupportedHardware", event)
-    },
-    updateSupportedOS(event) {
-      this.$store.commit("updateSupportedOS", event)
     },
     updateSupportedProtocols(event) {
       this.$store.commit("updateSupportedProtocols", event)

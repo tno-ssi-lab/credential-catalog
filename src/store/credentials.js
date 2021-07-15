@@ -20,7 +20,6 @@ export class Credential {
         contact: null,
         supportedHardware: [],
         supportedProts: [],
-        supportedOses: [],
         constituents: [],
         testReport: null,
         reviews: [],
@@ -39,7 +38,6 @@ export class Credential {
       version: this.version,
       issuer: this.issuer,
       hardware: this.hardware,
-      os: this.oses,
       protocol: this.prots,
       maturity: this.maturity,
       visibility: this.visibility,
@@ -62,16 +60,6 @@ export class Credential {
     )
   }
 
-  matchesOs(os, versions) {
-    if (!semver.validRange(versions)) {
-      return false
-    }
-
-    return this.supportedOses.some(
-      c => c.os === os && semver.intersects(c.versions, versions)
-    )
-  }
-
   matchesProt(prot, versions) {
     if (!semver.validRange(versions)) {
       return false
@@ -84,10 +72,6 @@ export class Credential {
 
   get hardware() {
     return this.supportedHardware.map(c => c.hardware)
-  }
-
-  get oses() {
-    return this.supportedOses.map(c => c.os)
   }
 
   get prots() {
@@ -131,7 +115,6 @@ export const credentials = [
       { hardware: "...", versions: "<= 1.7" },
       { hardware: "???", versions: "<=4.3" },
     ],
-    supportedOses: [{ os: "Android", versions: "<= 4.4" }],
     supportedProts: [],
     constituents: [],
     testReport: {
@@ -158,7 +141,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Paul Geus <paul.geus@example.com>",
     supportedProts: [{ protocol: "Datakeeper", versions: "*" }],
-    supportedOses: [{ os: "iOS", versions: "*" }],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -180,7 +162,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
     supportedProts: [{ protocol: "Jolocom", versions: "*" }],
-    supportedOses: [{ os: "Android", versions: "*" }],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -206,20 +187,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Gordon Lyon <gordon.lyon@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -245,7 +212,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Kay Beckers <kay.beckers@example.com>",
     supportedProts: [],
-    supportedOses: [{ os: "iOS", versions: "*" }],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -267,16 +233,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Arnold Meijster <arnold.meijster@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -300,9 +256,6 @@ export const credentials = [
     supportedProts: [
       { protocol: "IRMA", versions: "6" }, // Only IE6
     ],
-    supportedOses: [
-      { os: "Android", versions: "< 6.1.7600" }, // Before Win 7
-    ],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -324,7 +277,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -350,7 +302,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Theo Crabbe <theo.crabbe@example.com>",
     supportedProts: [{ protocol: "esatus", versions: "*" }],
-    supportedOses: [{ os: "iOS", versions: "< 5" }],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -376,7 +327,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Donald de Koninck <donald.de.koninck@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -402,20 +352,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -441,7 +377,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Joost Zwaantjes <joost.zwaantjes@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -467,7 +402,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -489,12 +423,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -516,7 +444,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -542,16 +469,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Bernard Lacroix <bernard.lacroix@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -577,7 +494,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Gijs Veulen <g.veulen@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -599,7 +515,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Irina Dohvakin <irina.dohvakin@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -621,7 +536,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -647,12 +561,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -674,7 +582,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Albert Talton <albert.talton@example.com>",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: null,
     reviews: [],
@@ -696,12 +603,6 @@ export const credentials = [
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
     constituents: [17, 18],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -740,16 +641,6 @@ export const credentials = [
     location: "",
     contact: "Robin Lark",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -783,7 +674,6 @@ export const credentials = [
     location: "",
     contact: "Robin Lark",
     supportedProts: [],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -817,24 +707,6 @@ export const credentials = [
     location: "",
     contact: "Robin Lark",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
     constituents: [],
     reviews: [
       {
@@ -862,7 +734,6 @@ export const credentials = [
     location: "",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
     supportedProts: [{ protocol: "Jolocom", versions: "*" }],
-    supportedOses: [],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -888,12 +759,6 @@ export const credentials = [
     location: "",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-    ],
     constituents: [],
     reviews: [],
     deploymentRequirements: null,
@@ -920,16 +785,6 @@ export const credentials = [
       { hardware: "***", versions: "*" },
     ],
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
     constituents: [],
     testReport: {
       location: "https://internal-gitlab.example.com/project/testreport",
@@ -960,12 +815,6 @@ export const credentials = [
       { hardware: "---", versions: "*" },
     ],
     supportedProts: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-    ],
     constituents: [],
     reviews: [],
     deploymentRequirements: null,

@@ -13,7 +13,7 @@
             {{ item.description }}
           </v-list-item-subtitle>
           <div class="overline mb-3">
-            Issuer: {{ item.issuer }}, OS: {{ item.os }}, Maturity:
+            Issuer: {{ item.issuer }}, Maturity:
             {{ item.maturity }}
           </div>
         </v-list-item-content>

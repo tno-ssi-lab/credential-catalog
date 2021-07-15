@@ -238,8 +238,6 @@ const MATURITY_COLORS = {
   complete: "deep-purple",
 }
 
-const OSES = ["Windows", "Linux", "MacOS", "iOS", "Android"]
-
 export default {
   PROCESS_ITEMS,
   PROCESS_MAIN_PHASES,
@@ -252,5 +250,4 @@ export default {
   MATURITY_MAP,
   MATURITY_ORDER,
   MATURITY_COLORS,
-  OSES,
 }

@@ -143,11 +143,11 @@ const searchModule = {
     storedSearches: [
       {
         id: 1,
-        name: "Windows",
+        name: "Datakeeper",
         search: {
           supportedVersions: [
             {
-              os: "Windows",
+              protocol: "Datakeeper",
               versions: "*",
             },
           ],
@@ -155,11 +155,11 @@ const searchModule = {
       },
       {
         id: 2,
-        name: "Linux",
+        name: "Jolocom",
         search: {
           supportedVersions: [
             {
-              os: "Linux",
+              protocol: "Jolocom",
               versions: "*",
             },
           ],
@@ -223,7 +223,6 @@ const searchModule = {
           maturity: [],
           visibility: [],
           supportedHardware: [],
-          supportedOSes: [],
           supportedProtocols: [],
           ...storedSearch,
         }
@@ -284,13 +283,6 @@ export default new Vuex.Store({
       const hardware = Array.from(set)
       hardware.sort()
       return hardware
-    },
-    osChoices: (state, { credentials }) => {
-      const set = new Set()
-      credentials.forEach(c => c.oses.forEach(os => set.add(os)))
-      const oses = Array.from(set)
-      oses.sort()
-      return oses
     },
     protChoices: (state, { credentials }) => {
       const set = new Set()

@@ -46,12 +46,6 @@ export default {
     return {
       selectedVersions: [],
       items: [
-        { header: "Operating Systems " },
-        { text: "Windows", value: "windows", version: "*" },
-        { text: "Linux", value: "linux", version: "*" },
-        { text: "iOS", value: "ios", version: "*" },
-        { text: "Android", value: "android", version: "*" },
-        { divider: true },
         { header: "Protocols" },
         { text: "7-Zip", value: "7-zip", version: "*" },
         { text: "Outlook", value: "outlook", version: "*" },

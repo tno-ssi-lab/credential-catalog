@@ -14,12 +14,6 @@
           <div class="overline mb-3">
             <div><strong>Credential ID:</strong> {{ item.id }}</div>
             <div>
-              <strong>OS: </strong>
-              <v-chip v-for="os in item.supportedOses" :key="os.os" x-small>
-                {{ os.os }}: {{ os.versions }}
-              </v-chip>
-            </div>
-            <div>
               <strong>Protocol: </strong>
               <v-chip
                 v-for="prot in item.supportedProts"

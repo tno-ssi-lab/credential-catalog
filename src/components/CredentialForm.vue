@@ -69,11 +69,6 @@
         ></select-single-dropdown>
 
         <v-text-field
-          v-model="attributes.testReport.location"
-          v-bind="fieldProps('testReport')"
-        />
-
-        <v-text-field
           v-for="field in sidebarFields"
           :key="field"
           v-model="attributes[field]"
@@ -131,7 +126,6 @@ const KEY_TO_FIELD_NAME = {
   contact: "Contact",
   supportedConfigurations: "Supported Configurations",
   deploymentRequirements: "Deployment Requirements",
-  testReport: "Test Report",
   constituents: "Used Credentials",
   reviews: "Reviews",
 }
@@ -170,10 +164,6 @@ export default {
   },
   data() {
     const attributes = JSON.parse(JSON.stringify(this.value)) || {}
-
-    if (!attributes.testReport) {
-      attributes.testReport = { location: null }
-    }
 
     return {
       valid: null,

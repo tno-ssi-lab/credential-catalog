@@ -94,31 +94,6 @@
               <span style="white-space: pre-wrap;">{{ value || "-" }}</span>
             </div>
           </template>
-
-          <template #item.testReport="{ value }">
-            <v-simple-table v-if="value !== null && value.location != ''">
-              <tbody>
-                <tr>
-                  <td>
-                    <a :href="value.location" v-text="value.location"></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {{ value.author }}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <em>{{ value.time }}</em>
-                  </td>
-                </tr>
-              </tbody>
-            </v-simple-table>
-            <div v-else class="grey--text">
-              -
-            </div>
-          </template>
         </DetailsTable>
       </v-col>
     </v-row>
@@ -198,10 +173,6 @@ export default {
         {
           text: "Deployment Requirements",
           value: "deploymentRequirements",
-        },
-        {
-          text: "Test Report",
-          value: "testReport",
         },
       ],
     }

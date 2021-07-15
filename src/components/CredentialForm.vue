@@ -12,16 +12,6 @@
         <v-row dense>
           <v-col cols="4">
             <version-add
-              v-model="attributes.supportedHardware"
-              :items="hardwareChoices"
-              type="hardware"
-              label="Supported Hardware"
-            >
-            </version-add>
-          </v-col>
-
-          <v-col cols="4">
-            <version-add
               v-model="attributes.supportedProts"
               :items="protChoices"
               type="protocol"
@@ -195,7 +185,7 @@ export default {
       sidebarFields: SIDEBAR_FIELDS,
     }
   },
-  computed: mapGetters(["credentials", "hardwareChoices", "protChoices"]),
+  computed: mapGetters(["credentials", "protChoices"]),
   methods: {
     isRequired(field) {
       return REQUIRED_FIELDS.includes(field)

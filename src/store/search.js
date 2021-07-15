@@ -29,7 +29,6 @@ export function buildIndex(data) {
     this.field("name")
     this.field("credentialType")
     this.field("issuer")
-    this.field("hardware")
     this.field("protocol")
     this.field("category")
     this.field("maturity")
@@ -63,8 +62,6 @@ export function buildQueryString(search) {
       let field
       if (spec.protocol) {
         field = "protocol"
-      } else if (spec.hardware) {
-        field = "hardware"
       }
       query += ` ${field}:${spec[field]}`
     })
@@ -104,19 +101,6 @@ export function filterByField(credential, search) {
     if (
       !protSpecs.some(spec =>
         credential.matchesProt(spec.protocol, spec.versions)
-      )
-    ) {
-      return false
-    }
-  }
-
-  let hardwareSpecs = (search.supportedVersions || []).filter(
-    spec => spec.hardware
-  )
-  if (hardwareSpecs.length) {
-    if (
-      !hardwareSpecs.some(spec =>
-        credential.matchesHardware(spec.hardware, spec.versions)
       )
     ) {
       return false

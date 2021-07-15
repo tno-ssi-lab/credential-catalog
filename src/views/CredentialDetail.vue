@@ -57,15 +57,6 @@
             </v-chip-group>
           </template>
 
-          <template #item.supportedHardware="{ value }">
-            <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="hw in value" :key="hw.hardware">
-                {{ hw.hardware }}: {{ hw.versions }}
-              </v-chip>
-            </v-chip-group>
-            <div v-else class="grey--text">-</div>
-          </template>
-
           <template #item.supportedProts="{ value }">
             <v-chip-group v-if="value.length > 0">
               <v-chip v-for="prot in value" :key="prot.protocol">
@@ -175,10 +166,6 @@ export default {
         {
           text: "Issuer",
           value: "issuerDisplay",
-        },
-        {
-          text: "Hardware",
-          value: "supportedHardware",
         },
         {
           text: "Protocol",

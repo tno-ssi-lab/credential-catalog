@@ -34,16 +34,6 @@
       <v-col cols="12" sm="4">
         <version-select2
           v-model="search.supportedVersions"
-          :choice-categories="['hardwareChoices']"
-          label="Supported hardware"
-          @input="$emit('input', search)"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="4">
-        <version-select2
-          v-model="search.supportedVersions"
           :choice-categories="['protChoices']"
           label="Supported protocols"
           @input="$emit('input', search)"

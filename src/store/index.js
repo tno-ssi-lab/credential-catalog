@@ -222,7 +222,6 @@ const searchModule = {
           category: [],
           maturity: [],
           visibility: [],
-          supportedHardware: [],
           supportedProtocols: [],
           ...storedSearch,
         }
@@ -276,13 +275,6 @@ export default new Vuex.Store({
     },
     getCredentialsByIds: (state, { getCredentialById }) => ids => {
       return ids.map(getCredentialById).filter(c => c)
-    },
-    hardwareChoices: (state, { credentials }) => {
-      const set = new Set()
-      credentials.forEach(c => c.hardware.forEach(hw => set.add(hw)))
-      const hardware = Array.from(set)
-      hardware.sort()
-      return hardware
     },
     protChoices: (state, { credentials }) => {
       const set = new Set()

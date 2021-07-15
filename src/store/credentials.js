@@ -18,7 +18,6 @@ export class Credential {
         documentation: null,
         location: null,
         contact: null,
-        supportedHardware: [],
         supportedProts: [],
         constituents: [],
         testReport: null,
@@ -37,7 +36,6 @@ export class Credential {
       category: this.category,
       version: this.version,
       issuer: this.issuer,
-      hardware: this.hardware,
       protocol: this.prots,
       maturity: this.maturity,
       visibility: this.visibility,
@@ -50,16 +48,6 @@ export class Credential {
     }
   }
 
-  matchesHardware(hardware, versions) {
-    if (!semver.validRange(versions)) {
-      return false
-    }
-
-    return this.supportedHardware.some(
-      c => c.hardware === hardware && semver.intersects(c.versions, versions)
-    )
-  }
-
   matchesProt(prot, versions) {
     if (!semver.validRange(versions)) {
       return false
@@ -68,10 +56,6 @@ export class Credential {
     return this.supportedProts.some(
       c => c.protocol === prot && semver.intersects(c.versions, versions)
     )
-  }
-
-  get hardware() {
-    return this.supportedHardware.map(c => c.hardware)
   }
 
   get prots() {
@@ -111,10 +95,6 @@ export const credentials = [
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "<= 1.7" },
-      { hardware: "???", versions: "<=4.3" },
-    ],
     supportedProts: [],
     constituents: [],
     testReport: {
@@ -778,12 +758,6 @@ export const credentials = [
     documentation: "",
     location: "",
     contact: "Gijs Veulen <g.veulen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "<= 7.0" },
-      { hardware: "???", versions: "*" },
-      { hardware: "---", versions: "*" },
-      { hardware: "***", versions: "*" },
-    ],
     supportedProts: [],
     constituents: [],
     testReport: {
@@ -809,11 +783,6 @@ export const credentials = [
     documentation: "",
     location: "",
     contact: "Gijs Veulen <g.veulen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "*" },
-      { hardware: "???", versions: "*" },
-      { hardware: "---", versions: "*" },
-    ],
     supportedProts: [],
     constituents: [],
     reviews: [],

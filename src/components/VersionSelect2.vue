@@ -12,9 +12,7 @@
     <v-list v-if="selectedItems.length > 0">
       <v-list-item v-for="item in selectedItems" :key="item.id">
         <v-list-item-content>
-          <v-list-item-title>{{
-            item.protocol || item.hardware
-          }}</v-list-item-title>
+          <v-list-item-title>{{ item.protocol }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
           <v-text-field
@@ -65,7 +63,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["hardwareChoices", "protChoices"]),
+    ...mapGetters(["protChoices"]),
     items() {
       var itemsArray = []
       var showHeader = itemsArray.length > 1
@@ -79,14 +77,6 @@ export default {
             return { text: prot, value: prot, type: "protocol" }
           })
           itemsArray = itemsArray.concat([...prots])
-        } else if (choiceStr == "hardwareChoices") {
-          if (showHeader) {
-            itemsArray.push({ header: "Hardware" })
-          }
-          const hardware = this.hardwareChoices.map(hardware => {
-            return { text: hardware, value: hardware, type: "hardware" }
-          })
-          itemsArray = itemsArray.concat([...hardware])
         }
       }
       return itemsArray
@@ -95,11 +85,7 @@ export default {
       var selected_array = []
       for (let idx = 0; idx < this.lazyValue.length; idx++) {
         const item = this.lazyValue[idx]
-        if (
-          (item.hardware &&
-            this.choiceCategories.includes("hardwareChoices")) ||
-          (item.protocol && this.choiceCategories.includes("protChoices"))
-        ) {
+        if (item.protocol && this.choiceCategories.includes("protChoices")) {
           selected_array.push(item)
         }
       }

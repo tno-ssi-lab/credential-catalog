@@ -41,15 +41,6 @@
 
       <v-col cols="12" sm="3">
         <version-select2
-          label="Supported hardware"
-          :value="supportedHardware"
-          @input="updateSupportedHardware"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="3">
-        <version-select2
           label="Supported protocols"
           :value="supportedProtocols"
           @input="updateSupportedProtocols"
@@ -123,7 +114,6 @@ export default {
       visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,
       supportedVersions: state => state.search.currentSearch.supportedVersions,
-      supportedHardware: state => state.search.currentSearch.supportedHardware,
       supportedProtocols: state => state.search.currentSearch.supportedProtocols,
     }),
     incrementalSearchEnabled() {
@@ -164,9 +154,6 @@ export default {
     },
     updateSupportedVersions(event) {
       this.$store.commit("updateSupportedVersions", event)
-    },
-    updateSupportedHardware(event) {
-      this.$store.commit("updateSupportedHardware", event)
     },
     updateSupportedProtocols(event) {
       this.$store.commit("updateSupportedProtocols", event)

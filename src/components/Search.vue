@@ -41,37 +41,19 @@
 
       <v-col cols="12" sm="3">
         <version-select2
-          label="Supported hardware"
-          :value="supportedHardware"
-          @input="updateSupportedHardware"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="3">
-        <version-select2
-          label="Supported OS"
-          :value="supportedOS"
-          @input="updateSupportedOS"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="3">
-        <version-select2
-          label="Supported applications"
-          :value="supportedApplications"
-          @input="updateSupportedApplications"
+          label="Supported protocols"
+          :value="supportedProtocols"
+          @input="updateSupportedProtocols"
         >
         </version-select2>
       </v-col>
 
       <v-col cols="12" sm="3">
         <select-dropdown
-          :value="phase"
-          :items="processPhases"
-          label="Phase"
-          @input="updatePhase"
+          :value="issuer"
+          :items="processIssuers"
+          label="Issuer"
+          @input="updateIssuer"
         ></select-dropdown>
       </v-col>
 
@@ -118,25 +100,21 @@ export default {
     return {
       search: this.$store.state.search.currentSearch.query,
       incrementalSearch: true,
-      oses: constants.OSES,
-      processPhases: constants.PROCESS_ITEMS,
+      processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
     }
   },
   computed: {
     ...mapState({
       query: state => state.search.currentSearch.query,
-      os: state => state.search.currentSearch.os,
-      phase: state => state.search.currentSearch.phase,
+      issuer: state => state.search.currentSearch.issuer,
       category: state => state.search.currentSearch.category,
-      classification: state => state.search.currentSearch.classification,
+      visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,
       supportedVersions: state => state.search.currentSearch.supportedVersions,
-      supportedHardware: state => state.search.currentSearch.supportedHardware,
-      supportedOS: state => state.search.currentSearch.supportedOS,
-      supportedApplications: state => state.search.currentSearch.supportedApplications,
+      supportedProtocols: state => state.search.currentSearch.supportedProtocols,
     }),
     incrementalSearchEnabled() {
       return this.incremental && this.incrementalSearch
@@ -162,14 +140,14 @@ export default {
     updateOs(event) {
       this.$store.commit("updateOs", event)
     },
-    updatePhase(event) {
-      this.$store.commit("updatePhase", event)
+    updateIssuer(event) {
+      this.$store.commit("updateIssuer", event)
     },
     updateCategory(event) {
       this.$store.commit("updateCategory", event)
     },
-    updateClassification(event) {
-      this.$store.commit("updateClassification", event)
+    updateVisibility(event) {
+      this.$store.commit("updateVisibility", event)
     },
     updateMaturity(event) {
       this.$store.commit("updateMaturity", event)
@@ -177,14 +155,8 @@ export default {
     updateSupportedVersions(event) {
       this.$store.commit("updateSupportedVersions", event)
     },
-    updateSupportedHardware(event) {
-      this.$store.commit("updateSupportedHardware", event)
-    },
-    updateSupportedOS(event) {
-      this.$store.commit("updateSupportedOS", event)
-    },
-    updateSupportedApplications(event) {
-      this.$store.commit("updateSupportedApplications", event)
+    updateSupportedProtocols(event) {
+      this.$store.commit("updateSupportedProtocols", event)
     },
   },
 }

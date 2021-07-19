@@ -34,28 +34,8 @@
       <v-col cols="12" sm="4">
         <version-select2
           v-model="search.supportedVersions"
-          :choice-categories="['hardwareChoices']"
-          label="Supported hardware"
-          @input="$emit('input', search)"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="4">
-        <version-select2
-          v-model="search.supportedVersions"
-          :choice-categories="['osChoices']"
-          label="Supported OS"
-          @input="$emit('input', search)"
-        >
-        </version-select2>
-      </v-col>
-
-      <v-col cols="12" sm="4">
-        <version-select2
-          v-model="search.supportedVersions"
-          :choice-categories="['appChoices']"
-          label="Supported applications"
+          :choice-categories="['protChoices']"
+          label="Supported protocols"
           @input="$emit('input', search)"
         >
         </version-select2>
@@ -63,9 +43,9 @@
 
       <v-col cols="12" sm="4">
         <select-dropdown
-          v-model="search.phase"
-          :items="processPhases"
-          label="Phase"
+          v-model="search.issuer"
+          :items="processIssuers"
+          label="Issuer"
           @input="$emit('input', search)"
         ></select-dropdown>
       </v-col>
@@ -121,19 +101,15 @@ export default {
     return {
       search: JSON.parse(JSON.stringify(this.value)),
       incrementalSearch: true,
-      oses: constants.OSES,
-      processPhases: constants.PROCESS_ITEMS,
+      processIssuers: constants.PROCESS_ITEMS,
       maturityLevels: constants.MATURITY_LEVELS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
     }
   },
   computed: {
     incrementalSearchEnabled() {
       return this.incremental && this.incrementalSearch
-    },
-    supportedOSes() {
-      return this.search.supportedVersions
     },
   },
   watch: {
@@ -158,14 +134,14 @@ export default {
     updateOs(event) {
       this.$store.commit("updateOs", event)
     },
-    updatePhase(event) {
-      this.$store.commit("updatePhase", event)
+    updateIssuer(event) {
+      this.$store.commit("updateIssuer", event)
     },
     updateCategory(event) {
       this.$store.commit("updateCategory", event)
     },
-    updateClassification(event) {
-      this.$store.commit("updateClassification", event)
+    updateVisibility(event) {
+      this.$store.commit("updateVisibility", event)
     },
     updateMaturity(event) {
       this.$store.commit("updateMaturity", event)

@@ -13,7 +13,7 @@
       <v-list-item v-for="(item, i) in lazyValue" :key="item.id">
         <v-list-item-content>
           <v-list-item-title>
-            {{ item.hardware || item.os || item.application }}
+            {{ item.protocol }}
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
@@ -46,7 +46,7 @@ export default {
     },
     label: {
       type: String,
-      default: "Supported OSes",
+      default: "Supported Protocols",
     },
     items: {
       type: Array,
@@ -54,7 +54,7 @@ export default {
     },
     type: {
       type: String,
-      default: () => "os",
+      default: () => "protocol",
     },
   },
   data() {

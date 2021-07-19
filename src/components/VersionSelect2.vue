@@ -12,9 +12,7 @@
     <v-list v-if="selectedItems.length > 0">
       <v-list-item v-for="item in selectedItems" :key="item.id">
         <v-list-item-content>
-          <v-list-item-title>{{
-            item.os || item.application || item.hardware
-          }}</v-list-item-title>
+          <v-list-item-title>{{ item.protocol }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
           <v-text-field
@@ -65,52 +63,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["hardwareChoices", "osChoices", "appChoices"]),
+    ...mapGetters(["protChoices"]),
     items() {
-      // const oses = this.osChoices.map(os => {
-      //   return { text: os, value: os, type: "os" }
-      // })
-
-      // const apps = this.appChoices.map(app => {
-      //   return { text: app, value: app, type: "application" }
-      // })
-
-      // return [
-      //   { header: "Operating Systems " },
-      //   ...oses,
-      //   { divider: true },
-      //   { header: "Applications" },
-      //   ...apps,
-      // ]
-
       var itemsArray = []
       var showHeader = itemsArray.length > 1
       for (let idx = 0; idx < this.choiceCategories.length; idx++) {
         const choiceStr = this.choiceCategories[idx]
-        if (choiceStr == "osChoices") {
+        if (choiceStr == "protChoices") {
           if (showHeader) {
-            itemsArray.push({ header: "Operating system" })
+            itemsArray.push({ header: "Protocol" })
           }
-          const oses = this.osChoices.map(os => {
-            return { text: os, value: os, type: "os" }
+          const prots = this.protChoices.map(prot => {
+            return { text: prot, value: prot, type: "protocol" }
           })
-          itemsArray = itemsArray.concat([...oses])
-        } else if (choiceStr == "appChoices") {
-          if (showHeader) {
-            itemsArray.push({ header: "Application" })
-          }
-          const apps = this.appChoices.map(app => {
-            return { text: app, value: app, type: "application" }
-          })
-          itemsArray = itemsArray.concat([...apps])
-        } else if (choiceStr == "hardwareChoices") {
-          if (showHeader) {
-            itemsArray.push({ header: "Hardware" })
-          }
-          const hardware = this.hardwareChoices.map(hardware => {
-            return { text: hardware, value: hardware, type: "hardware" }
-          })
-          itemsArray = itemsArray.concat([...hardware])
+          itemsArray = itemsArray.concat([...prots])
         }
       }
       return itemsArray
@@ -119,12 +85,7 @@ export default {
       var selected_array = []
       for (let idx = 0; idx < this.lazyValue.length; idx++) {
         const item = this.lazyValue[idx]
-        if (
-          (item.hardware &&
-            this.choiceCategories.includes("hardwareChoices")) ||
-          (item.application && this.choiceCategories.includes("appChoices")) ||
-          (item.os && this.choiceCategories.includes("osChoices"))
-        ) {
+        if (item.protocol && this.choiceCategories.includes("protChoices")) {
           selected_array.push(item)
         }
       }

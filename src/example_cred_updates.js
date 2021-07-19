@@ -1,5 +1,5 @@
 export const CRED_UPDATES = [
-  "classification",
+  "visibility",
   "maturity",
   "credentialType",
   // "contact",

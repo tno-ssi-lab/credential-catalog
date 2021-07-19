@@ -49,36 +49,18 @@
             </div>
           </template>
 
-          <template #item.phaseDisplay="{ value }">
-            <v-chip-group v-for="Phase in value" :key="Phase">
+          <template #item.issuerDisplay="{ value }">
+            <v-chip-group v-for="Issuer in value" :key="Issuer">
               <v-chip>
-                {{ Phase }}
+                {{ Issuer }}
               </v-chip>
             </v-chip-group>
           </template>
 
-          <template #item.supportedHardware="{ value }">
+          <template #item.supportedProts="{ value }">
             <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="hw in value" :key="hw.hardware">
-                {{ hw.hardware }}: {{ hw.versions }}
-              </v-chip>
-            </v-chip-group>
-            <div v-else class="grey--text">-</div>
-          </template>
-
-          <template #item.supportedOses="{ value }">
-            <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="os in value" :key="os.os">
-                {{ os.os }}: {{ os.versions }}
-              </v-chip>
-            </v-chip-group>
-            <div v-else class="grey--text">-</div>
-          </template>
-
-          <template #item.supportedApps="{ value }">
-            <v-chip-group v-if="value.length > 0">
-              <v-chip v-for="app in value" :key="app.application">
-                {{ app.application }}: {{ app.versions }}
+              <v-chip v-for="prot in value" :key="prot.protocol">
+                {{ prot.protocol }}: {{ prot.versions }}
               </v-chip>
             </v-chip-group>
             <div v-else class="grey--text">-</div>
@@ -110,31 +92,6 @@
           <template #item.deploymentRequirements="{ value }">
             <div :class="{ 'grey--text': !value }">
               <span style="white-space: pre-wrap;">{{ value || "-" }}</span>
-            </div>
-          </template>
-
-          <template #item.testReport="{ value }">
-            <v-simple-table v-if="value !== null && value.location != ''">
-              <tbody>
-                <tr>
-                  <td>
-                    <a :href="value.location" v-text="value.location"></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {{ value.author }}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <em>{{ value.time }}</em>
-                  </td>
-                </tr>
-              </tbody>
-            </v-simple-table>
-            <div v-else class="grey--text">
-              -
             </div>
           </template>
         </DetailsTable>
@@ -198,28 +155,20 @@ export default {
           value: "version",
         },
         {
-          text: "Phase",
-          value: "phaseDisplay",
+          text: "Issuer",
+          value: "issuerDisplay",
         },
         {
-          text: "Hardware",
-          value: "supportedHardware",
-        },
-        {
-          text: "Operating System",
-          value: "supportedOses",
-        },
-        {
-          text: "Application",
-          value: "supportedApps",
+          text: "Protocol",
+          value: "supportedProts",
         },
         {
           text: "Maturity",
           value: "maturityDisplay",
         },
         {
-          text: "Classification",
-          value: "classificationDisplay",
+          text: "Visibility",
+          value: "visibilityDisplay",
         },
         {
           text: "Documentation",
@@ -240,10 +189,6 @@ export default {
         {
           text: "Deployment Requirements",
           value: "deploymentRequirements",
-        },
-        {
-          text: "Test Report",
-          value: "testReport",
         },
       ],
     }

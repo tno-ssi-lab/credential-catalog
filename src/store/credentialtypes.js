@@ -11,18 +11,15 @@ export class CredentialType {
         credentialType: null,
         category: null,
         version: null,
-        phase: [],
+        issuer: [],
         maturity: null,
-        classification: null,
+        visibility: null,
         description: null,
         documentation: null,
         location: null,
         contact: null,
-        supportedHardware: [],
-        supportedApps: [],
-        supportedOses: [],
+        supportedProts: [],
         constituents: [],
-        testReport: null,
         reviews: [],
         offers: [],
         deploymentRequirements: null,
@@ -38,78 +35,47 @@ export class CredentialType {
       credentialType: this.credentialType,
       category: this.category,
       version: this.version,
-      phase: this.phase,
-      hardware: this.hardware,
-      os: this.oses,
-      application: this.apps,
+      issuer: this.issuer,
+      protocol: this.prots,
       maturity: this.maturity,
-      classification: this.classification,
+      visibility: this.visibility,
       description: this.description,
       documentation: this.documentation,
       location: this.location,
       contact: this.contact,
-      testReport: this.testReport,
       deploymentRequirements: this.deploymentRequirements,
       offers: this.offers,
     }
   }
 
-  matchesHardware(hardware, versions) {
+  matchesProt(prot, versions) {
     if (!semver.validRange(versions)) {
       return false
     }
 
-    return this.supportedHardware.some(
-      c => c.hardware === hardware && semver.intersects(c.versions, versions)
+    return this.supportedProts.some(
+      c => c.protocol === prot && semver.intersects(c.versions, versions)
     )
   }
 
-  matchesOs(os, versions) {
-    if (!semver.validRange(versions)) {
-      return false
-    }
-
-    return this.supportedOses.some(
-      c => c.os === os && semver.intersects(c.versions, versions)
-    )
-  }
-
-  matchesApp(app, versions) {
-    if (!semver.validRange(versions)) {
-      return false
-    }
-
-    return this.supportedApps.some(
-      c => c.application === app && semver.intersects(c.versions, versions)
-    )
-  }
-
-  get hardware() {
-    return this.supportedHardware.map(c => c.hardware)
-  }
-
-  get oses() {
-    return this.supportedOses.map(c => c.os)
-  }
-
-  get apps() {
-    return this.supportedApps.map(c => c.application)
+  get prots() {
+    return this.supportedProts.map(c => c.protocol)
   }
 
   get maturityDisplay() {
     return constants.MATURITY_MAP[this.maturity]
   }
 
-  get phaseDisplay() {
-    return this.phase.map(phase => constants.PROCESS_MAP[phase])
+  get issuerDisplay() {
+    return this.issuer.map(issuer => constants.PROCESS_MAP[issuer])
   }
 
   get categoryDisplay() {
     return constants.CATEGORY_MAP[this.category]
   }
 
-  get classificationDisplay() {
-    return constants.CLASSIFICATION_MAP[this.classification]
+  get visibilityDisplay() {
+    return constants.VISIBILITY_MAP[this.visibility]
   }
 }
 
@@ -120,27 +86,17 @@ export const credentialtypes = [
     credentialType: "NameCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub7"],
+    issuer: ["sub7"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Name of an individual.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "<= 1.7" },
-      { hardware: "???", versions: "<=4.3" },
-    ],
-    supportedOses: [{ os: "Android", versions: "<= 4.4" }],
-    supportedApps: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [2,1,3],
     deploymentRequirements: null,
@@ -151,19 +107,17 @@ export const credentialtypes = [
     credentialType: "AddressCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub10"],
+    issuer: ["sub10"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Address of an individual.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Paul Geus <paul.geus@example.com>",
-    supportedApps: [{ application: "Datakeeper", versions: "*" }],
-    supportedOses: [{ os: "iOS", versions: "*" }],
+    supportedProts: [{ protocol: "Datakeeper", versions: "*" }],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -174,23 +128,17 @@ export const credentialtypes = [
     credentialType: "EmailCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       Email of an individual.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
-    supportedApps: [{ application: "Jolocom", versions: "*" }],
-    supportedOses: [{ os: "Android", versions: "*" }],
+    supportedProts: [{ protocol: "Jolocom", versions: "*" }],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -201,36 +149,17 @@ export const credentialtypes = [
     credentialType: "TelephoneCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1", "sub4"],
+    issuer: ["irs", "sub4"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Telephone number of an individual.
       `,
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Gordon Lyon <gordon.lyon@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -241,19 +170,17 @@ export const credentialtypes = [
     credentialType: "ContactDetailsCredential",
     category: "category-five",
     version: "1.0",
-    phase: ["sub1", "sub8"],
+    issuer: ["irs", "sub8"],
     maturity: "proposed",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Contact details of an individual, including ...
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Kay Beckers <kay.beckers@example.com>",
-    supportedApps: [],
-    supportedOses: [{ os: "iOS", versions: "*" }],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     deploymentRequirements: null,
   },
@@ -263,28 +190,17 @@ export const credentialtypes = [
     credentialType: "CertificateOfEnheritanceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3", "sub8"],
+    issuer: ["sub3", "sub8"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Certificate of Enheritance, intended for ...
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Arnold Meijster <arnold.meijster@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -295,23 +211,19 @@ export const credentialtypes = [
     credentialType: "GuardianshipCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub6", "sub10", "sub7"],
+    issuer: ["sub6", "sub10", "sub7"],
     maturity: "planned",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Credential intended to proof ...
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Theo Crabbe <theo.crabbe@example.com>",
-    supportedApps: [
-      { application: "IRMA", versions: "6" }, // Only IE6
-    ],
-    supportedOses: [
-      { os: "Android", versions: "< 6.1.7600" }, // Before Win 7
+    supportedProts: [
+      { protocol: "IRMA", versions: "6" }, // Only IE6
     ],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -322,23 +234,17 @@ export const credentialtypes = [
     credentialType: "PoBCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Place of birth of an individual.
       `,
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -349,23 +255,17 @@ export const credentialtypes = [
     credentialType: "VaccinationCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Proof of vaccination with one of: Pfizer, Moderna, Janssen, or AZ.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Theo Crabbe <theo.crabbe@example.com>",
-    supportedApps: [{ application: "esatus", versions: "*" }],
-    supportedOses: [{ os: "iOS", versions: "< 5" }],
+    supportedProts: [{ protocol: "esatus", versions: "*" }],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -376,23 +276,17 @@ export const credentialtypes = [
     credentialType: "NegTestCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub2"],
+    issuer: ["sub2"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Proof of recent negative test for Covid-19.
       `,
     documentation: "https://www.aircrack-ng.org/documentation.html",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Donald de Koninck <donald.de.koninck@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -403,36 +297,17 @@ export const credentialtypes = [
     credentialType: "TestResultCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3"],
+    issuer: ["sub3"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Result of recent test for Covid-19.
       `,
     documentation: "https://nmap.org/ncat/guide/",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -443,23 +318,17 @@ export const credentialtypes = [
     credentialType: "PassportCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Passport.
       `,
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Joost Zwaantjes <joost.zwaantjes@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     deploymentRequirements: null,
   },
@@ -469,19 +338,17 @@ export const credentialtypes = [
     credentialType: "DriversLicenseCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Driver's license.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -492,24 +359,17 @@ export const credentialtypes = [
     credentialType: "LicenseCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3", "sub8"],
+    issuer: ["sub3", "sub8"],
     maturity: "planned",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       Proof of having a license to ...
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -520,23 +380,17 @@ export const credentialtypes = [
     credentialType: "EmploymentCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Employment details of individual.
       `,
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -547,32 +401,17 @@ export const credentialtypes = [
     credentialType: "HealthInsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
       Health insurance details of individual.
       `,
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Bernard Lacroix <bernard.lacroix@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -583,19 +422,17 @@ export const credentialtypes = [
     credentialType: "CarInsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub6"],
+    issuer: ["sub6"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Car Insurance details of individual.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Gijs Veulen <g.veulen@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -606,19 +443,17 @@ export const credentialtypes = [
     credentialType: "InsuranceCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub3"],
+    issuer: ["sub3"],
     maturity: "in-development",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
     Insurance information of individual.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Irina Dohvakin <irina.dohvakin@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -629,23 +464,17 @@ export const credentialtypes = [
     credentialType: "BankAccountCredential",
     category: "category-two",
     version: "1.0",
-    phase: ["sub1"],
+    issuer: ["irs"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     General information about an individual's bank account.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -656,24 +485,17 @@ export const credentialtypes = [
     credentialType: "PersonalDataCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your personal data, from the Dutch population register (BRP)
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -684,19 +506,17 @@ export const credentialtypes = [
     credentialType: "AgeCredential",
     category: "category-one",
     version: "1.0",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "in-development",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your age limits, derived from your birthdate from the Dutch population register.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Albert Talton <albert.talton@example.com>",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: null,
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -707,28 +527,17 @@ export const credentialtypes = [
     credentialType: "BSNCredential",
     category: "category-two",
     version: "0.6",
-    phase: ["sub12", "sub2", "sub9"],
+    issuer: ["sub12", "sub2", "sub9"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Your Dutch Citizen service number (BSN), from the Dutch population register.
       `,
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [17, 18],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [
       {
         rating: 4,
@@ -752,33 +561,17 @@ export const credentialtypes = [
     credentialType: "TravelDocumentCredential",
     category: "category-two",
     version: "0.6",
-    phase: ["sub6", "sub11"],
+    issuer: ["sub6", "sub11"],
     maturity: "complete",
-    classification: "unclassified",
+    visibility: "unclassified",
     description: `
     Your Dutch passport or identity card, from the Dutch population register.
       `,
     documentation: null,
-    location:
-      "",
+    location: "",
     contact: "Robin Lark",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [
       {
         rating: 4,
@@ -797,24 +590,17 @@ export const credentialtypes = [
     credentialType: "DiplomaCredential",
     category: "category-two",
     version: "0.1",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
     Data extracted from your diploma provided by DUO.
       `,
     documentation: null,
-    location:
-      "",
+    location: "",
     contact: "Robin Lark",
-    supportedApps: [],
-    supportedOses: [],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [
       {
         rating: 1,
@@ -833,34 +619,16 @@ export const credentialtypes = [
     credentialType: "BirthCertificateCredential",
     category: "category-two",
     version: "1.3",
-    phase: ["sub4", "sub5", "sub6", "sub2"],
+    issuer: ["sub4", "sub5", "sub6", "sub2"],
     maturity: "in-development",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
       An individual's birth certificate
       `,
     documentation: null,
     location: "",
     contact: "Robin Lark",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "MacOS",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-      {
-        os: "iOS",
-        versions: "*",
-      },
-      {
-        os: "Android",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
     reviews: [
       {
@@ -879,23 +647,17 @@ export const credentialtypes = [
     credentialType: "ParkingPermitCredential",
     category: "category-two",
     version: "3.1",
-    phase: ["sub8", "sub9", "sub10"],
+    issuer: ["sub8", "sub9", "sub10"],
     maturity: "complete",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Parking permit for use in ...
       `,
     documentation: "",
     location: "",
     contact: "Laura Overbeek <laura.overbeek@example.com>",
-    supportedApps: [{ application: "Jolocom", versions: "*" }],
-    supportedOses: [],
+    supportedProts: [{ protocol: "Jolocom", versions: "*" }],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -906,27 +668,16 @@ export const credentialtypes = [
     credentialType: "UniversityCredential",
     category: "category-two",
     version: "0.8",
-    phase: [
-      "sub11",
-      "sub9",
-      "sub10",
-      "sub5",
-    ],
+    issuer: ["sub11", "sub9", "sub10", "sub5"],
     maturity: "ready-for-review",
-    classification: "internal",
+    visibility: "internal",
     description: `
       Proof of enrollment at a Dutch university.
       `,
     documentation: "",
     location: "",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
     reviews: [],
     offers: [],
@@ -938,38 +689,17 @@ export const credentialtypes = [
     credentialType: "PrescriptionCredential",
     category: "category-two",
     version: "0.8",
-    phase: ["sub12"],
+    issuer: ["sub12"],
     maturity: "complete",
-    classification: "action",
+    visibility: "action",
     description: `
       Prescription for picking up medication at the apothecary.
       `,
     documentation: "",
     location: "",
     contact: "Gijs Veulen <g.veulen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "<= 7.0" },
-      { hardware: "???", versions: "*" },
-      { hardware: "---", versions: "*" },
-      { hardware: "***", versions: "*" },
-    ],
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "Linux",
-        versions: "*",
-      },
-      {
-        os: "Windows",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
-    testReport: {
-      location: "https://internal-gitlab.example.com/project/testreport",
-      author: "Tessa <t.tester@example.com>",
-      time: "2020-03-23 21:20",
-    },
     reviews: [],
     offers: [],
     deploymentRequirements: null,
@@ -980,27 +710,16 @@ export const credentialtypes = [
     credentialType: "ConservatorshipCredential",
     category: "category-two",
     version: "0.8",
-    phase: ["sub4", "sub5", "sub6"],
+    issuer: ["sub4", "sub5", "sub6"],
     maturity: "proposed",
-    classification: "confidential",
+    visibility: "confidential",
     description: `
     Proof of conservatorship.
       `,
     documentation: "",
     location: "",
     contact: "Gijs Veulen <g.veulen@example.com>",
-    supportedHardware: [
-      { hardware: "...", versions: "*" },
-      { hardware: "???", versions: "*" },
-      { hardware: "---", versions: "*" },
-    ],
-    supportedApps: [],
-    supportedOses: [
-      {
-        os: "iOS",
-        versions: "*",
-      },
-    ],
+    supportedProts: [],
     constituents: [],
     reviews: [],
     offers: [],

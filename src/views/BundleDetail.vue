@@ -27,21 +27,24 @@
     </v-layout>
 
     <credential-matrix v-if="!expand" :items="bundleRows"></credential-matrix>
-    <credential-matrix v-if="expand" :items="bundleRowsExpand"></credential-matrix>
+    <credential-matrix
+      v-if="expand"
+      :items="bundleRowsExpand"
+    ></credential-matrix>
 
     <h2>Credentials</h2>
 
     <div
-      v-for="{ phase, credentials } in filteredPhases"
-      :key="phase.value"
+      v-for="{ issuer, credentials } in filteredIssuers"
+      :key="issuer.value"
       class="row"
     >
       <div
         class="col-2"
-        :class="`phase-${phase.phase}`"
+        :class="`issuer-${issuer.issuer}`"
         style="border-bottom: 1px solid #ddd;"
       >
-        <h3 v-text="phase.text"></h3>
+        <h3 v-text="issuer.text"></h3>
       </div>
       <div class="col">
         <bundle-credential-card
@@ -92,8 +95,10 @@ export default {
       })
       // return [{ title: "Bundle", credentials: this.bundle.credentials }]
     },
-    filteredPhases() {
-      return this.bundle.credentialsByPhase.filter(({ credentials }) => credentials.length > 0)
+    filteredIssuers() {
+      return this.bundle.credentialsByIssuer.filter(
+        ({ credentials }) => credentials.length > 0
+      )
     },
     navItems() {
       return [
@@ -125,32 +130,32 @@ export default {
 </script>
 
 <style>
-.phase-phase-one {
+.issuer-issuer-one {
   background: rgb(255, 201, 192);
   /* box-shadow: inset 0px -4px 8px rgba(255, 201, 192, 0.9); */
 }
 
-.phase-phase-two {
+.issuer-issuer-two {
   background: rgb(255, 233, 171);
 }
 
-.phase-phase-three {
+.issuer-issuer-three {
   background: rgb(239, 255, 166);
 }
 
-.phase-phase-four {
+.issuer-issuer-four {
   background: rgb(205, 255, 192);
 }
 
-.phase-phase-five {
+.issuer-issuer-five {
   background: rgb(192, 255, 239);
 }
 
-.phase-phase-six {
+.issuer-issuer-six {
   background: rgb(192, 214, 255);
 }
 
-.phase-phase-seven {
+.issuer-issuer-seven {
   background: rgb(216, 192, 255);
 }
 </style>

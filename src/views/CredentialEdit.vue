@@ -9,10 +9,7 @@
       Required fields are indicated with an *
     </p>
 
-    <credential-form
-      :value="credential"
-      @input="saveCred"
-    ></credential-form>
+    <credential-form :value="credential" @input="saveCred"></credential-form>
   </div>
 </template>
 
@@ -73,18 +70,6 @@ export default {
   methods: {
     ...mapMutations(["saveCredential"]),
     saveCred(attributes) {
-      if (attributes.testReport.location) {
-        attributes.testReport.author = "Tessa" // Tessa the tester
-
-        const date = new Date().toISOString()
-
-        attributes.testReport.time =
-          date.substring(0, 10) + " " + date.substring(11, 16)
-      } else {
-        attributes.testReport.author = ""
-        attributes.testReport.time = ""
-      }
-
       console.log("Storing credential")
       this.saveCredential(attributes)
 

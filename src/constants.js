@@ -1,40 +1,40 @@
 // See yaml file on Sharepoint
 const PROCESS_ITEMS = [
-  { header: "Phase One" },
+  { header: "Government" },
   {
-    text: "Sub One",
-    value: "sub1",
-    abbrev: "S1",
-    phase: "phase-one",
+    text: "IRS",
+    value: "irs",
+    abbrev: "IRS",
+    issuer: "government",
     hint:
-      "Description of Sub One\n",
+      "Internal Revenue Service\n",
   },
   {
     text: "Sub Two",
     value: "sub2",
     abbrev: "S2",
-    phase: "phase-one",
+    issuer: "government",
     hint: "Description of Sub Two\n",
   },
   {
-    header: "Phase Two",
+    header: "Public",
   },
   {
     text: "Sub Three",
     value: "sub3",
     abbrev: "S3",
-    phase: "phase-two",
+    issuer: "public",
     hint:
       "Description of Sub Three\n",
   },
   {
-    header: "Phase Three",
+    header: "Semi-Public",
   },
   {
     text: "Sub Four",
     value: "sub4",
     abbrev: "S4",
-    phase: "phase-three",
+    issuer: "semi-public",
     hint:
       "Description of Sub Four\n",
   },
@@ -42,18 +42,18 @@ const PROCESS_ITEMS = [
     text: "Sub Five",
     value: "sub5",
     abbrev: "S5",
-    phase: "phase-three",
+    issuer: "semi-public",
     hint:
       "Description of Sub Five\n",
   },
   {
-    header: "Phase Four",
+    header: "Private",
   },
   {
     text: "Sub Six",
     value: "sub6",
     abbrev: "S6",
-    phase: "phase-four",
+    issuer: "private",
     hint:
       "Description of Sub Six\n",
   },
@@ -64,7 +64,7 @@ const PROCESS_ITEMS = [
     text: "Sub Seven",
     value: "sub7",
     abbrev: "S7",
-    phase: "phase-five",
+    issuer: "issuer-five",
     hint:
       "Description of Sub Seven\n",
   },
@@ -72,7 +72,7 @@ const PROCESS_ITEMS = [
     text: "Sub Eigth",
     value: "sub8",
     abbrev: "S8",
-    phase: "phase-five",
+    issuer: "issuer-five",
     hint:
       "Description of Sub Eight\n",
   },
@@ -80,7 +80,7 @@ const PROCESS_ITEMS = [
     text: "Sub Nine",
     value: "sub9",
     abbrev: "S9",
-    phase: "phase-five",
+    issuer: "issuer-five",
     hint:
       "Description of Sub Nine\n",
   },
@@ -88,7 +88,7 @@ const PROCESS_ITEMS = [
     text: "Sub Ten",
     value: "sub10",
     abbrev: "S10",
-    phase: "phase-five",
+    issuer: "issuer-five",
     hint:
       "Description of Sub Ten\n",
   },
@@ -96,7 +96,7 @@ const PROCESS_ITEMS = [
     text: "Sub Eleven",
     value: "sub11",
     abbrev: "S11",
-    phase: "phase-five",
+    issuer: "issuer-five",
     hint:
       "Description of Sub Eleven\n",
   },
@@ -107,7 +107,7 @@ const PROCESS_ITEMS = [
     text: "Sub Twelve",
     value: "sub12",
     abbrev: "S12",
-    phase: "phase-six",
+    issuer: "issuer-six",
     hint:
       "Description of Sub Twelve\n",
   },
@@ -118,7 +118,7 @@ const PROCESS_ITEMS = [
     text: "Sub Thirteen",
     value: "sub13",
     abbrev: "S13",
-    phase: "phase-seven",
+    issuer: "issuer-seven",
     hint:
       "Description of Sub Thirteen\n",
   },
@@ -126,20 +126,20 @@ const PROCESS_ITEMS = [
     text: "Sub Fourteen",
     value: "sub14",
     abbrev: "S14",
-    phase: "phase-seven",
+    issuer: "issuer-seven",
     hint:
       "Description of Sub Fourteen",
   },
 ]
 
 const PROCESS_MAIN_PHASES = {
-  "phase-one": "Phase One",
-  "phase-two": "Phase Two",
-  "phase-three": "Phase Three",
-  "phase-four": "Phase Four",
-  "phase-five": "Phase Five",
-  "phase-six": "Phase Six",
-  "phase-seven": "Phase Seven",
+  "government": "Government",
+  "public": "Public",
+  "semi-public": "Semi-Public",
+  "Private": "Private",
+  "issuer-five": "Phase Five",
+  "issuer-six": "Phase Six",
+  "issuer-seven": "Phase Seven",
 }
 
 const PROCESS_MAP = PROCESS_ITEMS.reduce((acc, { text, value }) => {
@@ -177,7 +177,7 @@ const CATEGORY_MAP = CATEGORIES.reduce((acc, { text, value }) => {
   return acc
 }, {})
 
-const CLASSIFICATIONS = [
+const VISIBILITIES = [
   {
     value: "unclassified",
     text: "Unclassified",
@@ -192,7 +192,7 @@ const CLASSIFICATIONS = [
   },
 ]
 
-const CLASSIFICATION_MAP = CLASSIFICATIONS.reduce((acc, { text, value }) => {
+const VISIBILITY_MAP = VISIBILITIES.reduce((acc, { text, value }) => {
   acc[value] = text
   return acc
 }, {})
@@ -238,19 +238,16 @@ const MATURITY_COLORS = {
   complete: "deep-purple",
 }
 
-const OSES = ["Windows", "Linux", "MacOS", "iOS", "Android"]
-
 export default {
   PROCESS_ITEMS,
   PROCESS_MAIN_PHASES,
   PROCESS_MAP,
   CATEGORIES,
   CATEGORY_MAP,
-  CLASSIFICATIONS,
-  CLASSIFICATION_MAP,
+  VISIBILITIES,
+  VISIBILITY_MAP,
   MATURITY_LEVELS,
   MATURITY_MAP,
   MATURITY_ORDER,
   MATURITY_COLORS,
-  OSES,
 }

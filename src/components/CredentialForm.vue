@@ -12,30 +12,10 @@
         <v-row dense>
           <v-col cols="4">
             <version-add
-              v-model="attributes.supportedHardware"
-              :items="hardwareChoices"
-              type="hardware"
-              label="Supported Hardware"
-            >
-            </version-add>
-          </v-col>
-
-          <v-col cols="4">
-            <version-add
-              v-model="attributes.supportedOses"
-              :items="osChoices"
-              type="os"
-              label="Supported OSes"
-            >
-            </version-add>
-          </v-col>
-
-          <v-col cols="4">
-            <version-add
-              v-model="attributes.supportedApps"
-              :items="appChoices"
-              type="application"
-              label="Supported Apps"
+              v-model="attributes.supportedProts"
+              :items="protChoices"
+              type="protocol"
+              label="Supported Protocols"
             >
             </version-add>
           </v-col>
@@ -71,9 +51,9 @@
         ></select-single-dropdown>
 
         <select-dropdown
-          v-model="attributes.phase"
-          :items="phases"
-          v-bind="fieldProps('phase')"
+          v-model="attributes.issuer"
+          :items="issuers"
+          v-bind="fieldProps('issuer')"
         ></select-dropdown>
 
         <select-single-dropdown
@@ -83,15 +63,10 @@
         ></select-single-dropdown>
 
         <select-single-dropdown
-          v-model="attributes.classification"
-          :items="classifications"
-          v-bind="fieldProps('classification')"
+          v-model="attributes.visibility"
+          :items="visibilities"
+          v-bind="fieldProps('visibility')"
         ></select-single-dropdown>
-
-        <v-text-field
-          v-model="attributes.testReport.location"
-          v-bind="fieldProps('testReport')"
-        />
 
         <v-text-field
           v-for="field in sidebarFields"
@@ -141,18 +116,16 @@ const KEY_TO_FIELD_NAME = {
   credentialType: "Credential Type",
   category: "Category",
   version: "Version",
-  phase: "Phase",
-  os: "Operating System",
-  application: "Application",
+  issuer: "Issuer",
+  protocol: "Protocol",
   maturity: "Maturity",
-  classification: "Classification",
+  visibility: "Visibility",
   description: "Description",
   documentation: "Documentation",
   location: "Location",
   contact: "Contact",
   supportedConfigurations: "Supported Configurations",
   deploymentRequirements: "Deployment Requirements",
-  testReport: "Test Report",
   constituents: "Used Credentials",
   reviews: "Reviews",
 }
@@ -162,9 +135,9 @@ const REQUIRED_FIELDS = [
   "category",
   "description",
   "contact",
-  "classification",
+  "visibility",
   "maturity",
-  "phase",
+  "issuer",
 ]
 
 const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]
@@ -192,26 +165,17 @@ export default {
   data() {
     const attributes = JSON.parse(JSON.stringify(this.value)) || {}
 
-    if (!attributes.testReport) {
-      attributes.testReport = { location: null }
-    }
-
     return {
       valid: null,
       attributes,
       maturityLevels: constants.MATURITY_LEVELS,
-      phases: constants.PROCESS_ITEMS,
+      issuers: constants.PROCESS_ITEMS,
       categories: constants.CATEGORIES,
-      classifications: constants.CLASSIFICATIONS,
+      visibilities: constants.VISIBILITIES,
       sidebarFields: SIDEBAR_FIELDS,
     }
   },
-  computed: mapGetters([
-    "credentials",
-    "hardwareChoices",
-    "osChoices",
-    "appChoices",
-  ]),
+  computed: mapGetters(["credentials", "protChoices"]),
   methods: {
     isRequired(field) {
       return REQUIRED_FIELDS.includes(field)

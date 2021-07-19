@@ -14,16 +14,16 @@ function sortByMaturity(a, b) {
   )
 }
 
-export function credentialsByPhase(credentials) {
-  const phases = constants.PROCESS_ITEMS.filter(e => e.value)
+export function credentialsByIssuer(credentials) {
+  const issuers = constants.PROCESS_ITEMS.filter(e => e.value)
 
-  return phases.map(phase => {
-    const phaseCredentials = credentials.filter(c => c.phase.includes(phase.value))
-    phaseCredentials.sort(sortByMaturity)
+  return issuers.map(issuer => {
+    const issuerCredentials = credentials.filter(c => c.issuer.includes(issuer.value))
+    issuerCredentials.sort(sortByMaturity)
 
     return {
-      phase,
-      credentials: phaseCredentials,
+      issuer,
+      credentials: issuerCredentials,
     }
   })
 }
@@ -65,7 +65,7 @@ const bundleModule = {
         return {
           ...bundle,
           credentials: credentials,
-          credentialsByPhase: credentialsByPhase(credentials),
+          credentialsByIssuer: credentialsByIssuer(credentials),
         }
       }
 
@@ -135,21 +135,21 @@ const searchModule = {
   state: {
     currentSearch: {
       query: null,
-      phase: [],
+      issuer: [],
       category: [],
       maturity: [],
-      classification: [],
+      visibility: [],
       supportedVersions: [],
     },
     nextId: 3,
     storedSearches: [
       {
         id: 1,
-        name: "Windows",
+        name: "Datakeeper",
         search: {
           supportedVersions: [
             {
-              os: "Windows",
+              protocol: "Datakeeper",
               versions: "*",
             },
           ],
@@ -157,11 +157,11 @@ const searchModule = {
       },
       {
         id: 2,
-        name: "Linux",
+        name: "Jolocom",
         search: {
           supportedVersions: [
             {
-              os: "Linux",
+              protocol: "Jolocom",
               versions: "*",
             },
           ],
@@ -220,13 +220,11 @@ const searchModule = {
       if (storedSearch) {
         state.currentSearch = {
           query: null,
-          phase: [],
+          issuer: [],
           category: [],
           maturity: [],
-          classification: [],
-          supportedHardware: [],
-          supportedOSes: [],
-          supportedApplications: [],
+          visibility: [],
+          supportedProtocols: [],
           ...storedSearch,
         }
       }
@@ -279,26 +277,12 @@ const credentialTypeModule = {
     getCredentialsByIds: (state, { getCredentialById }) => ids => {
       return ids.map(getCredentialById).filter(c => c)
     },
-    hardwareChoices: (state, { credentials }) => {
+    protChoices: (state, { credentials }) => {
       const set = new Set()
-      credentials.forEach(c => c.hardware.forEach(hw => set.add(hw)))
-      const hardware = Array.from(set)
-      hardware.sort()
-      return hardware
-    },
-    osChoices: (state, { credentials }) => {
-      const set = new Set()
-      credentials.forEach(c => c.oses.forEach(os => set.add(os)))
-      const oses = Array.from(set)
-      oses.sort()
-      return oses
-    },
-    appChoices: (state, { credentials }) => {
-      const set = new Set()
-      credentials.forEach(c => c.apps.forEach(app => set.add(app)))
-      const apps = Array.from(set)
-      apps.sort()
-      return apps
+      credentials.forEach(c => c.prots.forEach(prot => set.add(prot)))
+      const prots = Array.from(set)
+      prots.sort()
+      return prots
     },
   },
   mutations: {

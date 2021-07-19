@@ -1,5 +1,5 @@
 import lunr from "lunr"
-import { Credential } from "./credentials"
+import { CredentialType } from "./credentialtypes"
 
 // function stripVersion(builder) {
 //   function stripper(token) {
@@ -40,8 +40,8 @@ export function buildIndex(data) {
     // TODO: enable search result highlighting
     // this.metadataWhitelist = ["position"]
     data.forEach(item => {
-      if (typeof item !== Credential) {
-        item = new Credential(item)
+      if (typeof item !== CredentialType) {
+        item = new CredentialType(item)
       }
       this.add(item.toObject())
     })

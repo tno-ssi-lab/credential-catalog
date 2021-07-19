@@ -1,7 +1,7 @@
 import * as semver from "semver"
 import constants from "@/constants"
 
-export class Credential {
+export class CredentialType {
   constructor(attrs = {}) {
     Object.assign(
       this,
@@ -24,6 +24,7 @@ export class Credential {
         constituents: [],
         testReport: null,
         reviews: [],
+        offers: [],
         deploymentRequirements: null,
       },
       attrs
@@ -49,6 +50,7 @@ export class Credential {
       contact: this.contact,
       testReport: this.testReport,
       deploymentRequirements: this.deploymentRequirements,
+      offers: this.offers,
     }
   }
 
@@ -111,7 +113,7 @@ export class Credential {
   }
 }
 
-export const credentials = [
+export const credentialtypes = [
   {
     id: 1,
     name: "Name",
@@ -140,6 +142,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [2,1,3],
     deploymentRequirements: null,
   },
   {
@@ -162,6 +165,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -188,6 +192,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -227,6 +232,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -280,6 +286,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -306,6 +313,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -332,6 +340,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -358,6 +367,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -384,6 +394,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -423,6 +434,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -471,6 +483,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -498,6 +511,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -524,6 +538,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -559,6 +574,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -581,6 +597,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -603,6 +620,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -629,6 +647,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -656,6 +675,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -678,6 +698,7 @@ export const credentials = [
     constituents: [],
     testReport: null,
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -722,6 +743,7 @@ export const credentials = [
         motivation: "Great idea, but did not work with Jolocom app",
       },
     ],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -766,6 +788,7 @@ export const credentials = [
           "Requires good understanding of esatus wallet to use, but extremely useful when everything finally works!",
       },
     ],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -801,6 +824,7 @@ export const credentials = [
           "Did not work for me, see https://internal-gitlab.com/KayBeckers/diplomacredential_review.",
       },
     ],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -846,6 +870,7 @@ export const credentials = [
         motivation: "Saves a lot of time!",
       },
     ],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -872,6 +897,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -903,6 +929,7 @@ export const credentials = [
     ],
     constituents: [],
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -944,6 +971,7 @@ export const credentials = [
       time: "2020-03-23 21:20",
     },
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
   {
@@ -975,6 +1003,7 @@ export const credentials = [
     ],
     constituents: [],
     reviews: [],
+    offers: [],
     deploymentRequirements: null,
   },
 ]

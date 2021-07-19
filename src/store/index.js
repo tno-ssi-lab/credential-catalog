@@ -1,6 +1,8 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import { credentials, Credential } from "./credentials"
+import { credentialtypes, CredentialType } from "./credentialtypes"
+import { CredentialOffer, credentialoffers } from "./credentialoffer"
+import { Issuer, issuers } from "./issuer"
 import { buildIndex, buildQueryString, filterByField } from "./search"
 import constants from "@/constants"
 
@@ -259,15 +261,14 @@ const searchModule = {
   },
 }
 
-export default new Vuex.Store({
-  strict: true,
+const credentialTypeModule = {
   state: {
-    credentialsAttrs: credentials,
-    nextID: credentials.length + 1,
+    credentialsAttrs: credentialtypes,
+    nextCredentialTypeID: credentialtypes.length + 1, // todo this is going to cause trouble if we introduce a delete function
   },
   getters: {
     credentials: state => {
-      return state.credentialsAttrs.map(attrs => new Credential(attrs))
+      return state.credentialsAttrs.map(attrs => new CredentialType(attrs))
     },
     lastCredential: (state, { credentials }) => {
       return credentials[credentials.length - 1]
@@ -303,7 +304,7 @@ export default new Vuex.Store({
   mutations: {
     saveCredential(state, attributes) {
       if (!attributes.id) {
-        const newId = state.nextID++
+        const newId = state.nextCredentialTypeID++
         state.credentialsAttrs.push({
           ...attributes,
           id: newId,
@@ -319,8 +320,83 @@ export default new Vuex.Store({
       }
     },
   },
+}
+
+const credentialOfferModule = {
+  state: {
+    credentialOffers: credentialoffers,
+    nextCredentialOfferID: credentialoffers.length + 1,
+  },
+  getters: {
+    credentialOffers: state => {
+      return state.credentialOffers.map(attrs => new CredentialOffer(attrs))
+    },
+    getCredentialOfferById: (state, { credentialOffers }) => id => {
+      return credentialOffers.find(c => c.id === id)
+    },
+  },
+  mutations: {
+    saveCredentialOffer(state, attributes) {
+      if (!attributes.id) {
+        const newId = state.nextCredentialOfferID++
+        state.credentialOffers.push({
+          ...attributes,
+          id: newId,
+        })
+      } else {
+        const idx = state.credentialOffers.findIndex(
+          cred => cred.id === attributes.id
+        )
+
+        if (idx > -1) {
+          Vue.set(state.credentialOffers, idx, attributes)
+        }
+      }
+    },
+  },
+}
+
+const issuerModule = {
+  state: {
+    issuers: issuers,
+    nextIssuerID: issuers.length + 1,
+  },
+  getters: {
+    issuers: state => {
+      return state.issuers.map(attrs => new Issuer(attrs))
+    },
+    getIssuerById: (state, { issuers }) => id => {
+      return issuers.find(c => c.id === id)
+    },
+  },
+  mutations: {
+    saveIssuer(state, attributes) {
+      if (!attributes.id) {
+        const newId = state.nextIssuerID++
+        state.issuers.push({
+          ...attributes,
+          id: newId,
+        })
+      } else {
+        const idx = state.issuers.findIndex(
+          cred => cred.id === attributes.id
+        )
+
+        if (idx > -1) {
+          Vue.set(state.issuers, idx, attributes)
+        }
+      }
+    },
+  },
+}
+
+export default new Vuex.Store({
+  strict: true,
   actions: {},
   modules: {
+    credential: credentialTypeModule,
+    credentialOffer: credentialOfferModule,
+    issuer: issuerModule,
     bundle: bundleModule,
     search: searchModule,
   },

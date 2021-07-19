@@ -102,7 +102,7 @@
 
         <credential-select
           v-model="attributes.constituents"
-          :items="credentials"
+          :items="credentialtypes"
           :label="fieldLabel('constituents')"
           item-value="id"
           item-text="name"

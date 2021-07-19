@@ -141,6 +141,20 @@
       </v-col>
     </v-row>
 
+    <v-row>
+      <v-col>
+        <hr />
+      </v-col>
+    </v-row>
+
+    <offers :ids="credential.offers"></offers>
+
+    <v-row>
+      <v-col>
+        <hr />
+      </v-col>
+    </v-row>
+
     <reviews :id="credential.id" :reviews="credential.reviews"></reviews>
   </div>
 </template>
@@ -149,12 +163,14 @@
 import { mapGetters } from "vuex"
 import DetailsTable from "@/components/DetailsTable"
 import Reviews from "@/components/Reviews"
+import Offers from "@/components/Offers"
 
 export default {
   name: "CredentialDetail",
   components: {
     DetailsTable,
     Reviews,
+    Offers,
   },
   props: {
     id: {

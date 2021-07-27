@@ -10,6 +10,8 @@ test:
     - yarn build
 
 pages:
+  variables:
+    VUE_PUBLIC_PATH: "/cred-cat/credential-catalogue-ckan"
   script:
     - yarn install
     # We can't build directly into /public, so we first need

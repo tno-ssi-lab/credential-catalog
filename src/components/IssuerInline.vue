@@ -1,6 +1,6 @@
 <template>
   <span>
-    <v-avatar rounded size="45">
+    <v-avatar rounded :size="size">
       <img :src="issuer.logo" :alt="issuer.name" />
     </v-avatar>
     {{ issuer.name }}
@@ -17,6 +17,10 @@ export default {
     id: {
       type: Number,
       default: null,
+    },
+    size: {
+      type: Number,
+      default: 45,
     },
   },
   data() {

@@ -22,12 +22,7 @@
         <h1>{{ credential.name }}</h1>
         <p class="text-justify">
           Offered by
-          <span>
-            <v-avatar rounded size="25">
-              <img :src="issuer.logo" :alt="issuer.name" />
-            </v-avatar>
-            {{ issuer.name }}
-          </span>
+          <IssuerInline :id="issuer.id" :size="25"></IssuerInline>
         </p>
       </v-col>
     </v-row>
@@ -36,12 +31,16 @@
 
 <script>
 import { mapGetters } from "vuex"
+import IssuerInline from "@/components/IssuerInline"
 
 export default {
   name: "CredentialOffer",
-  components: {},
+  components: {
+    IssuerInline,
+  },
   props: {
-    id: { // Offer ID
+    // Offer ID
+    id: {
       type: Number,
       default: null,
     },

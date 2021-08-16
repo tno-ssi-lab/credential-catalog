@@ -20,7 +20,7 @@
                 {{ offer.assurances }}
               </td>
               <td>
-                <v-btn x-small :to="{ name: 'changelog', params: { id: offer.id } }">
+                <v-btn x-small :to="{ name: 'offer', params: { id: offer.id } }">
                   Details
                 </v-btn>
               </td>

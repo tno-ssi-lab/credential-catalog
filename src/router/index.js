@@ -13,6 +13,7 @@ import StoredSearchOverview from "@/views/StoredSearchOverview"
 import StoredSearchDetail from "@/views/StoredSearchDetail"
 
 import Matrix from "@/views/Matrix"
+import CredentialOffer from "@/views/CredentialOffer"
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,12 @@ const routes = [
     path: "/credentials/:id",
     name: "details",
     component: CredentialDetail,
+    props: castRouteParams,
+  },
+  {
+    path: "/offers/:id",
+    name: "offer",
+    component: CredentialOffer,
     props: castRouteParams,
   },
   {

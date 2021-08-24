@@ -1,7 +1,7 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 
-import CredentialSearch from "@/views/CredentialSearch"
+import CredentialSearch2 from "@/views/CredentialSearch2"
 import CredentialDetail from "@/views/CredentialDetail"
 import CredentialEdit from "@/views/CredentialEdit"
 import CredentialChangeLog from "@/views/CredentialChangeLog"
@@ -38,7 +38,7 @@ const routes = [
   {
     path: "/search",
     name: "search",
-    component: CredentialSearch,
+    component: CredentialSearch2,
   },
   {
     path: "/stored-searches",

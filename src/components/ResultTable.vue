@@ -1,59 +1,26 @@
 <template>
-  <v-data-table :headers="headers" :items="credentials" show-expand>
-    <template #item.name="{ item }">
-      <router-link :to="{ name: 'details', params: { id: item.id } }">
-        {{ item.name }}
-      </router-link>
-    </template>
-
-    <template #item.credentialType="{ value }">
-      <div :class="{ 'grey--text': !value }">
-        {{ value || "-" }}
-      </div>
-    </template>
-
-    <template #item.supportedProts="{ item }">
-      <v-chip-group v-if="item.supportedProts.length > 0">
-        <v-chip v-for="prot in item.supportedProts" :key="prot.protocol">
-          {{ prot.protocol }}: {{ prot.versions }}
-        </v-chip>
-      </v-chip-group>
-      <div v-else class="grey--text">-</div>
-    </template>
-
-    <template #item.maturity="{ item }">
-      <v-badge :color="maturityColor(item.maturity)" inline left dot>
-        {{ item.maturityDisplay }}
-      </v-badge>
-    </template>
-
-    <template #item.action="{ item }">
-      <v-btn
-        icon
-        :disabled="bundleCredentials.includes(item)"
-        @click="addToBundle(item.id)"
-      >
-        <v-icon>mdi-bookmark</v-icon>
-      </v-btn>
-    </template>
-
-    <template #expanded-item="{ headers, item }">
-      <td :colspan="headers.length">
-        <result-inline :item="item"></result-inline>
-      </td>
-    </template>
-  </v-data-table>
+  <v-row class="search-results">
+    <v-col
+      v-for="credential in credentials"
+      :key="credential.id"
+      class="search-result"
+      cols="12"
+    >
+      <v-col cols="12" xl="4" lg="5" md="6" sm="8">
+        <ResultCard :credential="credential"></ResultCard>
+      </v-col>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 import { mapMutations, mapGetters } from "vuex"
-import ResultInline from "./ResultInline"
-import constants from "@/constants"
+import ResultCard from "./ResultCard"
 
 export default {
   name: "ResultTable",
   components: {
-    ResultInline,
+    ResultCard,
   },
   props: {
     credentials: {
@@ -61,45 +28,10 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      headers: [
-        {
-          text: "Credential",
-          value: "name",
-        },
-        {
-          text: "Credential Type",
-          value: "credentialType",
-        },
-        {
-          text: "Issuer",
-          value: "issuerDisplay",
-          sortable: false,
-        },
-        {
-          text: "Protocol",
-          value: "supportedProts",
-          sortable: false,
-        },
-        {
-          text: "Maturity",
-          value: "maturity",
-        },
-        {
-          text: "",
-          value: "action",
-          sortable: false,
-        },
-      ],
-    }
-  },
   computed: {
     ...mapGetters(["bundleCredentials"]),
   },
   methods: {
-    onlyCapitals: string => string.replace(/[^A-Z]/g, ""),
-    maturityColor: maturity => constants.MATURITY_COLORS[maturity],
     ...mapMutations(["addToBundle", "removeFromBundle"]),
   },
 }

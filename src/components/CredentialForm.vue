@@ -51,9 +51,9 @@
         ></select-single-dropdown>
 
         <select-dropdown
-          v-model="attributes.issuer"
+          v-model="attributes.organization"
           :items="issuers"
-          v-bind="fieldProps('issuer')"
+          v-bind="fieldProps('organization')"
         ></select-dropdown>
 
         <select-single-dropdown
@@ -116,7 +116,7 @@ const KEY_TO_FIELD_NAME = {
   credentialType: "Credential Type",
   category: "Category",
   version: "Version",
-  issuer: "Issuer",
+  organization: "organization",
   protocol: "Protocol",
   maturity: "Maturity",
   visibility: "Visibility",
@@ -137,7 +137,7 @@ const REQUIRED_FIELDS = [
   "contact",
   "visibility",
   "maturity",
-  "issuer",
+  "organization",
 ]
 
 const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]

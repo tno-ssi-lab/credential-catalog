@@ -5,7 +5,7 @@ const PROCESS_ITEMS = [
     text: "IRS",
     value: "irs",
     abbrev: "IRS",
-    issuer: "government",
+    organization: "government",
     hint:
       "Internal Revenue Service\n",
   },
@@ -13,7 +13,7 @@ const PROCESS_ITEMS = [
     text: "Sub Two",
     value: "sub2",
     abbrev: "S2",
-    issuer: "government",
+    organization: "government",
     hint: "Description of Sub Two\n",
   },
   {
@@ -23,7 +23,7 @@ const PROCESS_ITEMS = [
     text: "Sub Three",
     value: "sub3",
     abbrev: "S3",
-    issuer: "public",
+    organization: "public",
     hint:
       "Description of Sub Three\n",
   },
@@ -34,7 +34,7 @@ const PROCESS_ITEMS = [
     text: "Sub Four",
     value: "sub4",
     abbrev: "S4",
-    issuer: "semi-public",
+    organization: "semi-public",
     hint:
       "Description of Sub Four\n",
   },
@@ -42,7 +42,7 @@ const PROCESS_ITEMS = [
     text: "Sub Five",
     value: "sub5",
     abbrev: "S5",
-    issuer: "semi-public",
+    organization: "semi-public",
     hint:
       "Description of Sub Five\n",
   },
@@ -53,7 +53,7 @@ const PROCESS_ITEMS = [
     text: "Sub Six",
     value: "sub6",
     abbrev: "S6",
-    issuer: "private",
+    organization: "private",
     hint:
       "Description of Sub Six\n",
   },
@@ -64,7 +64,7 @@ const PROCESS_ITEMS = [
     text: "Sub Seven",
     value: "sub7",
     abbrev: "S7",
-    issuer: "issuer-five",
+    organization: "organization-five",
     hint:
       "Description of Sub Seven\n",
   },
@@ -72,7 +72,7 @@ const PROCESS_ITEMS = [
     text: "Sub Eigth",
     value: "sub8",
     abbrev: "S8",
-    issuer: "issuer-five",
+    organization: "organization-five",
     hint:
       "Description of Sub Eight\n",
   },
@@ -80,7 +80,7 @@ const PROCESS_ITEMS = [
     text: "Sub Nine",
     value: "sub9",
     abbrev: "S9",
-    issuer: "issuer-five",
+    organization: "organization-five",
     hint:
       "Description of Sub Nine\n",
   },
@@ -88,7 +88,7 @@ const PROCESS_ITEMS = [
     text: "Sub Ten",
     value: "sub10",
     abbrev: "S10",
-    issuer: "issuer-five",
+    organization: "organization-five",
     hint:
       "Description of Sub Ten\n",
   },
@@ -96,7 +96,7 @@ const PROCESS_ITEMS = [
     text: "Sub Eleven",
     value: "sub11",
     abbrev: "S11",
-    issuer: "issuer-five",
+    organization: "organization-five",
     hint:
       "Description of Sub Eleven\n",
   },
@@ -107,7 +107,7 @@ const PROCESS_ITEMS = [
     text: "Sub Twelve",
     value: "sub12",
     abbrev: "S12",
-    issuer: "issuer-six",
+    organization: "organization-six",
     hint:
       "Description of Sub Twelve\n",
   },
@@ -118,7 +118,7 @@ const PROCESS_ITEMS = [
     text: "Sub Thirteen",
     value: "sub13",
     abbrev: "S13",
-    issuer: "issuer-seven",
+    organization: "organization-seven",
     hint:
       "Description of Sub Thirteen\n",
   },
@@ -126,7 +126,7 @@ const PROCESS_ITEMS = [
     text: "Sub Fourteen",
     value: "sub14",
     abbrev: "S14",
-    issuer: "issuer-seven",
+    organization: "organization-seven",
     hint:
       "Description of Sub Fourteen",
   },
@@ -137,9 +137,9 @@ const PROCESS_MAIN_PHASES = {
   "public": "Public",
   "semi-public": "Semi-Public",
   "Private": "Private",
-  "issuer-five": "Phase Five",
-  "issuer-six": "Phase Six",
-  "issuer-seven": "Phase Seven",
+  "organization-five": "Phase Five",
+  "organization-six": "Phase Six",
+  "organization-seven": "Phase Seven",
 }
 
 const PROCESS_MAP = PROCESS_ITEMS.reduce((acc, { text, value }) => {

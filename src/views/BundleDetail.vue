@@ -35,16 +35,16 @@
     <h2>Credentials</h2>
 
     <div
-      v-for="{ issuer, credentials } in filteredIssuers"
-      :key="issuer.value"
+      v-for="{ organization, credentials } in filteredIssuers"
+      :key="organization.value"
       class="row"
     >
       <div
         class="col-2"
-        :class="`issuer-${issuer.issuer}`"
+        :class="`organization-${organization.organization}`"
         style="border-bottom: 1px solid #ddd;"
       >
-        <h3 v-text="issuer.text"></h3>
+        <h3 v-text="organization.text"></h3>
       </div>
       <div class="col">
         <bundle-credential-card
@@ -130,32 +130,32 @@ export default {
 </script>
 
 <style>
-.issuer-issuer-one {
+.organization-organization-one {
   background: rgb(255, 201, 192);
   /* box-shadow: inset 0px -4px 8px rgba(255, 201, 192, 0.9); */
 }
 
-.issuer-issuer-two {
+.organization-organization-two {
   background: rgb(255, 233, 171);
 }
 
-.issuer-issuer-three {
+.organization-organization-three {
   background: rgb(239, 255, 166);
 }
 
-.issuer-issuer-four {
+.organization-organization-four {
   background: rgb(205, 255, 192);
 }
 
-.issuer-issuer-five {
+.organization-organization-five {
   background: rgb(192, 255, 239);
 }
 
-.issuer-issuer-six {
+.organization-organization-six {
   background: rgb(192, 214, 255);
 }
 
-.issuer-issuer-seven {
+.organization-organization-seven {
   background: rgb(216, 192, 255);
 }
 </style>

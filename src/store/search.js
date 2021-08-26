@@ -28,7 +28,7 @@ export function buildIndex(data) {
 
     this.field("name")
     this.field("credentialType")
-    this.field("issuer")
+    this.field("organization")
     this.field("protocol")
     this.field("category")
     this.field("maturity")
@@ -49,7 +49,7 @@ export function buildIndex(data) {
 export function buildQueryString(search) {
   let query = search.query ? `${search.query}` : ""
 
-  ;["issuer", "category", "maturity", "visibility"].forEach(field => {
+  ;["organization", "category", "maturity", "visibility"].forEach(field => {
     if (search[field]) {
       search[field].forEach(val => {
         query += ` ${field}:${val}`
@@ -82,7 +82,7 @@ function compareField(haystack, needle) {
 export function filterByField(credential, search) {
   let match = true
 
-  ;["issuer", "category", "maturity", "visibility"].forEach(field => {
+  ;["organization", "category", "maturity", "visibility"].forEach(field => {
     if (match && search[field] && search[field].length) {
       if (!search[field].some(val => compareField(credential[field], val))) {
         match = false

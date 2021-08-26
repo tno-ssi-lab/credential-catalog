@@ -5,7 +5,7 @@ export class CredentialOffer {
       {
         id: null,
         credentialType: null, // ID
-        issuer: null, // organization ID
+        organization: null, // organization ID
         assurances: null, // free text field for now
       },
       attrs
@@ -16,7 +16,7 @@ export class CredentialOffer {
     return {
       id: this.id,
       credentialType: this.credentialType,
-      issuer: this.issuer,
+      organization: this.organization,
       assurances: this.assurances,
     }
   }
@@ -26,19 +26,19 @@ export const credentialoffers = [
   {
     id: 1,
     credentialType: 1,
-    issuer: 1,
+    organization: 1,
     assurances: "Zo gepiept",
   },
   {
     id: 2,
     credentialType: 1,
-    issuer: 2,
+    organization: 2,
     assurances: "Haje",
   },
   {
     id: 3,
     credentialType: 1,
-    issuer: 3,
+    organization: 3,
     assurances: "To!",
   },
 ]

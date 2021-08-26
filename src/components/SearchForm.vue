@@ -43,9 +43,9 @@
 
       <v-col cols="12" sm="4">
         <select-dropdown
-          v-model="search.issuer"
+          v-model="search.organization"
           :items="processIssuers"
-          label="Issuer"
+          label="organization"
           @input="$emit('input', search)"
         ></select-dropdown>
       </v-col>

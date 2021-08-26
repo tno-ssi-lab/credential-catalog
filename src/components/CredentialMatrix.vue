@@ -62,32 +62,32 @@ export default {
   padding-right: 18px;
 }
 
-.matrix-issuer-government {
+.matrix-organization-government {
   background: rgb(255, 201, 192);
   /* box-shadow: inset 0px -4px 8px rgba(255, 201, 192, 0.9); */
 }
 
-.matrix-issuer-public {
+.matrix-organization-public {
   background: rgb(255, 233, 171);
 }
 
-.matrix-issuer-semi-public {
+.matrix-organization-semi-public {
   background: rgb(239, 255, 166);
 }
 
-.matrix-issuer-private {
+.matrix-organization-private {
   background: rgb(205, 255, 192);
 }
 
-.matrix-issuer-issuer-five {
+.matrix-organization-organization-five {
   background: rgb(192, 255, 239);
 }
 
-.matrix-issuer-issuer-six {
+.matrix-organization-organization-six {
   background: rgb(192, 214, 255);
 }
 
-.matrix-issuer-issuer-seven {
+.matrix-organization-organization-seven {
   background: rgb(216, 192, 255);
 }
 </style>

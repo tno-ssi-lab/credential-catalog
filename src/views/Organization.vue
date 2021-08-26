@@ -19,9 +19,7 @@
 
     <v-row>
       <v-col cols="12" lg="8" md="6">
-        <h1>{{ credential.name }}</h1>
         <p class="text-justify">
-          Offered by
           <IssuerInline :id="organization.id" :size="25"></IssuerInline>
         </p>
       </v-col>
@@ -34,12 +32,12 @@ import { mapGetters } from "vuex"
 import IssuerInline from "@/components/IssuerInline"
 
 export default {
-  name: "CredentialOffer",
+  name: "Organization",
   components: {
     IssuerInline,
   },
   props: {
-    // Offer ID
+    // organization ID
     id: {
       type: Number,
       default: null,
@@ -47,30 +45,19 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getCredentialById",
-      "getCredentialOfferById",
       "getOrganizationById",
     ]),
-    credential() {
-      const offer = this.getCredentialOfferById(this.id)
-      return this.getCredentialById(offer.credentialType)
-    },
     organization() {
-      const offer = this.getCredentialOfferById(this.id)
-      return this.getOrganizationById(offer.organization)
+      return this.getOrganizationById(this.id)
     },
     navItems() {
       return [
         {
-          text: "Search",
+          text: "Home",
           to: { name: "search" },
         },
         {
-          text: this.credential.name + " type",
-          to: { name: "details", id: this.credential.id },
-        },
-        {
-          text: "Offer by " + this.organization.name,
+          text: this.organization.name,
           disabled: true,
         },
       ]

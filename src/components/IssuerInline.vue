@@ -1,18 +1,18 @@
 <template>
   <span>
     <v-avatar rounded :size="size">
-      <img :src="issuer.logo" :alt="issuer.name" />
+      <img :src="org.logo" :alt="org.name" />
     </v-avatar>
-    {{ issuer.name }}
+    {{ org.name }}
   </span>
 </template>
 
 <script>
 import { mapGetters } from "vuex"
-import {Issuer} from "@/store/issuer";
+import {Organization} from "@/store/organization";
 
 export default {
-  name: "IssuerInline",
+  name: "OrgInline",
   props: {
     id: {
       type: Number,
@@ -25,17 +25,17 @@ export default {
   },
   data() {
     return {
-      issuer: new Issuer({}),
+      organization: new Organization({}),
     }
   },
   computed: {
-    getIssuer() {
-      return this.getIssuerById(this.id)
+    getOrg() {
+      return this.getOrganizationById(this.id)
     },
-    ...mapGetters(["getIssuerById"]),
+    ...mapGetters(["getOrganizationById"]),
   },
   mounted() {
-    this.issuer = this.getIssuer
+    this.org = this.getOrg
   },
 }
 </script>

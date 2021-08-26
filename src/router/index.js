@@ -14,6 +14,7 @@ import StoredSearchDetail from "@/views/StoredSearchDetail"
 
 import Matrix from "@/views/Matrix"
 import CredentialOffer from "@/views/CredentialOffer"
+import Organization from "@/views/Organization"
 
 Vue.use(VueRouter)
 
@@ -77,6 +78,12 @@ const routes = [
     path: "/bundles/:id",
     name: "bundleDetails",
     component: BundleDetail,
+    props: castRouteParams,
+  },
+  {
+    path: "/orgs/:id",
+    name: "organizations",
+    component: Organization,
     props: castRouteParams,
   },
   {

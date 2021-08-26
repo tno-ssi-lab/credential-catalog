@@ -2,7 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import { credentialtypes, CredentialType } from "./credentialtypes"
 import { CredentialOffer, credentialoffers } from "./credentialoffer"
-import { Issuer, issuers } from "./issuer"
+import { Organization, organizations } from "./organization"
 import { buildIndex, buildQueryString, filterByField } from "./search"
 import constants from "@/constants"
 
@@ -17,12 +17,12 @@ function sortByMaturity(a, b) {
 export function credentialsByIssuer(credentials) {
   const issuers = constants.PROCESS_ITEMS.filter(e => e.value)
 
-  return issuers.map(issuer => {
-    const issuerCredentials = credentials.filter(c => c.issuer.includes(issuer.value))
+  return issuers.map(organization => {
+    const issuerCredentials = credentials.filter(c => c.organization.includes(organization.value))
     issuerCredentials.sort(sortByMaturity)
 
     return {
-      issuer,
+      organization,
       credentials: issuerCredentials,
     }
   })
@@ -135,7 +135,7 @@ const searchModule = {
   state: {
     currentSearch: {
       query: null,
-      issuer: [],
+      organization: [],
       category: [],
       maturity: [],
       visibility: [],
@@ -220,7 +220,7 @@ const searchModule = {
       if (storedSearch) {
         state.currentSearch = {
           query: null,
-          issuer: [],
+          organization: [],
           category: [],
           maturity: [],
           visibility: [],
@@ -342,14 +342,14 @@ const credentialOfferModule = {
 
 const issuerModule = {
   state: {
-    issuers: issuers,
-    nextIssuerID: issuers.length + 1,
+    issuers: organizations,
+    nextIssuerID: organizations.length + 1,
   },
   getters: {
     issuers: state => {
-      return state.issuers.map(attrs => new Issuer(attrs))
+      return state.issuers.map(attrs => new Organization(attrs))
     },
-    getIssuerById: (state, { issuers }) => id => {
+    getOrganizationById: (state, { issuers }) => id => {
       return issuers.find(c => c.id === id)
     },
   },
@@ -380,7 +380,7 @@ export default new Vuex.Store({
   modules: {
     credential: credentialTypeModule,
     credentialOffer: credentialOfferModule,
-    issuer: issuerModule,
+    organization: issuerModule,
     bundle: bundleModule,
     search: searchModule,
   },

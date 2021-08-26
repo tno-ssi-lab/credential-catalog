@@ -50,9 +50,9 @@
 
       <v-col cols="12" sm="3">
         <select-dropdown
-          :value="issuer"
+          :value="organization"
           :items="processIssuers"
-          label="Issuer"
+          label="organization"
           @input="updateIssuer"
         ></select-dropdown>
       </v-col>
@@ -109,7 +109,7 @@ export default {
   computed: {
     ...mapState({
       query: state => state.search.currentSearch.query,
-      issuer: state => state.search.currentSearch.issuer,
+      organization: state => state.search.currentSearch.organization,
       category: state => state.search.currentSearch.category,
       visibility: state => state.search.currentSearch.visibility,
       maturity: state => state.search.currentSearch.maturity,

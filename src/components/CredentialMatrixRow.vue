@@ -7,9 +7,9 @@
     </th>
     <td
       v-for="issuerItem in credentialsByIssuer"
-      :key="issuerItem.issuer.value"
+      :key="issuerItem.organization.value"
       class="matrix-credential-cell"
-      :class="`matrix-issuer-${issuerItem.issuer.issuer}`"
+      :class="`matrix-organization-${issuerItem.organization.organization}`"
     >
       <div>
         <v-tooltip
@@ -65,7 +65,7 @@ export default {
     credentialsByIssuer() {
       const issuers = credentialsByIssuer(this.item.credentials)
 
-      return issuers.map(({ issuer, credentials }) => {
+      return issuers.map(({ organization, credentials }) => {
         const maturityCount = {}
 
         for (let maturity in constants.MATURITY_MAP) {
@@ -77,7 +77,7 @@ export default {
         }
 
         return {
-          issuer,
+          organization,
           credentials,
           maturityCount,
         }

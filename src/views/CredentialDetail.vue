@@ -50,9 +50,9 @@
           </template>
 
           <template #item.issuerDisplay="{ value }">
-            <v-chip-group v-for="Issuer in value" :key="Issuer">
+            <v-chip-group v-for="organization in value" :key="organization">
               <v-chip>
-                {{ Issuer }}
+                {{ organization }}
               </v-chip>
             </v-chip-group>
           </template>
@@ -155,7 +155,7 @@ export default {
           value: "version",
         },
         {
-          text: "Issuer",
+          text: "organization",
           value: "issuerDisplay",
         },
         {

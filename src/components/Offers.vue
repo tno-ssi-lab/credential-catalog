@@ -6,7 +6,7 @@
         <v-simple-table class="mt-5">
           <thead>
             <tr>
-              <th>Issuer</th>
+              <th>organization</th>
               <th>Assurances</th>
               <th>Details</th>
             </tr>
@@ -14,7 +14,7 @@
           <tbody>
             <tr v-for="offer in offers" :key="offer.id">
               <td>
-                <IssuerInline :id="offer.issuer"></IssuerInline>
+                <IssuerInline :id="offer.organization"></IssuerInline>
               </td>
               <td>
                 {{ offer.assurances }}

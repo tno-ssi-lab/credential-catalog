@@ -1,4 +1,4 @@
-export class Issuer {
+export class Organization {
   constructor(attrs = {}) {
     Object.assign(
       this,
@@ -22,7 +22,7 @@ export class Issuer {
   }
 }
 
-export const issuers = [
+export const organizations = [
   {
     id: 1,
     logo: "https://i.ytimg.com/vi/aeJgt0HEeiY/hqdefault.jpg",

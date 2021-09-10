@@ -2,7 +2,7 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 
 import CredentialSearch from "@/views/CredentialSearch"
-import CredentialDetail from "@/views/CredentialDetail"
+import CredentialDetail from "@/views/credential-detail/CredentialDetail"
 import CredentialEdit from "@/views/CredentialEdit"
 import CredentialChangeLog from "@/views/CredentialChangeLog"
 

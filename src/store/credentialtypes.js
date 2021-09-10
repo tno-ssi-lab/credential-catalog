@@ -67,7 +67,9 @@ export class CredentialType {
   }
 
   get issuerDisplay() {
-    return this.organization.map(organization => constants.PROCESS_MAP[organization])
+    return this.organization.map(
+      organization => constants.PROCESS_MAP[organization]
+    )
   }
 
   get categoryDisplay() {
@@ -82,23 +84,56 @@ export class CredentialType {
 export const credentialtypes = [
   {
     id: 1,
-    name: "Name",
-    credentialType: "NameCredential",
+    name: "Passport",
+    credentialType: "PassportCredential",
     category: "category-two",
     version: "1.0",
     organization: ["sub7"],
     maturity: "complete",
     visibility: "unclassified",
     description: `
-      Name of an individual.
+      A passport travel document as issued by government agencies
       `,
+    attributes: [
+      {
+        title: "Name",
+        key: "name",
+        type: "String",
+      },
+      {
+        title: "Date of Birth",
+        key: "date_of_birth",
+        type: "Date",
+      },
+      {
+        title: "Photo",
+        key: "photo",
+        type: "String",
+        description: "Base64 image",
+      },
+      {
+        title: "Document number",
+        key: "doc_number",
+        type: "String",
+      },
+      {
+        title: "Date of issue",
+        key: "issued_at",
+        type: "Date",
+      },
+      {
+        title: "Valid until",
+        key: "expires",
+        type: "Date",
+      },
+    ],
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Job Cohen <job.cohen@example.com>",
     supportedProts: [],
     constituents: [],
     reviews: [],
-    offers: [2,1,3],
+    offers: [2, 1, 3],
     deploymentRequirements: null,
   },
   {

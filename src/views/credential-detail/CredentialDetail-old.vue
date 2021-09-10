@@ -24,10 +24,10 @@
     <v-row>
       <v-col cols="12" lg="8" md="6">
         <h1>{{ credential.name }}</h1>
-        <p class="text-justify">
+        <!-- <p class="text-justify">
           {{ credential.description }}
-        </p>
-        <p v-html="markdown"></p>
+        </p> -->
+        <MarkdownDisplay :markdown="credential.description" />
       </v-col>
 
       <v-col cols="12" lg="4" md="6">
@@ -118,13 +118,11 @@
 </template>
 
 <script>
-import marked from 'marked'
-import highlight from 'highlight.js'
-import 'highlight.js/styles/github.css'
 import { mapGetters } from "vuex"
 import DetailsTable from "@/components/common/DetailsTable"
 import Reviews from "@/components/credential/Reviews"
-import Offers from "@/components/credential/OfferCard"
+import Offers from "@/components/credential/Offers"
+import MarkdownDisplay from "@/components/common/MarkdownDisplay"
 
 export default {
   name: "CredentialDetail",
@@ -132,6 +130,7 @@ export default {
     DetailsTable,
     Reviews,
     Offers,
+    MarkdownDisplay,
   },
   props: {
     id: {

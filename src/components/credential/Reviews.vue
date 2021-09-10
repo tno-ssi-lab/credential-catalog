@@ -79,7 +79,7 @@
 <script>
 import { mapGetters } from "vuex"
 
-import StarRating from "@/components/StarRating"
+import StarRating from "@/components/credential/StarRating"
 
 const requiredFields = ["rating", "motivation"]
 

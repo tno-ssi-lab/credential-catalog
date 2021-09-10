@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import DetailLine from "./DetailLine"
+import DetailLine from "../common/DetailLine"
 
 export default {
   name: "ResultInline",

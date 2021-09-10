@@ -27,6 +27,7 @@
         <p class="text-justify">
           {{ credential.description }}
         </p>
+        <p v-html="markdown"></p>
       </v-col>
 
       <v-col cols="12" lg="4" md="6">
@@ -117,6 +118,9 @@
 </template>
 
 <script>
+import marked from 'marked'
+import highlight from 'highlight.js'
+import 'highlight.js/styles/github.css'
 import { mapGetters } from "vuex"
 import DetailsTable from "@/components/common/DetailsTable"
 import Reviews from "@/components/credential/Reviews"
@@ -210,6 +214,14 @@ export default {
         },
       ]
     },
+    markdown(){
+      // return marked('Example<br>```{"test":"hi!"}```')
+      return marked(this.credential.description, {
+        highlight(md) {
+          return highlight.highlightAuto(md).value
+        }
+      })
+    }
   },
   methods: {
     credentialById(id) {

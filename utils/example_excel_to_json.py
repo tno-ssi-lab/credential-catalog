@@ -6,9 +6,11 @@ wb = load_workbook("examples.xlsx")
 
 cols = list(wb["Sheet1"].columns)
 headers = [x.value for x in cols[0]]
-entries = [[str(y.value) for y in x] for x in cols[2:]]
+entries = [[str(y.value) for y in x] for x in cols[2:] if x[0] != None]
 
 examples = list(dict(zip(headers, entry)) for entry in entries)
+
+examples[-1]
 
 base_index = 1000
 
@@ -25,5 +27,5 @@ for (i, x) in enumerate(examples):
     x["offers"] = []
     x["deploymentRequirements"] = None
 
-
-print(json.dumps(examples, indent=2))
+with open("examples.json", "w") as out_file:
+    json.dump(examples, out_file, indent=2)

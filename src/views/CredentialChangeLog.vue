@@ -11,7 +11,7 @@
 
 <script>
 import { mapGetters } from "vuex"
-import ChangeLog from "@/components/ChangeLog"
+import ChangeLog from "@/components/credential/ChangeLog"
 import { COLLABORATORS } from "@/collaborators"
 import { CRED_UPDATES } from "@/example_cred_updates"
 import constants from "@/constants"

@@ -59,8 +59,8 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex"
-import CredentialMatrix from "@/components/CredentialMatrix"
-import BundleCredentialCard from "../components/BundleCredentialCard.vue"
+import CredentialMatrix from "@/components/credential/CredentialMatrix"
+import BundleCredentialCard from "../components/bundle/BundleCredentialCard.vue"
 
 export default {
   name: "BundleDetail",

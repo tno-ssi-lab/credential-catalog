@@ -32,9 +32,9 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex"
-import CredentialMatrix from "@/components/CredentialMatrix"
-import SearchForm from "@/components/SearchForm"
-import ResultTable from "@/components/ResultTable"
+import CredentialMatrix from "@/components/credential/CredentialMatrix"
+import SearchForm from "@/components/deprecated/SearchForm.old"
+import ResultTable from "@/components/search/ResultTable"
 
 export default {
   name: "StoredSearchDetail",

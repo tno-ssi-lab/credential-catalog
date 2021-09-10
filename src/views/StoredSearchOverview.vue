@@ -35,7 +35,7 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from "vuex"
-import CredentialMatrix from "@/components/CredentialMatrix"
+import CredentialMatrix from "@/components/credential/CredentialMatrix"
 
 export default {
   name: "StoredSearchOverview",

@@ -15,7 +15,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex"
-import CredentialForm from "@/components/CredentialForm"
+import CredentialForm from "@/components/credential/CredentialForm"
 
 export default {
   name: "CredentialEdit",

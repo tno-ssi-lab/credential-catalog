@@ -29,7 +29,7 @@
 
 <script>
 import { mapGetters } from "vuex"
-import IssuerInline from "@/components/IssuerInline"
+import IssuerInline from "@/components/common/IssuerInline"
 
 export default {
   name: "Organization",

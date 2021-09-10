@@ -9,13 +9,7 @@
       @input="input => updateSearch(input)"
     ></search-form>
 
-    <div class="d-flex flex-row-reverse">
-      <v-btn @click="storeSearch">Store</v-btn>
-    </div>
-
     <h2>Search results ({{ resultCount }})</h2>
-
-    <credential-matrix :items="matrixRows"></credential-matrix>
 
     <result-table :credentials="credentials" />
   </div>
@@ -23,16 +17,14 @@
 
 <script>
 import { mapGetters, mapState, mapMutations } from "vuex"
-import SearchForm from "@/components/SearchForm"
-import ResultTable from "@/components/ResultTable"
-import CredentialMatrix from "@/components/CredentialMatrix"
+import ResultTable from "@/components/search/ResultTable"
+import SearchForm from "@/components/search/SearchForm"
 
 export default {
   name: "CredentialSearch",
   components: {
     SearchForm,
     ResultTable,
-    CredentialMatrix,
   },
   computed: {
     ...mapState(["search"]),

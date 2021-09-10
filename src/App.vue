@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import BundleDrawer from "./components/BundleDrawer"
+import BundleDrawer from "./components/bundle/BundleDrawer"
 import { mapGetters } from "vuex"
 
 export default {

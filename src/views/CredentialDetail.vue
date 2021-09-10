@@ -118,9 +118,9 @@
 
 <script>
 import { mapGetters } from "vuex"
-import DetailsTable from "@/components/DetailsTable"
-import Reviews from "@/components/Reviews"
-import Offers from "@/components/Offers"
+import DetailsTable from "@/components/common/DetailsTable"
+import Reviews from "@/components/credential/Reviews"
+import Offers from "@/components/credential/Offers"
 
 export default {
   name: "CredentialDetail",

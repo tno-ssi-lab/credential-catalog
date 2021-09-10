@@ -21,12 +21,19 @@
           </v-col>
         </v-row>
 
-        <v-textarea
-          v-model="attributes.description"
-          no-resize
-          auto-grow
-          v-bind="fieldProps('description')"
-        />
+        <v-row>
+          <v-col cols="12" sm="6">
+            <v-textarea
+              v-model="attributes.description"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('description')"
+            />
+          </v-col>
+          <v-col cols="12" sm="6" style="border:1px black solid">
+            <MarkdownDisplay :markdown="attributes.description" />
+          </v-col>
+        </v-row>
       </v-col>
 
       <v-col cols="4">
@@ -105,6 +112,7 @@ import { mapGetters } from "vuex"
 import CredentialSelect from "@/components/credential/CredentialSelect"
 import SelectDropdown from "@/components/common/SelectDropdown"
 import SelectSingleDropdown from "@/components/common/SelectSingleDropdown"
+import MarkdownDisplay from "@/components/common/MarkdownDisplay"
 import VersionAdd from "@/components/credential/VersionAdd"
 import constants from "@/constants"
 import { ADJECTIVES } from "@/adjectives"
@@ -154,6 +162,7 @@ export default {
     CredentialSelect,
     SelectDropdown,
     SelectSingleDropdown,
+    MarkdownDisplay,
     VersionAdd,
   },
   props: {

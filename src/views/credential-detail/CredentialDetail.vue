@@ -24,7 +24,7 @@
                       <em>{{ attribute.type }}</em>
                     </td>
                     <td>
-                      <v-icon>mdi-bookmark-outline</v-icon>
+                      <v-icon small>mdi-bookmark-outline</v-icon>
                     </td>
                   </tr>
                 </tbody>
@@ -37,7 +37,7 @@
       <v-col lg="8" md="10">
         <h3>Issuers</h3>
         <v-col v-for="offer in credential.offers" :key="offer" cols="12">
-          <offer :id="offer"></offer>
+          <offer-card :id="offer"></offer-card>
         </v-col>
       </v-col>
     </v-row>
@@ -46,55 +46,16 @@
 
 <script>
 import { mapGetters } from "vuex"
-import Offer from "@/components/credential/Offer"
+import OfferCard from "@/components/credential/OfferCard"
 
 export default {
   name: "CredentialDetail",
-  components: { Offer },
+  components: { OfferCard },
   props: {
     id: {
       default: null,
       type: Number,
     },
-  },
-  data() {
-    return {
-      headers: [
-        {
-          text: "Name",
-          align: "start",
-          sortable: false,
-          value: "name",
-        },
-        { text: "Type", value: "dataType", sortable: false },
-      ],
-      attributes: [
-        {
-          name: "Name",
-          dataType: "String",
-        },
-        {
-          name: "Date of Birth",
-          dataType: "Date",
-        },
-        {
-          name: "Photo",
-          dataType: "String (base64)",
-        },
-        {
-          name: "Document number",
-          dataType: "String",
-        },
-        {
-          name: "Date of issue",
-          dataType: "Date",
-        },
-        {
-          name: "Valid until",
-          dataType: "Date",
-        },
-      ],
-    }
   },
   computed: {
     ...mapGetters(["getCredentialById"]),

@@ -6,7 +6,9 @@
       </v-avatar>
       <div class="org-card-title d-flex flex-column">
         <v-card-title>
-          Issuer name
+          <router-link :to="{ name: 'offer', params: { id: offer.id } }">
+            {{ organization.name }}
+          </router-link>
         </v-card-title>
         <v-card-subtitle>
           Published on {{ offer.publishedAt | dateParse("DD.MM.YYYY") }}
@@ -34,7 +36,7 @@
 import { mapGetters } from "vuex"
 
 export default {
-  name: "Offer",
+  name: "OfferCard",
   props: {
     id: {
       type: Number,
@@ -73,13 +75,22 @@ export default {
   margin-left: 15px;
 }
 
-.org-card-title .v-card__title {
-  font-size: 24px;
+.v-card__title {
   padding: 0;
   margin-bottom: 9px;
 }
 
-.org-card-title .v-card__subtitle {
+.v-card__title a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.v-card__title a:hover {
+  text-decoration: underline;
+}
+
+.v-card__subtitle {
   font-size: 14px;
   padding: 0;
 }

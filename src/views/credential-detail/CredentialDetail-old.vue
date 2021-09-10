@@ -120,7 +120,7 @@
 import { mapGetters } from "vuex"
 import DetailsTable from "@/components/common/DetailsTable"
 import Reviews from "@/components/credential/Reviews"
-import Offers from "@/components/credential/Offer"
+import Offers from "@/components/credential/OfferCard"
 
 export default {
   name: "CredentialDetail",

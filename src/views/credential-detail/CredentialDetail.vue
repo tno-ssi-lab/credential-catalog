@@ -8,6 +8,8 @@
           </v-card-title>
 
           <v-card-text>
+            <!-- <MarkdownDisplay :markdown="credential.description" />
+            <MarkdownDisplay :markdown="credential.documentation" /> -->
             {{ credential.description }}
           </v-card-text>
           <v-card-text>
@@ -50,7 +52,9 @@ import OfferCard from "@/components/credential/OfferCard"
 
 export default {
   name: "CredentialDetail",
-  components: { OfferCard },
+  components: {
+    OfferCard,
+  },
   props: {
     id: {
       default: null,

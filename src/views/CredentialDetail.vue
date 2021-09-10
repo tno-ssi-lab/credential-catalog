@@ -28,6 +28,8 @@
           {{ credential.description }}
         </p> -->
         <MarkdownDisplay :markdown="credential.description" />
+        <MarkdownDisplay :markdown="credential.documentation" />
+        <MarkdownDisplay :markdown="credential.example" />
       </v-col>
 
       <v-col cols="12" lg="4" md="6">

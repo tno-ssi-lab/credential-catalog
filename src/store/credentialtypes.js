@@ -81,7 +81,7 @@ export class CredentialType {
   }
 }
 
-export const credentialtypes = [
+const democredentialtypes = [
   {
     id: 1,
     name: "Passport",
@@ -761,3 +761,7 @@ export const credentialtypes = [
     deploymentRequirements: null,
   },
 ]
+
+let importedcredentialtypes = require('./examples.json');
+
+export const credentialtypes = democredentialtypes.concat(importedcredentialtypes);

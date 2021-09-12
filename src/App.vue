@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!--
     <v-navigation-drawer v-model="drawer" app dark>
       <v-list-item>
         <v-list-item-content>
@@ -29,7 +30,7 @@
 
     <bundle-drawer v-model="bundleDrawer"></bundle-drawer>
 
-    <v-app-bar app color="primary" dark dense>
+    <v-app-bar app color="white" dense>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>
@@ -37,7 +38,6 @@
           :to="{ name: 'search' }"
           style="text-decoration:none;color:white"
         >
-          <v-icon>mdi-bug</v-icon>
           Credential Catalog
         </router-link>
       </v-toolbar-title>
@@ -59,8 +59,23 @@
       </v-btn>
     </v-app-bar>
 
+    -->
+
     <v-content>
-      <v-container>
+      <v-container fluid class="container">
+        <nav class="d-flex">
+          <h1 class="nav-title">
+            Credential Catalogue
+          </h1>
+          <v-spacer></v-spacer>
+
+          <v-btn icon>
+            <v-icon>mdi-bookmark</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon>mdi-help-circle</v-icon>
+          </v-btn>
+        </nav>
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -68,13 +83,13 @@
 </template>
 
 <script>
-import BundleDrawer from "./components/bundle/BundleDrawer"
+//import BundleDrawer from "./components/bundle/BundleDrawer"
 import { mapGetters } from "vuex"
 
 export default {
   name: "App",
   components: {
-    BundleDrawer,
+    //BundleDrawer,
   },
   data: () => {
     return {
@@ -85,3 +100,19 @@ export default {
   computed: mapGetters(["bundleCredentials"]),
 }
 </script>
+
+<style scoped>
+.container {
+  margin: 0 auto;
+}
+
+nav {
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 70%;
+  }
+}
+</style>

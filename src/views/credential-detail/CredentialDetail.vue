@@ -1,49 +1,47 @@
 <template>
-  <v-container class="container">
-    <v-row>
-      <v-col class="item-summary" lg="8" md="10">
-        <v-card elevation="3">
-          <v-card-title>
-            {{ credential.name }}
-          </v-card-title>
+  <v-row>
+    <v-col class="item-summary" lg="8" md="10" cols="12">
+      <v-card elevation="3">
+        <v-card-title>
+          {{ credential.name }}
+        </v-card-title>
 
-          <v-card-text>
-            <!-- <MarkdownDisplay :markdown="credential.description" />
-            <MarkdownDisplay :markdown="credential.documentation" /> -->
-            {{ credential.description }}
-          </v-card-text>
-          <v-card-text>
-            <h4>Attributes</h4>
-            <v-simple-table dense>
-              <template v-slot:default>
-                <tbody>
-                  <tr
-                    v-for="attribute in credential.attributes"
-                    :key="attribute.title"
-                  >
-                    <td>{{ attribute.title }}</td>
-                    <td>
-                      <em>{{ attribute.type }}</em>
-                    </td>
-                    <td>
-                      <v-icon small>mdi-bookmark-outline</v-icon>
-                    </td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
+        <v-card-text>
+          <!-- <MarkdownDisplay :markdown="credential.description" />
+          <MarkdownDisplay :markdown="credential.documentation" /> -->
+          {{ credential.description }}
+        </v-card-text>
+        <v-card-text>
+          <h4>Attributes</h4>
+          <v-simple-table dense>
+            <template v-slot:default>
+              <tbody>
+                <tr
+                  v-for="attribute in credential.attributes"
+                  :key="attribute.title"
+                >
+                  <td>{{ attribute.title }}</td>
+                  <td>
+                    <em>{{ attribute.type }}</em>
+                  </td>
+                  <td>
+                    <v-icon small>mdi-bookmark-outline</v-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-card-text>
+      </v-card>
+    </v-col>
 
-      <v-col lg="8" md="10">
-        <h3>Issuers</h3>
-        <v-col v-for="offer in credential.offers" :key="offer" cols="12">
-          <offer-card :id="offer"></offer-card>
-        </v-col>
+    <v-col lg="8" md="10" cols="12">
+      <h3>Issuers</h3>
+      <v-col v-for="offer in credential.offers" :key="offer" cols="12">
+        <offer-card :id="offer"></offer-card>
       </v-col>
-    </v-row>
-  </v-container>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -66,6 +64,15 @@ export default {
     credential() {
       return this.getCredentialById(this.id)
     },
+    /*
+    markdown(){
+      // return marked('Example<br>```{"test":"hi!"}```')
+      return marked(this.credential.description, {
+        highlight(md) {
+          return highlight.highlightAuto(md).value
+        }
+      })
+    }*/
   },
   methods: {
     credentialById(id) {
@@ -82,11 +89,5 @@ td {
 
 .item-summary {
   margin-bottom: 30px;
-}
-
-@media only screen and (min-width: 1200px) {
-  .row {
-    margin-left: 15%;
-  }
 }
 </style>

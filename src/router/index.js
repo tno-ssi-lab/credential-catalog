@@ -9,6 +9,9 @@ import CredentialChangeLog from "@/views/CredentialChangeLog"
 import BundleOverview from "@/views/BundleOverview"
 import BundleDetail from "@/views/BundleDetail"
 
+import About from "@/views/About"
+import Glossary from "@/views/Glossary"
+
 import StoredSearchOverview from "@/views/StoredSearchOverview"
 import StoredSearchDetail from "@/views/StoredSearchDetail"
 
@@ -85,6 +88,16 @@ const routes = [
     name: "organizations",
     component: Organization,
     props: castRouteParams,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About,
+  },
+  {
+    path: "/glossary",
+    name: "glossary",
+    component: Glossary,
   },
   {
     path: "/",

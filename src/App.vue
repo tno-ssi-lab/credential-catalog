@@ -15,6 +15,12 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
+        <v-list-item :to="{ name: 'about' }">
+          <v-list-item-title>About</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="{ name: 'glossary' }">
+          <v-list-item-title>Glossary</v-list-item-title>
+        </v-list-item>
         <v-list-item :to="{ name: 'search' }">
           <v-list-item-title>Search</v-list-item-title>
         </v-list-item>

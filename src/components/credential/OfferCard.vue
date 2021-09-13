@@ -25,7 +25,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn text>
+      <v-btn text small>
         See documentation
       </v-btn>
     </v-card-actions>
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+.v-card {
+  padding: 15px;
+}
+
 .v-card header button {
   position: absolute;
   right: 20px;

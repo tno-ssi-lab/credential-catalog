@@ -62,7 +62,7 @@
     -->
 
     <v-content>
-      <v-container fluid class="container">
+      <v-container class="container">
         <nav class="d-flex">
           <h1 class="nav-title">
             Credential Catalogue
@@ -70,10 +70,10 @@
           <v-spacer></v-spacer>
 
           <v-btn icon>
-            <v-icon>mdi-bookmark</v-icon>
+            <v-icon small color="black">mdi-bookmark</v-icon>
           </v-btn>
           <v-btn icon>
-            <v-icon>mdi-help-circle</v-icon>
+            <v-icon small color="black">mdi-help-circle</v-icon>
           </v-btn>
         </nav>
         <router-view></router-view>
@@ -85,6 +85,8 @@
 <script>
 //import BundleDrawer from "./components/bundle/BundleDrawer"
 import { mapGetters } from "vuex"
+import "@fontsource/poppins"
+import "@fontsource/inter"
 
 export default {
   name: "App",
@@ -101,13 +103,30 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", "Roboto", "sans-serif";
+}
+
 .container {
   margin: 0 auto;
 }
 
+* {
+  font-family: "Inter", "Roboto", "sans-serif";
+}
+
 nav {
   margin-bottom: 50px;
+}
+
+.nav-title {
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 768px) {

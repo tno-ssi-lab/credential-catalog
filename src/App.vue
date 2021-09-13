@@ -64,9 +64,11 @@
     <v-content>
       <v-container class="container">
         <nav class="d-flex">
-          <h1 class="nav-title">
-            Credential Catalogue
-          </h1>
+          <router-link :to="{ name: 'search' }" class="header-link">
+            <h1 class="nav-title">
+              Credential Catalogue
+            </h1>
+          </router-link>
           <v-spacer></v-spacer>
 
           <v-btn icon>
@@ -113,6 +115,11 @@ h6 {
   font-family: "Poppins", "Roboto", "sans-serif";
 }
 
+.header-link {
+  text-decoration: none;
+  color: black !important;
+}
+
 .container {
   margin: 0 auto;
 }
@@ -122,7 +129,7 @@ h6 {
 }
 
 nav {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .nav-title {

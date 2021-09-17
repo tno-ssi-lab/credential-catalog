@@ -88,6 +88,7 @@ export default {
   color: white;
   text-decoration: none;
   font-size: 24px;
+  font-weight: 600;
 }
 
 .v-card__title a:hover {

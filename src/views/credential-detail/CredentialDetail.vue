@@ -3,7 +3,7 @@
     <page-back-link></page-back-link>
     <v-row>
       <v-col class="item-summary" lg="8" md="10" cols="12">
-        <v-card elevation="3">
+        <v-card class="main-card">
           <v-card-title>
             {{ credential.name }}
           </v-card-title>
@@ -27,7 +27,7 @@
                       <em>{{ attribute.type }}</em>
                     </td>
                     <td>
-                      <v-icon small>mdi-bookmark-outline</v-icon>
+                      <v-icon color="primary" small>mdi-bookmark-outline</v-icon>
                     </td>
                   </tr>
                 </tbody>
@@ -90,6 +90,7 @@ export default {
 td {
   padding: 0 !important;
   font-size: 13px !important;
+  color: #6e7299;
 }
 
 .item-summary {

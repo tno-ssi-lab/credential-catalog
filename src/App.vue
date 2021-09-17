@@ -113,6 +113,19 @@ h4,
 h5,
 h6 {
   font-family: "Poppins", "Roboto", "sans-serif";
+  color: black;
+}
+
+.v-card.main-card {
+  box-shadow: 0 4px 16px rgba(66, 83, 98, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 5px;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+}
+
+.v-card__title {
+  font-weight: 600;
 }
 
 .header-link {

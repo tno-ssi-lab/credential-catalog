@@ -116,7 +116,16 @@ h6 {
   color: black;
 }
 
-.v-card.main-card {
+.v-card {
+  padding: 15px;
+}
+
+.v-card header button {
+  position: absolute;
+  right: 20px;
+}
+
+.main-card {
   box-shadow: 0 4px 16px rgba(66, 83, 98, 0.1) !important;
   border-radius: 8px !important;
   padding: 5px;
@@ -124,8 +133,42 @@ h6 {
   margin: 0 auto;
 }
 
-.v-card__title {
+.main-card.v-card .v-card__title {
+  padding: 16px;
+}
+
+.v-card .v-card__title * {
   font-weight: 600;
+}
+
+.v-card .v-card__title {
+  margin-bottom: 9px;
+  padding: 0;
+  font-weight: 600;
+  color: black;
+}
+
+.v-card .v-card__title a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+}
+.v-card__title a:hover {
+  text-decoration: underline;
+}
+
+.v-card .v-card__subtitle {
+  font-size: 14px;
+  padding: 0;
+}
+
+.text-muted {
+  color: #bdc1d4;
+}
+
+.v-card .card-title-wrapper {
+  margin-left: 15px;
 }
 
 .header-link {
@@ -139,6 +182,7 @@ h6 {
 
 * {
   font-family: "Inter", "Roboto", "sans-serif";
+  color: #6E7299;
 }
 
 nav {

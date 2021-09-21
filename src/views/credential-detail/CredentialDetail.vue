@@ -3,38 +3,7 @@
     <page-back-link></page-back-link>
     <v-row>
       <v-col class="item-summary" lg="8" md="10" cols="12">
-        <v-card class="main-card">
-          <v-card-title>
-            {{ credential.name }}
-          </v-card-title>
-
-          <v-card-text>
-            <!-- <MarkdownDisplay :markdown="credential.description" />
-            <MarkdownDisplay :markdown="credential.documentation" /> -->
-            {{ credential.description }}
-          </v-card-text>
-          <v-card-text>
-            <h4>Attributes</h4>
-            <v-simple-table dense>
-              <template v-slot:default>
-                <tbody>
-                  <tr
-                    v-for="attribute in credential.attributes"
-                    :key="attribute.title"
-                  >
-                    <td>{{ attribute.title }}</td>
-                    <td>
-                      <em>{{ attribute.type }}</em>
-                    </td>
-                    <td>
-                      <v-icon color="primary" small>mdi-bookmark-outline</v-icon>
-                    </td>
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </v-card-text>
-        </v-card>
+        <credential-type-card :id="id"></credential-type-card>
       </v-col>
 
       <v-col lg="8" md="10" cols="12">
@@ -51,12 +20,14 @@
 import { mapGetters } from "vuex"
 import OfferCard from "@/components/credential/OfferCard"
 import PageBackLink from "@/components/common/PageBackLink"
+import CredentialTypeCard from "@/components/credential/CredentialTypeCard"
 
 export default {
   name: "CredentialDetail",
   components: {
     OfferCard,
     PageBackLink,
+    CredentialTypeCard,
   },
   props: {
     id: {
@@ -87,12 +58,6 @@ export default {
 }
 </script>
 <style scoped>
-td {
-  padding: 0 !important;
-  font-size: 13px !important;
-  color: #6e7299;
-}
-
 .item-summary {
   margin-bottom: 30px;
 }

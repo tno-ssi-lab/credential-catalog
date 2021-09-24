@@ -1,17 +1,23 @@
 <template>
   <div>
-    <v-breadcrumbs :items="navItems" large class="px-0 py-5"></v-breadcrumbs>
+    <v-row>
+      <v-col cols="12">
+        <search-form
+          :value="search.currentSearch"
+          @input="input => updateSearch(input)"
+        ></search-form>
+      </v-col>
+    </v-row>
 
-    <h1>Search</h1>
-
-    <search-form
-      :value="search.currentSearch"
-      @input="input => updateSearch(input)"
-    ></search-form>
-
-    <h2>Search results ({{ resultCount }})</h2>
-
-    <result-table :credentials="credentials" />
+    <v-row>
+      <v-col cols="12" md="8">
+        <h3>Results ({{ resultCount }})</h3>
+        <result-table :credentials="credentials" />
+      </v-col>
+      <v-col md="4">
+        <h4>Filters</h4>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

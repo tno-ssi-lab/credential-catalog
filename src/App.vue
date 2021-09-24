@@ -123,6 +123,7 @@ h6 {
 .v-card header button {
   position: absolute;
   right: 20px;
+  top: 10px;
 }
 
 .main-card {
@@ -133,12 +134,12 @@ h6 {
   margin: 0 auto;
 }
 
-.main-card.v-card .v-card__title {
-  padding: 16px;
-}
-
 .v-card .v-card__title * {
   font-weight: 600;
+}
+
+.v-card .v-card__title.center {
+  margin-bottom: 0;
 }
 
 .v-card .v-card__title {
@@ -149,13 +150,19 @@ h6 {
 }
 
 .v-card .v-card__title a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 24px;
   font-weight: 600;
 }
+
+.v-card.theme--dark .v-card__title a {
+  color: white;
+}
+
 .v-card__title a:hover {
   text-decoration: underline;
+  color: inherit;
 }
 
 .v-card .v-card__subtitle {
@@ -169,6 +176,10 @@ h6 {
 
 .v-card .card-title-wrapper {
   margin-left: 15px;
+}
+
+.v-avatar {
+  background-color: #bdc1d4;
 }
 
 .header-link {

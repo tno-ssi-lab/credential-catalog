@@ -1,8 +1,17 @@
 <template>
   <v-card v-if="credentialType" class="main-card">
-    <v-card-title>
-      {{ credentialType.name }}
-    </v-card-title>
+    <v-app-bar flat color="rgba(0, 0, 0, 0)">
+      <v-avatar rounded size="38" color="gray">
+      </v-avatar>
+      <div class="card-title-wrapper d-flex flex-column">
+        <v-card-title class="center">
+          <router-link :to="{ name: 'details', params: { id: credentialType.id } }">
+            {{ credentialType.name }}
+          </router-link>
+        </v-card-title>
+      </div>
+      <bookmark-button :credential="credentialType"></bookmark-button>
+    </v-app-bar>
 
     <v-card-text>
       <!-- <MarkdownDisplay :markdown="credential.description" />
@@ -36,9 +45,13 @@
 
 <script>
 import { mapGetters } from "vuex"
+import BookmarkButton from "@/components/common/BookmarkButton"
 
 export default {
   name: "CredentialTypeCard",
+  components: {
+    BookmarkButton,
+  },
   props: {
     id: {
       type: Number,

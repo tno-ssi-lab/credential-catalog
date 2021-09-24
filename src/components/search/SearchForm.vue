@@ -4,19 +4,12 @@
       v-model="search.query"
       label="Type to search"
       type="text"
-      single-line
+      outlined
       hint="Note: Only whole words are recognized, use '*' as wildcard."
+      append-icon="mdi-magnify"
       clearable
       @input="incrementalSearchEnabled && $emit('input', search)"
     >
-      <template #append-outer>
-        <v-btn
-          color="primary"
-          :disabled="incrementalSearchEnabled"
-          @click="$emit('input', search)"
-          v-text="commitTitle"
-        ></v-btn>
-      </template>
     </v-text-field>
   </div>
 </template>

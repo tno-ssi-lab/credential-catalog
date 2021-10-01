@@ -7,23 +7,27 @@
     <v-row>
       <v-col cols="12">
         <v-select
+          v-model="resultsFilterValues"
+          :items="['Credentials', 'Attributes']"
+          label="Results"
+          hint="The kind of results to show"
+          persistent-hint
+          multiple
+          chips
+          outlined
+        ></v-select>
+        <v-select
           :items="['a', 'b']"
           label="Issuer"
-          hint="Some explanation"
+          hint="Filter on issuer(s)"
           persistent-hint
+          multiple
           outlined
         ></v-select>
         <v-select
           :items="['a', 'b']"
           label="Format"
-          hint="Some explanation"
-          persistent-hint
-          outlined
-        ></v-select>
-        <v-select
-          :items="['a', 'b']"
-          label="Is revocable"
-          hint="Some explanation"
+          hint="The kind of data format"
           persistent-hint
           outlined
         ></v-select>
@@ -33,8 +37,10 @@
 </template>
 
 <script>
-
 export default {
   name: "SearchFilters",
+  data: () => ({
+    resultsFilterValues: ["Credentials", "Attributes"],
+  }),
 }
 </script>

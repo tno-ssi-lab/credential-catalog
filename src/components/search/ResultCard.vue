@@ -4,17 +4,19 @@
       <v-avatar rounded size="38" color="gray">
       </v-avatar>
       <div class="card-title-wrapper d-flex flex-column">
-        <v-card-title>
+        <v-card-title class="center">
           <router-link :to="{ name: 'details', params: { id: credential.id } }">
             {{ credential.name }}
           </router-link>
         </v-card-title>
+        <!--
         <v-card-subtitle>
           from
           <router-link :to="{ name: 'details', params: { id: credential.id } }">
             {{ credential.name }}
           </router-link>
         </v-card-subtitle>
+        -->
       </div>
       <bookmark-button :credential="credential"></bookmark-button>
     </v-app-bar>

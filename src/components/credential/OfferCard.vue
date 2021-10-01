@@ -6,7 +6,7 @@
       </v-avatar>
       <div class="card-title-wrapper d-flex flex-column">
         <v-card-title>
-          <router-link :to="{ name: 'offer', params: { id: offer.id } }">
+          <router-link :to="{ name: 'organizations', params: { id: organization.id } }">
             {{ organization.name }}
           </router-link>
         </v-card-title>
@@ -25,7 +25,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn text small>
+      <v-btn :to="{ name: 'offer', params: { id: offer.id } }" text small>
         See documentation
       </v-btn>
     </v-card-actions>

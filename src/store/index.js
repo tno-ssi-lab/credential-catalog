@@ -318,6 +318,9 @@ const credentialOfferModule = {
     getCredentialOfferById: (state, { credentialOffers }) => id => {
       return credentialOffers.find(c => c.id === id)
     },
+    getCredentialOffersByOrgId: (state, { credentialOffers }) => id => {
+      return credentialOffers.filter(c => c.organization === id)
+    },
   },
   mutations: {
     saveCredentialOffer(state, attributes) {

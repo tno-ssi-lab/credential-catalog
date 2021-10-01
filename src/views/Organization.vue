@@ -1,27 +1,28 @@
 <template>
   <div>
-    <v-layout>
-      <v-breadcrumbs :items="navItems" large class="px-0 py-5"></v-breadcrumbs>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        class="mx-2"
-        :to="{
-          name: 'edit',
-          params: { id: id },
-        }"
-      >
-        <v-icon left>mdi-pencil</v-icon>
-        Edit
-      </v-btn>
-    </v-layout>
+    <page-back-link></page-back-link>
 
     <v-row>
-      <v-col cols="12" lg="8" md="6">
-        <p class="text-justify">
-          <IssuerInline :id="organization.id" :size="25"></IssuerInline>
-        </p>
+      <v-col lg="8" md="10" cols="12">
+        <organization-card :id="id"></organization-card>
+      </v-col>
+
+      <v-col lg="8" md="10" cols="12">
+        <ul class="filter-tabs">
+          <li @click="activeFilterTab = 'issued'">
+            <h3 :class="activeFilterTab !== 'issued' ? 'text-muted' : ''">
+              Issued
+            </h3>
+          </li>
+          <li @click="activeFilterTab = 'published'">
+            <h3 :class="activeFilterTab !== 'published' ? 'text-muted' : ''">
+              Published
+            </h3>
+          </li>
+        </ul>
+        <search-form value=""></search-form>
+
+        <result-table :credentials="offeredCredentialTypes"></result-table>
       </v-col>
     </v-row>
   </div>
@@ -29,40 +30,53 @@
 
 <script>
 import { mapGetters } from "vuex"
-import IssuerInline from "@/components/common/IssuerInline"
+import PageBackLink from "@/components/common/PageBackLink"
+import OrganizationCard from "@/components/organization/OrganizationCard"
+import SearchForm from "@/components/search/SearchForm"
+import ResultTable from "@/components/search/ResultTable"
 
 export default {
   name: "Organization",
   components: {
-    IssuerInline,
+    PageBackLink,
+    OrganizationCard,
+    SearchForm,
+    ResultTable,
   },
   props: {
-    // organization ID
+    // Org ID
     id: {
       type: Number,
       default: null,
     },
+    activeFilterTab: {
+      type: String,
+      default: "issued",
+    },
   },
   computed: {
-    ...mapGetters([
-      "getOrganizationById",
-    ]),
-    organization() {
-      return this.getOrganizationById(this.id)
-    },
-    navItems() {
-      return [
-        {
-          text: "Home",
-          to: { name: "search" },
-        },
-        {
-          text: this.organization.name,
-          disabled: true,
-        },
-      ]
+    ...mapGetters(["getCredentialById", "getCredentialOffersByOrgId"]),
+    offeredCredentialTypes() {
+      return this.getCredentialOffersByOrgId(this.id).map(c =>
+        this.getCredentialById(c.credentialType)
+      )
     },
   },
   methods: {},
 }
 </script>
+
+<style scoped>
+.filter-tabs {
+  width: 100%;
+  padding: 0 0 10px 0;
+  margin: 30px 0;
+  border-bottom: 1px solid #dfdfef;
+}
+
+.filter-tabs li {
+  display: inline-block;
+  margin-right: 40px;
+  cursor: pointer;
+}
+</style>

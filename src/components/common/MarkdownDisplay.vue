@@ -17,7 +17,12 @@ export default {
             })
         }
     },
-    props: ['markdown']
+    props: {
+        markdown: {
+            default: "",
+            type: String
+        }
+    }
 }
 </script>
 

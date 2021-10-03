@@ -9,29 +9,17 @@
           autofocus
         />
 
-        <v-row dense>
-          <v-col cols="4">
-            <version-add
-              v-model="attributes.supportedProts"
-              :items="protChoices"
-              type="protocol"
-              label="Supported Protocols"
-            >
-            </version-add>
-          </v-col>
-        </v-row>
-
         <v-row>
           <v-col cols="12" sm="6">
             <v-textarea
-              v-model="attributes.description"
+              v-model="attributes.assurances"
               no-resize
               auto-grow
-              v-bind="fieldProps('description')"
+              v-bind="fieldProps('assurances')"
             />
           </v-col>
           <v-col cols="12" sm="6" style="border:1px black solid">
-            <MarkdownDisplay :markdown="attributes.description" />
+            <MarkdownDisplay :markdown="attributes.assurances" />
           </v-col>
         </v-row>
       </v-col>
@@ -40,40 +28,24 @@
         <v-text-field
           v-if="attributes.id"
           :value="attributes.id"
-          label="Credential ID"
-          disabled
+          v-bind="fieldProps('id')"
         />
 
         <v-text-field
           v-model="attributes.credentialType"
           v-bind="fieldProps('credentialType')"
-          append-outer-icon="mdi-reload"
-          @click:append-outer="setRandomCodeName"
         />
 
-        <select-single-dropdown
-          v-model="attributes.category"
-          :items="categories"
-          v-bind="fieldProps('category')"
-        ></select-single-dropdown>
+        <v-text-field
+          v-model="attributes.organization"
+          v-bind="fieldProps('organization')"
+        />
 
-        <select-dropdown
+        <!-- <select-dropdown
           v-model="attributes.organization"
           :items="issuers"
           v-bind="fieldProps('organization')"
-        ></select-dropdown>
-
-        <select-single-dropdown
-          v-model="attributes.maturity"
-          :items="maturityLevels"
-          v-bind="fieldProps('maturity')"
-        ></select-single-dropdown>
-
-        <select-single-dropdown
-          v-model="attributes.visibility"
-          :items="visibilities"
-          v-bind="fieldProps('visibility')"
-        ></select-single-dropdown>
+        ></select-dropdown> -->
 
         <v-text-field
           v-for="field in sidebarFields"
@@ -81,26 +53,11 @@
           v-model="attributes[field]"
           v-bind="fieldProps(field)"
         />
-
-        <credential-select
-          v-model="attributes.constituents"
-          :items="credentialtypes"
-          :label="fieldLabel('constituents')"
-          item-value="id"
-          item-text="name"
-        ></credential-select>
-
-        <v-textarea
-          v-model="attributes.deploymentRequirements"
-          no-resize
-          auto-grow
-          v-bind="fieldProps('deploymentRequirements')"
-        />
       </v-col>
     </v-row>
 
     <v-btn color="primary" :disabled="!valid" @click="emitValue">
-      Save Credential
+      Save Credential Offer
     </v-btn>
   </v-form>
 </template>
@@ -109,47 +66,27 @@
 import Vue from "vue"
 import { mapGetters } from "vuex"
 
-import CredentialSelect from "@/components/credential/CredentialSelect"
-import SelectDropdown from "@/components/common/SelectDropdown"
-import SelectSingleDropdown from "@/components/common/SelectSingleDropdown"
+// import SelectDropdown from "@/components/common/SelectDropdown"
 import MarkdownDisplay from "@/components/common/MarkdownDisplay"
-import VersionAdd from "@/components/credential/VersionAdd"
 import constants from "@/constants"
 import { ADJECTIVES } from "@/adjectives"
 import { NOUNS } from "@/nouns"
 
 const KEY_TO_FIELD_NAME = {
-  id: "Credential ID",
+  id: "Credential Offer ID",
   name: "Name",
-  credentialType: "Credential Type",
-  category: "Category",
-  version: "Version",
-  organization: "organization",
-  protocol: "Protocol",
-  maturity: "Maturity",
-  visibility: "Visibility",
-  description: "Description",
-  documentation: "Documentation",
-  location: "Location",
-  contact: "Contact",
-  supportedConfigurations: "Supported Configurations",
-  deploymentRequirements: "Deployment Requirements",
-  constituents: "Used Credentials",
-  reviews: "Reviews",
+  credentialType: "Credential Type ID",
+  organization: "Organization",
+  assurances: "Assurances",
 }
 
 const REQUIRED_FIELDS = [
-  "name",
-  "category",
+  // "name",
   "credentialType",
-  "description",
-  "contact",
-  "visibility",
-  "maturity",
   "organization",
 ]
 
-const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]
+const SIDEBAR_FIELDS = []//["version", "contact", "documentation", "location"]
 
 function getRandomInt(min, max) {
   min = Math.ceil(min)
@@ -158,13 +95,10 @@ function getRandomInt(min, max) {
 }
 
 export default {
-  name: "CredentialForm",
+  name: "CredentialOfferForm",
   components: {
-    CredentialSelect,
-    SelectDropdown,
-    SelectSingleDropdown,
+    // SelectDropdown,
     MarkdownDisplay,
-    VersionAdd,
   },
   props: {
     value: {
@@ -178,14 +112,11 @@ export default {
     return {
       valid: null,
       attributes,
-      maturityLevels: constants.MATURITY_LEVELS,
       issuers: constants.PROCESS_ITEMS,
-      categories: constants.CATEGORIES,
-      visibilities: constants.VISIBILITIES,
       sidebarFields: SIDEBAR_FIELDS,
     }
   },
-  computed: mapGetters(["credentials", "protChoices"]),
+  computed: mapGetters(["credentialOffers", "protChoices"]),
   methods: {
     isRequired(field) {
       return REQUIRED_FIELDS.includes(field)
@@ -201,7 +132,7 @@ export default {
       const rules = []
       if (this.isRequired(field)) {
         rules.push(v => {
-          if (!v || !v.length) {
+          if (!v || (isNaN(v) && !v.length)) {
             return `${this.fieldName(field)} is required`
           }
           return true

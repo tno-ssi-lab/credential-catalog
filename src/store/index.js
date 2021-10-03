@@ -315,8 +315,14 @@ const credentialOfferModule = {
     credentialOffers: state => {
       return state.credentialOffers.map(attrs => new CredentialOffer(attrs))
     },
+    lastCredentialOffer: (state, { credentialOffers }) => {
+      return credentialOffers[credentialOffers.length - 1]
+    },
     getCredentialOfferById: (state, { credentialOffers }) => id => {
       return credentialOffers.find(c => c.id === id)
+    },
+    getCredentialOffersByIds: (state, { getCredentiaOffersById }) => ids => {
+      return ids.map(getCredentiaOffersById).filter(c => c)
     },
   },
   mutations: {

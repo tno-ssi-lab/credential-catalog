@@ -20,7 +20,7 @@
                 {{ offer.assurances }}
               </td>
               <td>
-                <v-btn x-small :to="{ name: 'offer', params: { id: offer.id } }">
+                <v-btn x-small :to="{ name: 'offerDetails', params: { id: offer.id } }">
                   Details
                 </v-btn>
               </td>
@@ -56,6 +56,7 @@ export default {
     getOffers() {
       const offers = []
       for (const id of this.ids) {
+        console.log(id)
         let offer = this.getCredentialOfferById(id)
         offers.push(JSON.parse(JSON.stringify(offer)))
       }

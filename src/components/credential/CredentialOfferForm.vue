@@ -32,12 +32,12 @@
         />
 
         <v-text-field
-          v-model="attributes.credentialType"
+          v-model.number="attributes.credentialType"
           v-bind="fieldProps('credentialType')"
         />
 
         <v-text-field
-          v-model="attributes.organization"
+          v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
         />
 

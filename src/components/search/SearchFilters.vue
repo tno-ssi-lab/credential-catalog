@@ -74,8 +74,8 @@
 <script>
 import constants from "@/constants"
 
-import SelectDropdown from "./SelectDropdown"
-import VersionSelect2 from "./VersionSelect2"
+import SelectDropdown from "../common/SelectDropdown"
+import VersionSelect2 from "../deprecated/VersionSelect2"
 
 export default {
   name: "SearchForm",

@@ -29,6 +29,7 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 1,
     assurances: "Zo gepiept",
+    publishedAt: new Date(),
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 2,
     assurances: "Haje",
+    publishedAt: new Date(),
   },
   {
     id: 3,
@@ -43,5 +45,6 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 3,
     assurances: "To!",
+    publishedAt: new Date(),
   },
 ]

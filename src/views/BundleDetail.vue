@@ -26,11 +26,11 @@
       ></v-switch>
     </v-layout>
 
-    <credential-matrix v-if="!expand" :items="bundleRows"></credential-matrix>
+    <!-- <credential-matrix v-if="!expand" :items="bundleRows"></credential-matrix>
     <credential-matrix
       v-if="expand"
       :items="bundleRowsExpand"
-    ></credential-matrix>
+    ></credential-matrix> -->
 
     <h2>Credentials</h2>
 
@@ -59,13 +59,13 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex"
-import CredentialMatrix from "@/components/credential/CredentialMatrix"
+// import CredentialMatrix from "@/components/credential/CredentialMatrix"
 import BundleCredentialCard from "../components/bundle/BundleCredentialCard.vue"
 
 export default {
   name: "BundleDetail",
   components: {
-    CredentialMatrix,
+    // CredentialMatrix,
     BundleCredentialCard,
   },
   props: {

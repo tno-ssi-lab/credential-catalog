@@ -4,7 +4,7 @@
 
     <h1>Bundles</h1>
 
-    <credential-matrix :items="bundleRows"></credential-matrix>
+    <!-- <credential-matrix :items="bundleRows"></credential-matrix> -->
 
     <v-row>
       <v-col cols="6">
@@ -42,12 +42,12 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from "vuex"
-import CredentialMatrix from "@/components/credential/CredentialMatrix"
+// import CredentialMatrix from "@/components/credential/CredentialMatrix"
 
 export default {
   name: "BundleOverview",
   components: {
-    CredentialMatrix,
+    // CredentialMatrix,
   },
   props: {},
   computed: {

@@ -1,30 +1,38 @@
 <template>
   <div>
-    <v-breadcrumbs :items="navItems" large class="px-0 py-5"></v-breadcrumbs>
+    <v-row>
+      <v-col cols="12">
+        <search-form
+          :value="search.currentSearch"
+          @input="input => updateSearch(input)"
+        ></search-form>
+      </v-col>
+    </v-row>
 
-    <h1>Search</h1>
-
-    <search-form
-      :value="search.currentSearch"
-      @input="input => updateSearch(input)"
-    ></search-form>
-
-    <h2>Search results ({{ resultCount }})</h2>
-
-    <result-table :credentials="credentials" />
+    <v-row>
+      <v-col cols="12" md="8">
+        <h3>Results ({{ resultCount }})</h3>
+        <result-table :credentials="credentials"></result-table>
+      </v-col>
+      <v-col md="4">
+        <search-filters></search-filters>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapState, mapMutations } from "vuex"
 import ResultTable from "@/components/search/ResultTable"
+import SearchFilters from "@/components/search/SearchFilters"
 import SearchForm from "@/components/search/SearchForm"
 
 export default {
   name: "CredentialSearch",
   components: {
-    SearchForm,
+    SearchFilters,
     ResultTable,
+    SearchForm,
   },
   computed: {
     ...mapState(["search"]),
@@ -35,25 +43,9 @@ export default {
     resultCount() {
       return this.credentials.length
     },
-    matrixRows() {
-      return [
-        {
-          title: "Results",
-          credentials: this.credentials,
-        },
-      ]
-    },
-    navItems: () => [{ text: "Search", disabled: true }],
   },
   methods: {
-    ...mapMutations(["updateSearch", "addSearch"]),
-    storeSearch() {
-      this.addSearch(this.search.currentSearch)
-      this.$router.push({
-        name: "storedSearchDetails",
-        params: { id: this.lastSearch.id },
-      })
-    },
+    ...mapMutations(["updateSearch"]),
   },
 }
 </script>

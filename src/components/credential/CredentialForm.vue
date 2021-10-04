@@ -82,13 +82,13 @@
           v-bind="fieldProps(field)"
         />
 
-        <credential-select
+        <!-- <credential-select
           v-model="attributes.constituents"
           :items="credentialtypes"
           :label="fieldLabel('constituents')"
           item-value="id"
           item-text="name"
-        ></credential-select>
+        ></credential-select> -->
 
         <v-textarea
           v-model="attributes.deploymentRequirements"
@@ -109,7 +109,7 @@
 import Vue from "vue"
 import { mapGetters } from "vuex"
 
-import CredentialSelect from "@/components/credential/CredentialSelect"
+// import CredentialSelect from "@/components/credential/CredentialSelect"
 import SelectDropdown from "@/components/common/SelectDropdown"
 import SelectSingleDropdown from "@/components/common/SelectSingleDropdown"
 import MarkdownDisplay from "@/components/common/MarkdownDisplay"
@@ -160,7 +160,7 @@ function getRandomInt(min, max) {
 export default {
   name: "CredentialForm",
   components: {
-    CredentialSelect,
+    // CredentialSelect,
     SelectDropdown,
     SelectSingleDropdown,
     MarkdownDisplay,

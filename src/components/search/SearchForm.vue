@@ -4,8 +4,9 @@
       v-model="search.query"
       label="Type to search"
       type="text"
-      single-line
+      outlined
       hint="Note: Only whole words are recognized, use '*' as wildcard."
+      append-icon="mdi-magnify"
       clearable
       @input="incrementalSearchEnabled && $emit('input', search)"
     >

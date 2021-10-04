@@ -210,7 +210,7 @@ export default {
     navItems() {
       return [
         {
-          text: this.getCredentialOffersByTypeId(this.id),
+          text: "Search",
           to: { name: "search" },
         },
         {

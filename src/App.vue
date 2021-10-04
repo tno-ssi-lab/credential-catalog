@@ -63,6 +63,10 @@
       <v-btn icon to="/create">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
+
+      <v-btn icon to="/create-offer">
+        <v-icon>mdi-account-check</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-content>

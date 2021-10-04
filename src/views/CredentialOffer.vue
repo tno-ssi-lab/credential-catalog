@@ -67,7 +67,7 @@ export default {
         },
         {
           text: this.credential.name + " type",
-          to: { name: "details", id: this.credential.id },
+          to: { name: "details", params: {id: this.credential.id}},
         },
         {
           text: "Offer by " + this.organization.name,

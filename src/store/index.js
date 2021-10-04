@@ -293,6 +293,7 @@ const credentialTypeModule = {
           ...attributes,
           id: newId,
         })
+        console.log(JSON.stringify({...attributes,id: newId}))
       } else {
         const idx = state.credentialsAttrs.findIndex(
           cred => cred.id === attributes.id
@@ -301,6 +302,7 @@ const credentialTypeModule = {
         if (idx > -1) {
           Vue.set(state.credentialsAttrs, idx, attributes)
         }
+        console.log(JSON.stringify(attributes))
       }
     },
   },
@@ -315,8 +317,18 @@ const credentialOfferModule = {
     credentialOffers: state => {
       return state.credentialOffers.map(attrs => new CredentialOffer(attrs))
     },
+    lastCredentialOffer: (state, { credentialOffers }) => {
+      return credentialOffers[credentialOffers.length - 1]
+    },
     getCredentialOfferById: (state, { credentialOffers }) => id => {
       return credentialOffers.find(c => c.id === id)
+    },
+    getCredentialOffersByIds: (state, { getCredentiaOffersById }) => ids => {
+      return ids.map(getCredentiaOffersById).filter(c => c)
+    },
+    getCredentialOffersByTypeId: (state, { credentialOffers }) => id => {
+      const offers = credentialOffers.filter(c => c.credentialType === id)
+      return offers.map(offer => offer.id)
     },
   },
   mutations: {
@@ -327,6 +339,7 @@ const credentialOfferModule = {
           ...attributes,
           id: newId,
         })
+        console.log(JSON.stringify({...attributes,id: newId}))
       } else {
         const idx = state.credentialOffers.findIndex(
           cred => cred.id === attributes.id
@@ -335,6 +348,7 @@ const credentialOfferModule = {
         if (idx > -1) {
           Vue.set(state.credentialOffers, idx, attributes)
         }
+        console.log(JSON.stringify(attributes))
       }
     },
   },

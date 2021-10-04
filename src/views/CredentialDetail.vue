@@ -107,7 +107,7 @@
       </v-col>
     </v-row>
 
-    <offers :ids="credential.offers"></offers>
+    <offers :ids="credentialOffers"></offers>
 
     <v-row>
       <v-col>
@@ -199,14 +199,18 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getCredentialById"]),
+    ...mapGetters(["getCredentialById", "getCredentialOffersByTypeId"]),
     credential() {
+      console.log("test")
       return this.getCredentialById(this.id)
+    },
+    credentialOffers() {
+      return this.getCredentialOffersByTypeId(this.id)
     },
     navItems() {
       return [
         {
-          text: "Search",
+          text: this.getCredentialOffersByTypeId(this.id),
           to: { name: "search" },
         },
         {

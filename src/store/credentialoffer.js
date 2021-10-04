@@ -25,18 +25,21 @@ export class CredentialOffer {
 export const credentialoffers = [
   {
     id: 1,
+    name: "",
     credentialType: 1,
     organization: 1,
     assurances: "Zo gepiept",
   },
   {
     id: 2,
+    name: "",
     credentialType: 1,
     organization: 2,
     assurances: "Haje",
   },
   {
     id: 3,
+    name: "",
     credentialType: 1,
     organization: 3,
     assurances: "To!",

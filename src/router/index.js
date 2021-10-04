@@ -3,7 +3,9 @@ import VueRouter from "vue-router"
 
 import CredentialSearch from "@/views/CredentialSearch"
 import CredentialDetail from "@/views/CredentialDetail"
+import CredentialOfferDetail from "@/views/CredentialOfferDetail"
 import CredentialEdit from "@/views/CredentialEdit"
+import CredentialOfferEdit from "@/views/CredentialOfferEdit"
 import CredentialChangeLog from "@/views/CredentialChangeLog"
 
 import BundleOverview from "@/views/BundleOverview"
@@ -28,9 +30,20 @@ const routes = [
     component: CredentialEdit,
   },
   {
+    path: "/create-offer",
+    name: "create-offer",
+    component: CredentialOfferEdit,
+  },
+  {
     path: "/edit/:id",
     name: "edit",
     component: CredentialEdit,
+    props: castRouteParams,
+  },
+  {
+    path: "/edit-offer/:id",
+    name: "edit-offer",
+    component: CredentialOfferEdit,
     props: castRouteParams,
   },
   {
@@ -59,6 +72,12 @@ const routes = [
     path: "/credentials/:id",
     name: "details",
     component: CredentialDetail,
+    props: castRouteParams,
+  },
+  {
+    path: "/credentialoffers/:id",
+    name: "offerDetails",
+    component: CredentialOfferDetail,
     props: castRouteParams,
   },
   {

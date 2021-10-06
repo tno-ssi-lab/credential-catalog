@@ -12,15 +12,23 @@
         <v-row>
           <v-col cols="12" sm="6">
             <v-textarea
+              v-model="attributes.description"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('description')"
+            />
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-textarea
               v-model="attributes.assurances"
               no-resize
               auto-grow
               v-bind="fieldProps('assurances')"
             />
           </v-col>
-          <v-col cols="12" sm="6" style="border:1px black solid">
+          <!-- <v-col cols="12" sm="6" style="border:1px black solid">
             <MarkdownDisplay :markdown="attributes.assurances" />
-          </v-col>
+          </v-col> -->
         </v-row>
       </v-col>
 
@@ -67,7 +75,7 @@ import Vue from "vue"
 import { mapGetters } from "vuex"
 
 // import SelectDropdown from "@/components/common/SelectDropdown"
-import MarkdownDisplay from "@/components/common/MarkdownDisplay"
+// import MarkdownDisplay from "@/components/common/MarkdownDisplay"
 import constants from "@/constants"
 import { ADJECTIVES } from "@/adjectives"
 import { NOUNS } from "@/nouns"
@@ -77,6 +85,7 @@ const KEY_TO_FIELD_NAME = {
   name: "Name",
   credentialType: "Credential Type ID",
   organization: "Organization",
+  description: "Description",
   assurances: "Assurances",
 }
 
@@ -98,7 +107,7 @@ export default {
   name: "CredentialOfferForm",
   components: {
     // SelectDropdown,
-    MarkdownDisplay,
+    // MarkdownDisplay,
   },
   props: {
     value: {

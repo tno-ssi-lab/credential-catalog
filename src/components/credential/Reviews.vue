@@ -110,6 +110,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(["getCredentialOfferById"]),
     averageRating() {
       let total = 0
       if (this.reviews.length) {
@@ -123,13 +124,11 @@ export default {
     },
     initialAttributes() {
       let attributes = {}
-
-      let storedCredential = this.getCredentialById(this.id)
-      attributes = JSON.parse(JSON.stringify(storedCredential))
+      let storedCredentialOffer = this.getCredentialOfferById(this.id)
+      attributes = JSON.parse(JSON.stringify(storedCredentialOffer))
 
       return attributes
     },
-    ...mapGetters(["getCredentialById"]),
   },
   mounted() {
     this.attributes = this.initialAttributes
@@ -147,7 +146,7 @@ export default {
       this.attributes.reviews.push(JSON.parse(JSON.stringify(this.newReview)))
       let cred = JSON.parse(JSON.stringify(this.attributes))
 
-      this.$store.commit("saveCredential", cred)
+      this.$store.commit("saveCredentialOffer", cred)
 
       this.$forceUpdate()
     },

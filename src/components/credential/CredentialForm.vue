@@ -34,6 +34,23 @@
             <MarkdownDisplay :markdown="attributes.description" />
           </v-col>
         </v-row>
+
+        <v-row>
+          <v-col cols="12" sm="12">
+            <!-- <v-textarea
+              v-model="attributes.attributes"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('attributes')"
+            /> -->
+            <v-textarea
+              v-model="attr"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('attr')"
+            />
+          </v-col>
+        </v-row>
       </v-col>
 
       <v-col cols="4">
@@ -82,13 +99,13 @@
           v-bind="fieldProps(field)"
         />
 
-        <credential-select
+        <!-- <credential-select
           v-model="attributes.constituents"
           :items="credentialtypes"
           :label="fieldLabel('constituents')"
           item-value="id"
           item-text="name"
-        ></credential-select>
+        ></credential-select> -->
 
         <v-textarea
           v-model="attributes.deploymentRequirements"
@@ -109,7 +126,7 @@
 import Vue from "vue"
 import { mapGetters } from "vuex"
 
-import CredentialSelect from "@/components/credential/CredentialSelect"
+// import CredentialSelect from "@/components/credential/CredentialSelect"
 import SelectDropdown from "@/components/common/SelectDropdown"
 import SelectSingleDropdown from "@/components/common/SelectSingleDropdown"
 import MarkdownDisplay from "@/components/common/MarkdownDisplay"
@@ -129,6 +146,7 @@ const KEY_TO_FIELD_NAME = {
   maturity: "Maturity",
   visibility: "Visibility",
   description: "Description",
+  attributes: "Attributes",
   documentation: "Documentation",
   location: "Location",
   contact: "Contact",
@@ -140,13 +158,13 @@ const KEY_TO_FIELD_NAME = {
 
 const REQUIRED_FIELDS = [
   "name",
-  "category",
+  // "category",
   "credentialType",
-  "description",
-  "contact",
-  "visibility",
-  "maturity",
-  "organization",
+  // "description",
+  // "contact",
+  // "visibility",
+  // "maturity",
+  // "organization",
 ]
 
 const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]
@@ -160,7 +178,7 @@ function getRandomInt(min, max) {
 export default {
   name: "CredentialForm",
   components: {
-    CredentialSelect,
+    // CredentialSelect,
     SelectDropdown,
     SelectSingleDropdown,
     MarkdownDisplay,
@@ -175,9 +193,12 @@ export default {
   data() {
     const attributes = JSON.parse(JSON.stringify(this.value)) || {}
 
+    const attr = JSON.stringify(attributes.attributes)
+
     return {
       valid: null,
       attributes,
+      attr,
       maturityLevels: constants.MATURITY_LEVELS,
       issuers: constants.PROCESS_ITEMS,
       categories: constants.CATEGORIES,
@@ -227,6 +248,10 @@ export default {
       Vue.set(this.attributes, "credentialType", newName)
     },
     emitValue() {
+      console.log(this.attributes.attributes)
+      // JSON.parse twice to convert to Array
+      this.attributes.attributes = JSON.parse(JSON.parse(JSON.stringify(this.attr)))
+      console.log(this.attributes.attributes)
       this.$emit("input", this.attributes)
     },
   },

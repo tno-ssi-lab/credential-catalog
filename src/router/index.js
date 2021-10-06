@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 
 import CredentialSearch from "@/views/CredentialSearch"
 import CredentialDetail from "@/views/CredentialDetail"
+import CredentialDetailNew from "@/views/credential-detail/CredentialDetailNew"
 import CredentialOfferDetail from "@/views/CredentialOfferDetail"
 import CredentialEdit from "@/views/CredentialEdit"
 import CredentialOfferEdit from "@/views/CredentialOfferEdit"
@@ -72,6 +73,12 @@ const routes = [
     path: "/credentials/:id",
     name: "details",
     component: CredentialDetail,
+    props: castRouteParams,
+  },
+  {
+    path: "/credentialsnew/:id",
+    name: "detailsnew",
+    component: CredentialDetailNew,
     props: castRouteParams,
   },
   {

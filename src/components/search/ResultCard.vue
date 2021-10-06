@@ -1,35 +1,26 @@
 <template>
-  <v-card outlined>
-    <div class="top-container">
-      <v-card-title>
-        <router-link :to="{ name: 'details', params: { id: credential.id } }">
-          {{ credential.name }}
-        </router-link>
-      </v-card-title>
-      <v-card-subtitle>
-        from
-        <router-link :to="{ name: 'details', params: { id: credential.id } }">
-          {{ credential.name }}
-        </router-link>
-      </v-card-subtitle>
+  <v-card class="main-card">
+    <v-app-bar flat color="rgba(0, 0, 0, 0)">
+      <v-avatar rounded size="38" color="gray">
+      </v-avatar>
+      <div class="card-title-wrapper d-flex flex-column">
+        <v-card-title class="center">
+          <router-link :to="{ name: 'details', params: { id: credential.id } }">
+            {{ credential.name }}
+          </router-link>
+        </v-card-title>
+        <!--
+        <v-card-subtitle>
+          from
+          <router-link :to="{ name: 'details', params: { id: credential.id } }">
+            {{ credential.name }}
+          </router-link>
+        </v-card-subtitle>
+        -->
+      </div>
+      <bookmark-button :credential="credential"></bookmark-button>
+    </v-app-bar>
 
-      
-      <v-btn
-        v-if="!bundleCredentials.includes(credential)"
-        icon
-        @click="addToBundle(credential.id)"
-      >
-        <v-icon>mdi-bookmark-outline</v-icon>
-      </v-btn>
-      <v-btn
-        v-if="bundleCredentials.includes(credential)"
-        icon
-        @click="removeFromBundle(credential.id)"
-      >
-        <v-icon>mdi-bookmark-check</v-icon>
-      </v-btn>
-    
-    </div>
     <v-card-text>
       {{ credential.description }}
     </v-card-text>
@@ -43,21 +34,18 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from "vuex"
+import BookmarkButton from "@/components/common/BookmarkButton"
 
 export default {
   name: "ResultCard",
+  components: {
+    BookmarkButton,
+  },
   props: {
     credential: {
       default: null,
       type: Object,
     },
-  },
-  computed: {
-    ...mapGetters(["bundleCredentials"]),
-  },
-  methods: {
-    ...mapMutations(["addToBundle", "removeFromBundle"]),
   },
 }
 </script>

@@ -330,6 +330,9 @@ const credentialOfferModule = {
       const offers = credentialOffers.filter(c => c.credentialType === id)
       return offers.map(offer => offer.id)
     },
+    getCredentialOffersByOrgId: (state, { credentialOffers }) => id => {
+      return credentialOffers.filter(c => c.organization === id)
+    },
   },
   mutations: {
     saveCredentialOffer(state, attributes) {

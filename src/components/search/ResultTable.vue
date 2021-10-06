@@ -6,9 +6,7 @@
       class="search-result"
       cols="12"
     >
-      <v-col cols="12" xl="4" lg="5" md="6" sm="8">
-        <ResultCard :credential="credential"></ResultCard>
-      </v-col>
+      <ResultCard :credential="credential"></ResultCard>
     </v-col>
   </v-row>
 </template>

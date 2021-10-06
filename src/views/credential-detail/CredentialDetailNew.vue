@@ -23,7 +23,7 @@ import PageBackLink from "@/components/common/PageBackLink"
 import CredentialTypeCard from "@/components/credential/CredentialTypeCard"
 
 export default {
-  name: "CredentialDetail",
+  name: "CredentialDetailNew",
   components: {
     OfferCard,
     PageBackLink,

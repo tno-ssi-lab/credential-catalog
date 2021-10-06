@@ -21,12 +21,16 @@
       </v-btn>
     </v-layout>
 
-    <v-row>
+    <!-- <v-row>
+      <v-col class="item-summary" cols="12" lg="8" md="6">
+        <credential-type-card :id="id"></credential-type-card>
+        <br>
+        <MarkdownDisplay :markdown="credential.documentation" />
+        <MarkdownDisplay :markdown="credential.example" />
+      </v-col>
+
       <v-col cols="12" lg="8" md="6">
         <h1>{{ credential.name }}</h1>
-        <!-- <p class="text-justify">
-          {{ credential.description }}
-        </p> -->
         <MarkdownDisplay :markdown="credential.description" />
         <MarkdownDisplay :markdown="credential.documentation" />
         <MarkdownDisplay :markdown="credential.example" />
@@ -107,6 +111,13 @@
       </v-col>
     </v-row>
 
+    <v-col lg="8" md="10" cols="12">
+      <h3>Issuers</h3>
+      <v-col v-for="offer in credentialOffers" :key="offer" cols="12">
+        <offer-card :id="offer"></offer-card>
+      </v-col>
+    </v-col>
+
     <offers :ids="credentialOffers"></offers>
 
     <v-row>
@@ -115,24 +126,41 @@
       </v-col>
     </v-row>
 
-    <reviews :id="credential.id" :reviews="credential.reviews"></reviews>
+    <reviews :id="credential.id" :reviews="credential.reviews"></reviews> -->
+
+    <v-row>
+      <v-col class="item-summary" lg="8" md="10" cols="12">
+        <credential-type-card :id="id"></credential-type-card>
+      </v-col>
+
+      <v-col lg="8" md="10" cols="12">
+        <h3>Issuers</h3>
+        <v-col v-for="offer in credential.offers" :key="offer" cols="12">
+          <offer-card :id="offer"></offer-card>
+        </v-col>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex"
-import DetailsTable from "@/components/common/DetailsTable"
-import Reviews from "@/components/credential/Reviews"
-import Offers from "@/components/credential/Offers"
-import MarkdownDisplay from "@/components/common/MarkdownDisplay"
+// import DetailsTable from "@/components/common/DetailsTable"
+// import Reviews from "@/components/credential/Reviews"
+import OfferCard from "@/components/credential/OfferCard"
+// import Offers from "@/components/credential/Offers"
+// import MarkdownDisplay from "@/components/common/MarkdownDisplay"
+import CredentialTypeCard from "@/components/credential/CredentialTypeCard"
 
 export default {
   name: "CredentialDetail",
   components: {
-    DetailsTable,
-    Reviews,
-    Offers,
-    MarkdownDisplay,
+    OfferCard,
+    // DetailsTable,
+    // Reviews,
+    // Offers,
+    // MarkdownDisplay,
+    CredentialTypeCard,
   },
   props: {
     id: {
@@ -201,7 +229,6 @@ export default {
   computed: {
     ...mapGetters(["getCredentialById", "getCredentialOffersByTypeId"]),
     credential() {
-      console.log("test")
       return this.getCredentialById(this.id)
     },
     credentialOffers() {

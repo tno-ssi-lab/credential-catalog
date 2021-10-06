@@ -11,7 +11,8 @@
           </router-link>
         </v-card-title>
         <v-card-subtitle v-if="publishedDate">
-          Published on {{ publishedDate | dateParse("DD.MM.YYYY") }}
+          <!-- Published on {{ publishedDate | dateParse("DD.MM.YYYY") }} -->
+          Published on {{ publishedDate }}
         </v-card-subtitle>
       </div>
     </v-app-bar>

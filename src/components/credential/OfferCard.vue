@@ -11,7 +11,8 @@
           </router-link>
         </v-card-title>
         <v-card-subtitle>
-          Published on {{ offer.publishedAt | dateParse("DD.MM.YYYY") }}
+          <!-- Published on {{ offer.publishedAt | dateParse("DD.MM.YYYY") }} -->
+          Published on {{ offer.publishedAt }}
         </v-card-subtitle>
       </div>
 
@@ -25,7 +26,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn :to="{ name: 'offer', params: { id: offer.id } }" text small>
+      <v-btn :to="{ name: 'offerDetails', params: { id: offer.id } }" text small>
         See documentation
       </v-btn>
     </v-card-actions>

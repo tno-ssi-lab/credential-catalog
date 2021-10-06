@@ -140,13 +140,13 @@ const KEY_TO_FIELD_NAME = {
 
 const REQUIRED_FIELDS = [
   "name",
-  "category",
+  // "category",
   "credentialType",
-  "description",
-  "contact",
-  "visibility",
-  "maturity",
-  "organization",
+  // "description",
+  // "contact",
+  // "visibility",
+  // "maturity",
+  // "organization",
 ]
 
 const SIDEBAR_FIELDS = ["version", "contact", "documentation", "location"]

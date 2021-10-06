@@ -178,7 +178,7 @@ h6 {
 }
 
 .v-card .v-card__text {
-  white-space: pre;
+  white-space: pre-line;
 }
 
 .text-muted {

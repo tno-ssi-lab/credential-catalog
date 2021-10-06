@@ -137,12 +137,12 @@ const democredentialtypes = [
     supportedProts: [],
     constituents: [],
     reviews: [],
-    offers: [2, 1, 3],
+    //offers: [2, 1, 3],
     deploymentRequirements: null,
   },
   {
     id: 2,
-    name: "Personal Data - Rijksoverheid pilot",
+    name: "Personal Data - Rijksoverheid IRMA",
     version: "1.0",
     description:
       "Your personal data, from the Dutch population register (BRP)",
@@ -299,7 +299,7 @@ const democredentialtypes = [
     id: 101,
     name: "COVID-19 Test Result",
     version: "2.0",
-    description: "https://indyscan.io/tx/SOVRIN_MAINNET/domain/63152",
+    description: "covid 19 test result https://indyscan.io/tx/SOVRIN_MAINNET/domain/63152",
     attributes: [
       {
         title: "testLanguage",
@@ -363,34 +363,34 @@ const democredentialtypes = [
     id: 102,
     name: "EU green pass",
     version: "1.0",
-    description: "Data as present in the EU green pass. Only accepted if properly encoded in a QR code.",
+    description: "Data as present in the EU green pass for covid. Only accepted if properly encoded in a QR code.",
     attributes: [
       {
-        test: "first name",
+        title: "first name",
         type: "-"
       },
       {
-        test: "last name",
+        title: "last name",
         type: "-"
       },
       {
-        test: "test type",
+        title: "test type",
         type: "-"
       },
       {
-        test: "test date",
+        title: "test date",
         type: "-"
       },
       {
-        test: "test result",
+        title: "test result",
         type: "-"
       },
       {
-        test: "certificate issuer",
+        title: "certificate issuer",
         type: "-"
       },
       {
-        test: "certificate identifier",
+        title: "certificate identifier",
         type: "-"
       }
     ]
@@ -402,31 +402,31 @@ const democredentialtypes = [
     description: "TNO developed credential for antigen tests. See also: https://gitlab.com/RoosBakker/coti",
     attributes: [
       {
-        test: "passport photograph",
+        title: "passport photograph",
         type: "-"
       },
       {
-        test: "test result",
+        title: "test result",
         type: "-"
       },
       {
-        test: "test date",
+        title: "test date",
         type: "-"
       },
       {
-        test: "test name",
+        title: "test name",
         type: "-"
       },
       {
-        test: "test type",
+        title: "test type",
         type: "-"
       },
       {
-        test: "test lab id",
+        title: "test lab id",
         type: "-"
       },
       {
-        test: "test lab name",
+        title: "test lab name",
         type: "-"
       }
     ]

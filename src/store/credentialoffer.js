@@ -30,7 +30,7 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 1,
     assurances: "Zo gepiept",
-    publishedAt: new Date(),
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
     reviews: [],
   },
   {
@@ -39,7 +39,7 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 2,
     assurances: "Haje",
-    publishedAt: new Date(),
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
     reviews: [],
   },
   {
@@ -48,7 +48,7 @@ export const credentialoffers = [
     credentialType: 1,
     organization: 3,
     assurances: "To!",
-    publishedAt: new Date(),
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
     reviews: [],
   },
 ]

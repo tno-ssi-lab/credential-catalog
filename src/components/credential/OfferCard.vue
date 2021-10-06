@@ -22,7 +22,7 @@
     </v-app-bar>
 
     <v-card-text>
-      {{ offer.assurances }}
+      {{ offer.description }}
     </v-card-text>
 
     <v-card-actions>

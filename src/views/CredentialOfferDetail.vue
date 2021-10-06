@@ -62,7 +62,7 @@
 
       <v-col lg="8" md="10" cols="12">
         <h3 class="section">Description</h3>
-        <p>{{ credentialOffer.assurances }}</p>
+        <p>{{ credentialOffer.description }}</p>
       </v-col>
 
       <v-col class="section" lg="8" md="10" cols="12">

@@ -34,6 +34,23 @@
             <MarkdownDisplay :markdown="attributes.description" />
           </v-col>
         </v-row>
+
+        <v-row>
+          <v-col cols="12" sm="12">
+            <!-- <v-textarea
+              v-model="attributes.attributes"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('attributes')"
+            /> -->
+            <v-textarea
+              v-model="attr"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('attr')"
+            />
+          </v-col>
+        </v-row>
       </v-col>
 
       <v-col cols="4">
@@ -129,6 +146,7 @@ const KEY_TO_FIELD_NAME = {
   maturity: "Maturity",
   visibility: "Visibility",
   description: "Description",
+  attributes: "Attributes",
   documentation: "Documentation",
   location: "Location",
   contact: "Contact",
@@ -175,9 +193,12 @@ export default {
   data() {
     const attributes = JSON.parse(JSON.stringify(this.value)) || {}
 
+    const attr = JSON.stringify(attributes.attributes)
+
     return {
       valid: null,
       attributes,
+      attr,
       maturityLevels: constants.MATURITY_LEVELS,
       issuers: constants.PROCESS_ITEMS,
       categories: constants.CATEGORIES,
@@ -227,6 +248,10 @@ export default {
       Vue.set(this.attributes, "credentialType", newName)
     },
     emitValue() {
+      console.log(this.attributes.attributes)
+      // JSON.parse twice to convert to Array
+      this.attributes.attributes = JSON.parse(JSON.parse(JSON.stringify(this.attr)))
+      console.log(this.attributes.attributes)
       this.$emit("input", this.attributes)
     },
   },

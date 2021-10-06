@@ -15,6 +15,8 @@ export class CredentialType {
         maturity: null,
         visibility: null,
         description: null,
+        attributes: [],
+        attr: null,
         documentation: null,
         location: null,
         contact: null,
@@ -40,6 +42,8 @@ export class CredentialType {
       maturity: this.maturity,
       visibility: this.visibility,
       description: this.description,
+      attributes: this.attributes,
+      attr: this.attr,
       documentation: this.documentation,
       location: this.location,
       contact: this.contact,
@@ -148,6 +152,7 @@ const democredentialtypes = [
     description: `
       Address of an individual.
       `,
+    attributes: [],
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Paul Geus <paul.geus@example.com>",
@@ -169,6 +174,7 @@ const democredentialtypes = [
     description: `
       Email of an individual.
       `,
+    attributes: [],
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Ivanka Berenstain <i.berenstain@example.com>",
@@ -190,6 +196,7 @@ const democredentialtypes = [
     description: `
       Telephone number of an individual.
       `,
+    attributes: [],
     documentation: "",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Gordon Lyon <gordon.lyon@example.com>",
@@ -211,6 +218,7 @@ const democredentialtypes = [
     description: `
       Contact details of an individual, including ...
       `,
+    attributes: [],
     documentation: "https://internal-gitlab.example.com/project/docs",
     location: "https://internal-gitlab.example.com/project/code",
     contact: "Kay Beckers <kay.beckers@example.com>",

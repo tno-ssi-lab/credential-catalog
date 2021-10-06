@@ -34,12 +34,15 @@ export function buildIndex(data) {
     this.field("maturity")
     this.field("visibility")
     this.field("description")
+    // this.field("attributes")
+    this.field("attr")
 
     // TODO: enable search result highlighting
     // this.metadataWhitelist = ["position"]
     data.forEach(item => {
       if (typeof item !== CredentialType) {
         item = new CredentialType(item)
+        item.attr = JSON.stringify(item.attributes).replaceAll('"', " ")
       }
       this.add(item.toObject())
     })

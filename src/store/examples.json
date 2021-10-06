@@ -1,77 +1,5 @@
 [
   {
-    "name": "covid 19 LAMP sneltest",
-    "version": "None",
-    "description": "Stores the result of a LAMP quicktest for COVID 19",
-    "example": "```\n{\n  \"@context\": [\n    \"https://www.w3.org/2018/credentials/v1\",\n    \"https://www.tno.nl/health/ontology/coti\" // TODO: location of schema\n  ],\n  \"id\": \"https://ns.unlock.nl/credentials/example/2\",\n  \"type\": [\"VerifiableCredential\", \"COVID19LAMPTestResultCredential\"],\n  \"issuer\": \"did:example:c276e12ec21ebfeb1f712ebc6f1\",\n  \"issuanceDate\": \"2020-12-10T19:73:24Z\",\n  \"credentialSubject\": {\n    \"id\": \"did:example:ebfeb1f712ebc6f1c276e12ec21\", // did of unlock wallet\n    \"passportPhotograph\": \"iVBORw0KGgoAAAANSUhEUgAAAuAAAACFCAIAAACVGtqeAAAAA3\", // string of the image\n    \"testResult\": {\n      \"date\": \"2020-12-10T00:00:00Z\", // datetime on which the test result is specified\n      \"result\": false,\n      \"usedTest\": {\n        \"testName\": \"TNOLAMP\",\n        \"testType\": \"LAMP based SARS-CoV-2 test\",\n        \"doneByLab\": {\n          \"id\": \"https://tno.nl\", // identifier of test laboratory\n          \"name\": \"TNO\"\n        }\n      }\n    }\n  },\n  \"proof\": {\n    \"type\": \"RsaSignature2018\",\n    \"created\": \"2017-06-18T21:19:10Z\",\n    \"proofPurpose\": \"assertionMethod\",\n    \"verificationMethod\": \"https://example.edu/issuers/keys/1\",\n    \"jws\": \"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5XsITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUcX16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtjPAYuNzVBAh4vGHSrQyHUdBBPM\"\n  }\n}\n```",
-    "documentation": "https://gitlab.com/RoosBakker/coti",
-    "supportedProts": [
-      {
-        "protocol": "VC"
-      }
-    ],
-    "maturity": "test",
-    "contact": "Roos Bakker \u00b7 GitLab",
-    "id": 1000,
-    "credentialType": "covid 19 LAMP sneltestCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
-    "name": "covid 19 antigen sneltest",
-    "version": "None",
-    "description": "Stores the result of an antigetn quicktest for COVID 19",
-    "example": "```\n{\n  \"+D5@context\": [\n    \"https://www.w3.org/2018/credentials/v1\",\n    \"https://www.tno.nl/health/ontology/coti\" // TODO: location of schema\n  ],\n  \"id\": \"https://ns.unlock.nl/credentials/example/2\",\n  \"type\": [\"VerifiableCredential\", \"COVID19AntigenTestResultCredential\"],\n  \"issuer\": \"did:example:c276e12ec21ebfeb1f712ebc6f1\",\n  \"issuanceDate\": \"2020-12-10T19:73:24Z\",\n  \"credentialSubject\": {\n    \"id\": \"did:example:ebfeb1f712ebc6f1c276e12ec21\", // did of unlock wallet\n    \"passportPhotograph\": \"iVBORw0KGgoAAAANSUhEUgAAAuAAAACFCAIAAACVGtqeAAAAA3\", // string of the image\n    \"testResult\": {\n      \"date\": \"2020-12-10T00:00:00Z\", // datetime on which the test result is specified\n      \"result\": false,\n      \"usedTest\": {\n        \"testName\": \"Abbott\",\n        \"testType\": \"Antigen based SARS-CoV-2 test\",\n        \"doneByLab\": {\n          \"id\": \"https://ems.eu\", // identifier of test laboratory\n          \"name\": \"EMS\"\n        }\n      }\n    }\n  },\n  \"proof\": {\n    \"type\": \"RsaSignature2018\",\n    \"created\": \"2017-06-18T21:19:10Z\",\n    \"proofPurpose\": \"assertionMethod\",\n    \"verificationMethod\": \"https://example.edu/issuers/keys/1\",\n    \"jws\": \"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5XsITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUcX16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtjPAYuNzVBAh4vGHSrQyHUdBBPM\"\n  }\n}\n```",
-    "documentation": "https://gitlab.com/RoosBakker/coti",
-    "supportedProts": [
-      {
-        "protocol": "VC"
-      }
-    ],
-    "maturity": "test",
-    "contact": "Roos Bakker \u00b7 GitLab",
-    "id": 1001,
-    "credentialType": "covid 19 antigen sneltestCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
-    "name": "covid 19 test",
-    "version": "None",
-    "description": "Stores the result of a test for COVID 19 (presumably a PCR test? Hard to infer because no explicit schema is given)",
-    "example": "```\n{\n  \"@context\": [\n    \"https://www.w3.org/2018/credentials/v1\",\n    \"https://www.tno.nl/health/ontology/coti\" // TODO: location of schema\n  ],\n  \"id\": \"https://ns.unlock.nl/credentials/example/1\",\n  \"type\": [\"VerifiableCredential\", \"COVID19PCRTestResultCredential\"],\n  \"issuer\": \"did:example:c276e12ec21ebfeb1f712ebc6f1\",\n  \"issuanceDate\": \"2020-06-06T19:73:24Z\",\n  \"credentialSubject\": {\n    \"id\": \"did:example:ebfeb1f712ebc6f1c276e12ec21\", // did of unlock wallet\n    \"familyName\": \"Doe\",\n    \"givenNames\": \"John Gerard\",\n    \"birthDate\": \"1980-01-01\",\n    \"testResult\": {\n      \"date\": \"2020-06-06T00:00:00Z\", // datetime on which the test result is specified\n      \"result\": false,\n      \"sample\": {\n        \"uniqueSampleCode\": \"COB0000000\", // identifier of sample\n        \"sampleDate\": \"2020-06-05T00:00:00Z\", // date on which the sample is taken\n        \"receivedDate\": \"2020-06-05T00:00:00Z\" // date on which the sample is received in the lab\n      },\n      \"usedTest\": {\n        \"testName\": \"CORONA-NU\",\n        \"testType\": \"PCR based SARS-CoV-2 test\",\n        \"doneByLab\": {\n          \"id\": \"\", // identifier of test laboratory\n          \"name\": \"CoronaLab.eu\"\n        }\n      }\n    }\n  },\n  \"proof\": {\n    \"type\": \"RsaSignature2018\",\n    \"created\": \"2017-06-18T21:19:10Z\",\n    \"proofPurpose\": \"assertionMethod\",\n    \"verificationMethod\": \"https://example.edu/issuers/keys/1\",\n    \"jws\": \"eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5XsITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUcX16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtjPAYuNzVBAh4vGHSrQyHUdBBPM\"\n  }\n}\n```",
-    "documentation": "https://gitlab.com/RoosBakker/coti",
-    "supportedProts": [
-      {
-        "protocol": "VC"
-      }
-    ],
-    "maturity": "test",
-    "contact": "Roos Bakker \u00b7 GitLab",
-    "id": 1002,
-    "credentialType": "covid 19 testCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
     "name": "EmploymentSchema",
     "version": "1.0",
     "description": "Leveraging its extensive enterprise I&A experience for the schema 3 How to Launch Self-Sovereign Identity Technology for Corporate IT Access definition, esatus could depict its own org structure while making a general access model available for any other company to use. An expiry date and an issuing date was included in every schema to reference when the user obtained this credential and for how long it is valid directly in its content. This is useful even if a revocation of a credential is possible. As every employee needs to be able to prove she belongs to the company, an employment schema was created. The department information was intentionally omitted in this schema, as departments regularly change more often than the general employment data. The same applies to project memberships. Therefore, the created employment schema should be generic and applicable to many companies:",
@@ -168,30 +96,6 @@
     "deploymentRequirements": null
   },
   {
-    "name": "DataKeeper name credential",
-    "version": "None",
-    "description": "A name as retrieved from a passport",
-    "example": "```\n{\n'@context': [\n'https://www.w3.org/2018/credentials/v1',\n'http://some-url.com/government-documents#passport',\n'firstName'\n],\ntype: [ 'VerifiableCredential'],\nissuer: 'did:eth:0xe56315023679fA6C07727aBc06Eb600fE90fa673',\nissuanceDate: '2021-02-25T14:18:24.428Z',\ncredentialSubject: {\nid: 'did:eth:0xD6344b5531aFb80D9FB0d2eE5BA5897BB4c8FD57',\nfirstName: 'Piet', // <----- DATAPOINT\ndocumentId: 'doc-e2fa4c9d-8979-4534-b438-4c45cc2f4b2c',\n},\nproof: {\ntype: 'secp256k1Signature2019',\ncreated: '2021-02-25T14:18:24.437Z',\nverificationMethod:\n'f7ad148a6487273826d28e4e28b874426a51d899239d9342dcf2053cad69c902cdb95b88e60bc59d65736bc8030b5c7582cfc4fa7b6bb31112e10981d17\n7d5f1',\nnonce: '1c8ebff3-3588-4074-91d3-337d2541c536',\nsignatureValue:\n'0a053957ff860a86445a479a75fc1c01bfe405411888fdbad6a3ca374cfd2f5841f394811e7009e3e97e1dc6e7df8dfbfb7571fa461e47a1827741ff5281aff6'\n}\n}\n```",
-    "documentation": "See example",
-    "supportedProts": [
-      {
-        "protocol": "VC, datakeeper"
-      }
-    ],
-    "maturity": "production",
-    "contact": "Marnix.van.den.Bent@rabobank.nl",
-    "id": 1007,
-    "credentialType": "DataKeeper name credentialCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
     "name": "Farm_Schema",
     "version": "1.2",
     "description": "### Attributes:\n\n- organization_id\n- name_of_farm_natural_person\n- time_of_issuance\n- organization_name_of_issuer\n- district\n- confirmed_by_farmer\n- gps_coordinates_ten\n- name_of_farm\n- gps_coordinates_eight\n- country\n- farm_id\n- address\n- place\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/63347",
@@ -264,30 +168,6 @@
     "deploymentRequirements": null
   },
   {
-    "name": "COVID-19 Test Result",
-    "version": "2.0",
-    "description": "###Attributes:\n\n- testLanguage\n- testResult\n- labCode\n- testType\n- labAddress\n- resultDate\n- labName\n- labPublicPhone\n- takenDate\n- testTechnique\n- testFormat\n- labPublicEmail\n- labPublicWebsite\n- testMethod\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/63152",
-    "example": "None",
-    "documentation": "```\n{\n  \"txn\": {\n    \"data\": {\n      \"data\": {\n        \"attr_names\": [\n          \"testLanguage\",\n          \"testResult\",\n          \"labCode\",\n          \"testType\",\n          \"labAddress\",\n          \"resultDate\",\n          \"labName\",\n          \"labPublicPhone\",\n          \"takenDate\",\n          \"testTechnique\",\n          \"testFormat\",\n          \"labPublicEmail\",\n          \"labPublicWebsite\",\n          \"testMethod\"\n        ],\n        \"name\": \"COVID-19 Test Result\",\n        \"version\": \"2.0\"\n      }\n    },\n    \"metadata\": {\n      \"digest\": \"5a12561025dd9f821b364c10c7c98fc66159b38c747c396867c0678a77499c25\",\n      \"endorser\": \"P8u7S3Xz8JD3JvaCGcMyTg\",\n      \"from\": \"TTR9ckhm1KNu6g7aBYgxuQ\",\n      \"payloadDigest\": \"19f257f8c0f3f073c46feed34916b9c51f474930c1fc4e0837f8d3df980f8947\",\n      \"reqId\": 1626784291061231400,\n      \"taaAcceptance\": {\n        \"mechanism\": \"at_submission\",\n        \"taaDigest\": \"8cee5d7a573e4893b08ff53a0761a22a1607df3b3fcd7e75b98696c92879641f\",\n        \"time\": 1626739200\n      }\n    },\n    \"protocolVersion\": 2,\n    \"type\": \"101\",\n    \"typeName\": \"SCHEMA\"\n  },\n  \"txnMetadata\": {\n    \"seqNo\": 63152,\n    \"txnId\": \"TTR9ckhm1KNu6g7aBYgxuQ:2:COVID-19 Test Result:2.0\",\n    \"txnTime\": \"2021-07-20T12:57:26.000Z\"\n  }\n}\n```",
-    "supportedProts": [
-      {
-        "protocol": "INDY ledger"
-      }
-    ],
-    "maturity": "production",
-    "contact": "None",
-    "id": 1011,
-    "credentialType": "COVID-19 Test ResultCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
     "name": "COVID-19 Vaccine",
     "version": "112.11",
     "description": "###Attributes:\n\n- System of Record\n- $Metadata\n- Patient Middle Initial\n- Lot Number\n- Patient Last Name\n- Manufacturer Name\n- Patient Reference Number\n- Administration Date\n- Dose Quantity\n- $Order\n- Vaccine Name\n- Dose Units\n- Lot Expiration\n- Patient First Name\n- $Timestamp\n- Patient Date of Birth\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/62238",
@@ -350,30 +230,6 @@
     "contact": "None",
     "id": 1014,
     "credentialType": "AddressCredential",
-    "category": "category-two",
-    "organization": [],
-    "location": "",
-    "visibility": "unclassified",
-    "constituents": [],
-    "reviews": [],
-    "offers": [],
-    "deploymentRequirements": null
-  },
-  {
-    "name": "Personal data",
-    "version": "None",
-    "description": "Your personal data, from the Dutch population register (BRP)\n\nCredential identifier: pbdf.bzkpilot.personalData\n\n### Attributes\n\n- Full name (optional)\n  - Identifier pbdf.bzkpilot.personalData.fullname\n  - Description: Your full family name: your family name or (a combination with) the name of your partner\n- Initials\n  - Identifier pbdf.bzkpilot.personalData.initials\n  - Description: Your initials, abbreviating your first names\n- First names\n  - Identifier pbdf.bzkpilot.personalData.firstnames\n  - Description: Your first names\n- Prefix (optional)\n  - Identifier pbdf.bzkpilot.personalData.prefix\n  - Description: Prefix of your family name\n- Family name\n  - Identifier pbdf.bzkpilot.personalData.familyname\n  - Description: Your family name, as given to you at birth\n- Gender\n  - Identifier pbdf.bzkpilot.personalData.gender\n  - Description: Your gender\n- Date of birth\n  - Identifier pbdf.bzkpilot.personalData.dateofbirth\n  - Description: Your date of birth\n- Over 12\n  - Identifier pbdf.bzkpilot.personalData.over12\n  - Description: Whether you are over 12\n- Over 16\n  - Identifier pbdf.bzkpilot.personalData.over16\n  - Description: Whether you are over 16\n- Over 18\n  - Identifier pbdf.bzkpilot.personalData.over18\n  - Description: Whether you are over 18\n- Over 21\n  - Identifier pbdf.bzkpilot.personalData.over21\n  - Description: Whether you are over 21\n- Over 65\n  - Identifier pbdf.bzkpilot.personalData.over65\n  - Description: Whether you are over 65\n- Dutch nationality (optional)\n  - Identifier pbdf.bzkpilot.personalData.nationality\n  - Description: Whether you have the dutch nationality\n- Country of birth\n  - Identifier pbdf.bzkpilot.personalData.countryofbirth\n  - Description: Your country of birth\n- BSN\n  - Identifier pbdf.bzkpilot.personalData.bsn\n  - Description: Your Dutch Citizen registration number (BSN)\n- Photo\n  - Identifier pbdf.bzkpilot.personalData.photo\n  - Description: Your picture ",
-    "example": "None",
-    "documentation": "https://privacybydesign.foundation/attribute-index/en/pbdf.bzkpilot.personalData.html",
-    "supportedProts": [
-      {
-        "protocol": "IRMA"
-      }
-    ],
-    "maturity": "pilot",
-    "contact": "None",
-    "id": 1015,
-    "credentialType": "Personal dataCredential",
     "category": "category-two",
     "organization": [],
     "location": "",

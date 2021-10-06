@@ -135,7 +135,7 @@
 
       <v-col lg="8" md="10" cols="12">
         <h3>Issuers</h3>
-        <v-col v-for="offer in credential.offers" :key="offer" cols="12">
+        <v-col v-for="offer in credentialOffers" :key="offer" cols="12">
           <offer-card :id="offer"></offer-card>
         </v-col>
       </v-col>

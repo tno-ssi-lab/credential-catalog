@@ -35,12 +35,12 @@ const bundleModule = {
     bundles: [
       {
         id: 1,
-        name: "Guardianship - Banking",
-        ids: [25, 26, 27, 28],
+        name: "Bundle 1",
+        ids: [],
       },
       {
         id: 2,
-        name: "Guardianship - Certificate of inheritance",
+        name: "Bundle 2",
         ids: [15, 4, 29, 18, 17],
       },
     ],

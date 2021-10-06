@@ -44,16 +44,17 @@
           v-bind="fieldProps('credentialType')"
         />
 
-        <v-text-field
+        <!-- <v-text-field
           v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
-        />
-
-        <!-- <select-dropdown
-          v-model="attributes.organization"
-          :items="issuers"
+        /> -->
+        <v-select
+          v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
-        ></select-dropdown> -->
+          :items="organizations"
+          item-value="id"
+          item-text="name"
+        />
 
         <v-text-field
           v-for="field in sidebarFields"
@@ -73,6 +74,8 @@
 <script>
 import Vue from "vue"
 import { mapGetters } from "vuex"
+
+import {organizations} from "@/store/organization"
 
 // import SelectDropdown from "@/components/common/SelectDropdown"
 // import MarkdownDisplay from "@/components/common/MarkdownDisplay"
@@ -126,6 +129,7 @@ export default {
       attributes,
       issuers: constants.PROCESS_ITEMS,
       sidebarFields: SIDEBAR_FIELDS,
+      organizations: organizations,
     }
   },
   computed: mapGetters(["credentialOffers", "protChoices"]),
@@ -172,6 +176,9 @@ export default {
     emitValue() {
       this.$emit("input", this.attributes)
     },
+  },
+  mounted() {
+    console.log(this.organizations)
   },
 }
 </script>

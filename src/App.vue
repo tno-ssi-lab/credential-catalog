@@ -177,6 +177,10 @@ h6 {
   padding: 0;
 }
 
+.v-card .v-card__text {
+  white-space: pre;
+}
+
 .text-muted {
   color: #bdc1d4;
 }

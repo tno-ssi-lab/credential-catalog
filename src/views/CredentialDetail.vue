@@ -15,6 +15,16 @@
         <v-icon left>mdi-pencil</v-icon>
         Edit
       </v-btn>
+      <v-btn
+        class="mx-2"
+        :to="{
+          name: 'create-offer',
+          params: { typeid: id },
+        }"
+      >
+        <v-icon left>mdi-account-check</v-icon>
+        Add offer
+      </v-btn>
       <v-btn class="mx-2" :to="{ name: 'changelog', params: { id: id } }">
         <v-icon left>mdi-history</v-icon>
         Change log

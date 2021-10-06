@@ -9,7 +9,7 @@
       Required fields are indicated with an *
     </p>
 
-    <credential-offer-form :value="credentialOffer" @input="saveCred"></credential-offer-form>
+    <credential-offer-form :value="credentialOffer" :typeid="typeid" @input="saveCred"></credential-offer-form>
   </div>
 </template>
 
@@ -25,6 +25,10 @@ export default {
       type: Number,
       default: null,
     },
+    typeid: {
+      type: Number,
+      default: null,
+    }
   },
   computed: {
     ...mapGetters(["getCredentialOfferById", "lastCredentialOffer"]),

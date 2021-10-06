@@ -114,10 +114,13 @@ export default {
       type: Object,
       default: null,
     },
+    typeid: {
+      type: Number,
+      default: null
+    },
   },
   data() {
-    const attributes = JSON.parse(JSON.stringify(this.value)) || {}
-
+    const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid}
     return {
       valid: null,
       attributes,

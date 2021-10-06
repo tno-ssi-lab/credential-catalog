@@ -31,9 +31,10 @@ const routes = [
     component: CredentialEdit,
   },
   {
-    path: "/create-offer",
+    path: "/create-offer/:typeid",
     name: "create-offer",
     component: CredentialOfferEdit,
+    props: castRouteParams,
   },
   {
     path: "/edit/:id",
@@ -134,6 +135,7 @@ const routes = [
 function castRouteParams(route) {
   return {
     id: Number(route.params.id),
+    typeid: Number(route.params.typeid),
   }
 }
 

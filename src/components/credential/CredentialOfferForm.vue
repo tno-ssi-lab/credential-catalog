@@ -123,7 +123,7 @@ export default {
     },
   },
   data() {
-    const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid}
+    const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid ? this.typeid : ""}
     return {
       valid: null,
       attributes,

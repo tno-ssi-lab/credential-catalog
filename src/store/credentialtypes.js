@@ -432,22 +432,6 @@ const democredentialtypes = [
     ]
   },
 
-
-
-
-
-  {
-    id: 2000,
-    name: "template",
-    version: "1.0",
-    description: "lorem is pum",
-    attributes: [
-      {
-        title: "title",
-        type: "-"
-      }
-    ]
-  }
 ]
 
 let importedcredentialtypes = require('./examples.json');

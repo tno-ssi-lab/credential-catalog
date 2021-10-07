@@ -98,7 +98,61 @@
   {
     "name": "Farm_Schema",
     "version": "1.2",
-    "description": "### Attributes:\n\n- organization_id\n- name_of_farm_natural_person\n- time_of_issuance\n- organization_name_of_issuer\n- district\n- confirmed_by_farmer\n- gps_coordinates_ten\n- name_of_farm\n- gps_coordinates_eight\n- country\n- farm_id\n- address\n- place\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/63347",
+    "description": "https://indyscan.io/tx/SOVRIN_MAINNET/domain/63347",
+    "attributes": [
+      {
+        "title": "organization_id",
+        "type": "-"
+      },
+      {
+        "title": "name_of_farm_natural_person",
+        "type": "-"
+      },
+      {
+        "title": "time_of_issuance",
+        "type": "-"
+      },
+      {
+        "title": "organization_name_of_issuer",
+        "type": "-"
+      },
+      {
+        "title": "district",
+        "type": "-"
+      },
+      {
+        "title": "confirmed_by_farmer",
+        "type": "-"
+      },
+      {
+        "title": "gps_coordinates_ten",
+        "type": "-"
+      },
+      {
+        "title": "name_of_farm",
+        "type": "-"
+      },
+      {
+        "title": "gps_coordinates_eight",
+        "type": "-"
+      },
+      {
+        "title": "country",
+        "type": "-"
+      },
+      {
+        "title": "farm_id",
+        "type": "-"
+      },
+      {
+        "title": "address",
+        "type": "-"
+      },
+      {
+        "title": "place",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "```\n{\n  \"txn\": {\n    \"data\": {\n      \"data\": {\n        \"attr_names\": [\n          \"organization_id\",\n          \"name_of_farm_natural_person\",\n          \"time_of_issuance\",\n          \"organization_name_of_issuer\",\n          \"district\",\n          \"confirmed_by_farmer\",\n          \"gps_coordinates_ten\",\n          \"name_of_farm\",\n          \"gps_coordinates_eight\",\n          \"country\",\n          \"farm_id\",\n          \"address\",\n          \"place\"\n        ],\n        \"name\": \"Farm_Schema\",\n        \"version\": \"1.2\"\n      }\n    },\n    \"metadata\": {\n      \"digest\": \"d10f941da3f36e56de96c9c6e5cdf53b1f21cef3e9a8a9f7a3827d47d9983d4a\",\n      \"endorser\": \"3hzaM4LfEeoZ4wpx324Hjt\",\n      \"from\": \"6BrHyg7SoMRmbgQjqJrkcH\",\n      \"payloadDigest\": \"b5e11af8c41fb453ab05ca7838ce6b094cf33ab5f00f09dd563a745b9d8d23d6\",\n      \"reqId\": 1626947648269287000,\n      \"taaAcceptance\": {\n        \"mechanism\": \"service_agreement\",\n        \"taaDigest\": \"8cee5d7a573e4893b08ff53a0761a22a1607df3b3fcd7e75b98696c92879641f\",\n        \"time\": 1626912000\n      }\n    },\n    \"protocolVersion\": 2,\n    \"type\": \"101\",\n    \"typeName\": \"SCHEMA\"\n  },\n  \"txnMetadata\": {\n    \"seqNo\": 63347,\n    \"txnId\": \"6BrHyg7SoMRmbgQjqJrkcH:2:Farm_Schema:1.2\",\n    \"txnTime\": \"2021-07-22T09:54:08.000Z\"\n  }\n}\n```",
     "supportedProts": [
@@ -122,7 +176,57 @@
   {
     "name": "Farm_Schema",
     "version": "1.1",
-    "description": "### Attributes:\n\n- address\n- name_of_farm\n- country\n- place\n- district\n- farm_id\n- time_of_issuance\n- gps_coordinates_ten\n- organization_id\n- organization_name_of_issuer\n- gps_coordinates_eight\n- name_of_farm_natural_person\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/56310",
+    "description": "https://indyscan.io/tx/SOVRIN_MAINNET/domain/56310",
+    "attributes": [
+      {
+        "title": "address",
+        "type": "-"
+      },
+      {
+        "title": "name_of_farm",
+        "type": "-"
+      },
+      {
+        "title": "country",
+        "type": "-"
+      },
+      {
+        "title": "place",
+        "type": "-"
+      },
+      {
+        "title": "district",
+        "type": "-"
+      },
+      {
+        "title": "farm_id",
+        "type": "-"
+      },
+      {
+        "title": "time_of_issuance",
+        "type": "-"
+      },
+      {
+        "title": "gps_coordinates_ten",
+        "type": "-"
+      },
+      {
+        "title": "organization_id",
+        "type": "-"
+      },
+      {
+        "title": "organization_name_of_issuer",
+        "type": "-"
+      },
+      {
+        "title": "gps_coordinates_eight",
+        "type": "-"
+      },
+      {
+        "title": "name_of_farm_natural_person",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "```\n{\n  \"txn\": {\n    \"data\": {\n      \"data\": {\n        \"attr_names\": [\n          \"address\",\n          \"name_of_farm\",\n          \"country\",\n          \"place\",\n          \"district\",\n          \"farm_id\",\n          \"time_of_issuance\",\n          \"gps_coordinates_ten\",\n          \"organization_id\",\n          \"organization_name_of_issuer\",\n          \"gps_coordinates_eight\",\n          \"name_of_farm_natural_person\"\n        ],\n        \"name\": \"Farm_Schema\",\n        \"version\": \"1.1\"\n      }\n    },\n    \"metadata\": {\n      \"digest\": \"ef930f1b491f896cefcdf3f8a93c3fb246bf73fa9f90c0eb961334b93e316515\",\n      \"endorser\": \"3hzaM4LfEeoZ4wpx324Hjt\",\n      \"from\": \"39yeYh9n8p7LzWnxbrcqCP\",\n      \"payloadDigest\": \"08c02e5096046e8c18d309b625a14e2ae37c9c79b1541bc29f4a44f03550e032\",\n      \"reqId\": 1605688867496636400,\n      \"taaAcceptance\": {\n        \"mechanism\": \"service_agreement\",\n        \"taaDigest\": \"8cee5d7a573e4893b08ff53a0761a22a1607df3b3fcd7e75b98696c92879641f\",\n        \"time\": 1605657600\n      }\n    },\n    \"protocolVersion\": 2,\n    \"type\": \"101\",\n    \"typeName\": \"SCHEMA\"\n  },\n  \"txnMetadata\": {\n    \"seqNo\": 56310,\n    \"txnId\": \"39yeYh9n8p7LzWnxbrcqCP:2:Farm_Schema:1.1\",\n    \"txnTime\": \"2020-11-18T08:41:07.000Z\"\n  }\n}\n```",
     "supportedProts": [
@@ -146,7 +250,81 @@
   {
     "name": "ggirc-act.ghg-emissions-report",
     "version": "0.2.1",
-    "description": "### Attributes:\n\n- effective_date\n- pfcs_emissions\n- primary_activity_code\n- hfcs_emissions\n- issued_date\n- facility_longitude\n- co2_fossil_emissions\n- facility_latitude\n- co2_biomass_emissions\n- registration_id\n- primary_activity_description\n- ch4_emissions\n- n2o_emissions\n- verification_body\n- reporting_year\n- sf6_emissions\n- verification_result\n- facility_name\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/67232",
+    "description": "https://indyscan.io/tx/SOVRIN_MAINNET/domain/67232",
+    "attributes": [
+      {
+        "title": "effective_date",
+        "type": "-"
+      },
+      {
+        "title": "pfcs_emissions",
+        "type": "-"
+      },
+      {
+        "title": "primary_activity_code",
+        "type": "-"
+      },
+      {
+        "title": "hfcs_emissions",
+        "type": "-"
+      },
+      {
+        "title": "issued_date",
+        "type": "-"
+      },
+      {
+        "title": "facility_longitude",
+        "type": "-"
+      },
+      {
+        "title": "co2_fossil_emissions",
+        "type": "-"
+      },
+      {
+        "title": "facility_latitude",
+        "type": "-"
+      },
+      {
+        "title": "co2_biomass_emissions",
+        "type": "-"
+      },
+      {
+        "title": "registration_id",
+        "type": "-"
+      },
+      {
+        "title": "primary_activity_description",
+        "type": "-"
+      },
+      {
+        "title": "ch4_emissions",
+        "type": "-"
+      },
+      {
+        "title": "n2o_emissions",
+        "type": "-"
+      },
+      {
+        "title": "verification_body",
+        "type": "-"
+      },
+      {
+        "title": "reporting_year",
+        "type": "-"
+      },
+      {
+        "title": "sf6_emissions",
+        "type": "-"
+      },
+      {
+        "title": "verification_result",
+        "type": "-"
+      },
+      {
+        "title": "facility_name",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "```\n{\n  \"txn\": {\n    \"data\": {\n      \"data\": {\n        \"attr_names\": [\n          \"effective_date\",\n          \"pfcs_emissions\",\n          \"primary_activity_code\",\n          \"hfcs_emissions\",\n          \"issued_date\",\n          \"facility_longitude\",\n          \"co2_fossil_emissions\",\n          \"facility_latitude\",\n          \"co2_biomass_emissions\",\n          \"registration_id\",\n          \"primary_activity_description\",\n          \"ch4_emissions\",\n          \"n2o_emissions\",\n          \"verification_body\",\n          \"reporting_year\",\n          \"sf6_emissions\",\n          \"verification_result\",\n          \"facility_name\"\n        ],\n        \"name\": \"ggirc-act.ghg-emissions-report\",\n        \"version\": \"0.2.1\"\n      }\n    },\n    \"metadata\": {\n      \"digest\": \"0564c8c136eb9610d783265950d0f427c28d041bee64ed86594e6332a1c66f9d\",\n      \"endorser\": \"NewAUq29E4jLJ5jMSxns3s\",\n      \"from\": \"NqFsoG29BHBnczz6t6UBXo\",\n      \"payloadDigest\": \"b22d164ba3ebdb951443f54a64a8fec18d4e1d6aa076d8368ff352a71b531edf\",\n      \"reqId\": 1629568809695840000,\n      \"taaAcceptance\": {\n        \"mechanism\": \"for_session\",\n        \"taaDigest\": \"8cee5d7a573e4893b08ff53a0761a22a1607df3b3fcd7e75b98696c92879641f\",\n        \"time\": 1629504000\n      }\n    },\n    \"protocolVersion\": 2,\n    \"type\": \"101\",\n    \"typeName\": \"SCHEMA\"\n  },\n  \"txnMetadata\": {\n    \"seqNo\": 67232,\n    \"txnId\": \"NqFsoG29BHBnczz6t6UBXo:2:ggirc-act.ghg-emissions-report:0.2.1\",\n    \"txnTime\": \"2021-08-21T18:01:55.000Z\"\n  }\n}\n```",
     "supportedProts": [
@@ -170,7 +348,73 @@
   {
     "name": "COVID-19 Vaccine",
     "version": "112.11",
-    "description": "###Attributes:\n\n- System of Record\n- $Metadata\n- Patient Middle Initial\n- Lot Number\n- Patient Last Name\n- Manufacturer Name\n- Patient Reference Number\n- Administration Date\n- Dose Quantity\n- $Order\n- Vaccine Name\n- Dose Units\n- Lot Expiration\n- Patient First Name\n- $Timestamp\n- Patient Date of Birth\n\nhttps://indyscan.io/tx/SOVRIN_MAINNET/domain/62238",
+    "description": "https://indyscan.io/tx/SOVRIN_MAINNET/domain/62238",
+    "attributes": [
+      {
+        "title": "System of Record",
+        "type": "-"
+      },
+      {
+        "title": "$Metadata",
+        "type": "-"
+      },
+      {
+        "title": "Patient Middle Initial",
+        "type": "-"
+      },
+      {
+        "title": "Lot Number",
+        "type": "-"
+      },
+      {
+        "title": "Patient Last Name",
+        "type": "-"
+      },
+      {
+        "title": "Manufacturer Name",
+        "type": "-"
+      },
+      {
+        "title": "Patient Reference Number",
+        "type": "-"
+      },
+      {
+        "title": "Administration Date",
+        "type": "-"
+      },
+      {
+        "title": "Dose Quantity",
+        "type": "-"
+      },
+      {
+        "title": "$Order",
+        "type": "-"
+      },
+      {
+        "title": "Vaccine Name",
+        "type": "-"
+      },
+      {
+        "title": "Dose Units",
+        "type": "-"
+      },
+      {
+        "title": "Lot Expiration",
+        "type": "-"
+      },
+      {
+        "title": "Patient First Name",
+        "type": "-"
+      },
+      {
+        "title": "$Timestamp",
+        "type": "-"
+      },
+      {
+        "title": "Patient Date of Birth",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "```\n{\n  \"txn\": {\n    \"data\": {\n      \"data\": {\n        \"attr_names\": [\n          \"System of Record\",\n          \"$Metadata\",\n          \"Patient Middle Initial\",\n          \"Lot Number\",\n          \"Patient Last Name\",\n          \"Manufacturer Name\",\n          \"Patient Reference Number\",\n          \"Administration Date\",\n          \"Dose Quantity\",\n          \"$Order\",\n          \"Vaccine Name\",\n          \"Dose Units\",\n          \"Lot Expiration\",\n          \"Patient First Name\",\n          \"$Timestamp\",\n          \"Patient Date of Birth\"\n        ],\n        \"name\": \"COVID-19 Vaccine\",\n        \"version\": \"112.11\"\n      }\n    },\n    \"metadata\": {\n      \"digest\": \"91c8a4f0998e07141681284826b75d20d48d97d43e774c7ffa3d4cfeffefad34\",\n      \"endorser\": \"NAAVMb535pt7HRNy97zbGP\",\n      \"from\": \"8KusBegNmSG2bitSnf14tE\",\n      \"payloadDigest\": \"e7242b86ef2e787ec2bf82695ae8b19c7f152708ca3560bfd07fe58e17d9a43a\",\n      \"reqId\": 1625144169009062100,\n      \"taaAcceptance\": {\n        \"mechanism\": \"on_file\",\n        \"taaDigest\": \"8cee5d7a573e4893b08ff53a0761a22a1607df3b3fcd7e75b98696c92879641f\",\n        \"time\": 1599696000\n      }\n    },\n    \"protocolVersion\": 2,\n    \"type\": \"101\",\n    \"typeName\": \"SCHEMA\"\n  },\n  \"txnMetadata\": {\n    \"seqNo\": 62237,\n    \"txnId\": \"8KusBegNmSG2bitSnf14tE:2:COVID-19 Vaccine:112.11\",\n    \"txnTime\": \"2021-07-01T13:45:42.000Z\"\n  }\n}\n```",
     "supportedProts": [
@@ -194,9 +438,35 @@
   {
     "name": "BSN from healthcare",
     "version": "None",
-    "description": "Your Dutch Citizen service number (BSN), from the Dutch population register, verified face to face\n\nCredential identifier: pbdf.chipsoft.bsn\n\n### Attributes\n\nThis credential contains the following attributes:\n\n- BSN from healthcare: \n  - Identifier: pbdf.chipsoft.bsn.bsn\n  - Description: Your Dutch Citizen service number (BSN) from healthcare\n- Initials\n  - Identifier: pbdf.chipsoft.bsn.initials\n  - Description: Your initials, abbreviating your first names\n- First names\n  - Identifier: pbdf.chipsoft.bsn.firstnames\n  - Description: Your first names\n- Prefix (optional)\n  - Identifier: pbdf.chipsoft.bsn.prefix\n  - Description: Prefix of your family name\n- Family name\n  - Identifier: pbdf.chipsoft.bsn.familyname\n  - Description: Your family name, as given to you at birth\n- Date of birth\n  - Identifier: pbdf.chipsoft.bsn.dateofbirth\n  - Description: Your date of birth \n\nhttps://privacybydesign.foundation/attribute-index/en/pbdf.chipsoft.bsn.html",
+    "description": "Your Dutch Citizen service number (BSN), from the Dutch population register, verified face to face\nCredential identifier: pbdf.chipsoft.bsn\nhttps://privacybydesign.foundation/attribute-index/en/pbdf.chipsoft.bsn.html",
     "example": "None",
     "documentation": "https://privacybydesign.foundation/attribute-index/en/pbdf.chipsoft.bsn.html",
+    "attributes": [
+      {
+        "title": "BSN from healthcare: ",
+        "type": "-"
+      },
+      {
+        "title": "Initials",
+        "type": "-"
+      },
+      {
+        "title": "First names",
+        "type": "-"
+      },
+      {
+        "title": "Prefix (optional)",
+        "type": "-"
+      },
+      {
+        "title": "Family name",
+        "type": "-"
+      },
+      {
+        "title": "Date of birth",
+        "type": "-"
+      }
+    ],
     "supportedProts": [
       {
         "protocol": "IRMA"
@@ -218,7 +488,29 @@
   {
     "name": "Address",
     "version": "None",
-    "description": "Your home address, from the Dutch population register\n\nCredential identifier: pbdf.bzkpilot.address\n\n### Attributes\n\n- Street\n  - Identifer: pbdf.bzkpilot.address.street\n  - Description: Your street\n -House number (optional)\n  - Identifer: pbdf.bzkpilot.address.houseNumber\n  - Description: Your house number, with possible extension\n- Postal code\n  - Identifer: pbdf.bzkpilot.address.zipcode\n  - Description: Your postal code\n- City\n  - Identifer: pbdf.bzkpilot.address.city\n  - Description: Your city of residence\n- Municipality\n  - Identifer: pbdf.bzkpilot.address.municipality\n  - Description: Your municipality ",
+    "description": "Your home address, from the Dutch population register\nCredential identifier: pbdf.bzkpilot.address",
+    "attributes": [
+      {
+        "title": "Street",
+        "type": "-"
+      },
+      {
+        "title": "House number (optional)",
+        "type": "-"
+      },
+      {
+        "title": "Postal code",
+        "type": "-"
+      },
+      {
+        "title": "City",
+        "type": "-"
+      },
+      {
+        "title": "Municipality",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "https://privacybydesign.foundation/attribute-index/en/pbdf.bzkpilot.address.html",
     "supportedProts": [
@@ -242,7 +534,13 @@
   {
     "name": "AGB code",
     "version": "None",
-    "description": "An AGB code (in Dutch: Algemeen GegevensBeheer code) is a Dutch national code system which uniquely identifies a care provider. Care providers are registered in a national database with such a code. The database is maintained by Vektis\n\nCredential identifier: pbdf.nuts.agb\n\n### Attributes\n\n- AGB-code\n  - Identifier: pbdf.nuts.agb.agbcode\n  - Description: Uniquely identifying code for individual healthcare professional ",
+    "description": "An AGB code (in Dutch: Algemeen GegevensBeheer code) is a Dutch national code system which uniquely identifies a care provider. Care providers are registered in a national database with such a code. The database is maintained by Vektis\nCredential identifier: pbdf.nuts.agb",
+    "attributes": [
+      {
+        "title": "AGB code",
+        "type": "-"
+      }
+    ],
     "example": "None",
     "documentation": "https://privacybydesign.foundation/attribute-index/en/pbdf.nuts.agb.html",
     "supportedProts": [

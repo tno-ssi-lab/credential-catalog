@@ -12,7 +12,7 @@ After installing Docker and docker-compose, the project is easily
 started in development mode using*:
 
 ```bash
-docker-compose up
+docker-compose -f docker-compose.dev.yml up
 ```
 
 *Note the install dependencies below!
@@ -25,7 +25,7 @@ dependencies or else the `docker-compose up` command will fail. This
 is fixed by running the following command:
 
 ```bash
-docker-compose run app yarn install
+docker-compose -f docker-compose.dev.yml run app yarn install
 ```
 
 ## Tools

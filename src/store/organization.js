@@ -156,6 +156,21 @@ export const organizations = [
     description: "https://indyscan.io/tx/SOVRIN_MAINNET/domain/74524",
     contactPerson: "-",
   },
+  // diploma
+  {
+    id: 301,
+    logo: "https://pbs.twimg.com/profile_images/822080937391517697/r-W_eNYL_400x400.jpg", // Twitter profile image
+    name: "TU Graz",
+    description: "Graz University of Technology, university in Graz, Austria.",
+    contactPerson: "-",
+  },
+  {
+    id: 302,
+    logo: "https://pbs.twimg.com/profile_images/768710761959006208/kY29UUJu_400x400.jpg", // Twitter profile image
+    name: "WU Wien",
+    description: "Vienna University of Economics and Business, public university in Vienna, Austria.",
+    contactPerson: "-",
+  },
 
 
 

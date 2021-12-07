@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import { credentialtypes, CredentialType } from "./credentialtypes"
 import { CredentialOffer, credentialoffers } from "./credentialoffer"
+import { CredentialImplementation, credentialimplementations } from "./credentialimplementations"
 import { Organization, organizations } from "./organization"
 import { buildIndex, buildQueryString, filterByField } from "./search"
 import constants from "@/constants"
@@ -308,6 +309,55 @@ const credentialTypeModule = {
   },
 }
 
+const credentialImplementationModule = {
+  state: {
+    credentialImplementations: credentialimplementations,
+    nextCredentialImplementationID: credentialimplementations.length + 1,
+  },
+  getters: {
+    credentialImplementations: state => {
+      return state.credentialImplementations.map(attrs => new CredentialImplementation(attrs))
+    },
+    lastCredentialImplementation: (state, { credentialImplementations }) => {
+      return credentialImplementations[credentialImplementations.length - 1]
+    },
+    getCredentialImplementationById: (state, { credentialImplementations }) => id => {
+      return credentialImplementations.find(c => c.id === id)
+    },
+    getCredentialImplementationsByIds: (state, { getCredentiaImplementationsById }) => ids => {
+      return ids.map(getCredentiaImplementationsById).filter(c => c)
+    },
+    getCredentialImplementationsByTypeId: (state, { credentialImplementations }) => id => {
+      const implementations = credentialImplementations.filter(c => c.credentialType === id)
+      return implementations.map(implementation => implementation.id)
+    },
+    getCredentialImplementationsByOrgId: (state, { credentialImplementations }) => id => {
+      return credentialImplementations.filter(c => c.organization === id)
+    },
+  },
+  mutations: {
+    saveCredentialImplementation(state, attributes) {
+      if (!attributes.id) {
+        const newId = state.nextCredentialImplementationID++
+        state.credentialImplementations.push({
+          ...attributes,
+          id: newId,
+        })
+        console.log(JSON.stringify({...attributes,id: newId}))
+      } else {
+        const idx = state.credentialImplementations.findIndex(
+          cred => cred.id === attributes.id
+        )
+
+        if (idx > -1) {
+          Vue.set(state.credentialImplementations, idx, attributes)
+        }
+        console.log(JSON.stringify(attributes))
+      }
+    },
+  },
+}
+
 const credentialOfferModule = {
   state: {
     credentialOffers: credentialoffers,
@@ -397,6 +447,7 @@ export default new Vuex.Store({
   modules: {
     credential: credentialTypeModule,
     credentialOffer: credentialOfferModule,
+    credentialImplementation: credentialImplementationModule,
     organization: issuerModule,
     bundle: bundleModule,
     search: searchModule,

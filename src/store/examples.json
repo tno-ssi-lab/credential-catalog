@@ -74,14 +74,72 @@
   {
     "name": "DiplomaCredential",
     "version": "None",
-    "description": "Credential made for EBIS4austria that asserts a student has a diploma.\n",
-    "example": "```\n{\n\t\"@context\": [\"https://www.w3.org/2018/credentials/v1\", \"https://essif.europa.eu/schemas/vc/2020/v1\"],\n\t\"type\": [\"VerifiableCredential\", \"VerifiableAttestation\", \"DiplomaCredential\"],\n\t\"issuer\": \"did:ebsi:FqiyP831qX5xUD66CCAKMDs225QNb9Sp3UHvbJ9tSDn6\",\n\t\"issuanceDate\": \"2021-07-25T11:05:18Z\",\n\t\"credentialSubject\": {\n\t\t\"type\": \"Student\",\n\t\t\"id\": \"did:key:z6MkqyYXcBQZ5hZ9BFHBiVnmrZ1C1HCpesgZQoTdgjLdU6Ah\",\n\t\t\"studyProgram\": \"Master Studies in Computer Science\",\n\t\t\"learningAchievement\": \"Master of Science\",\n\t\t\"dateOfAchievement\": \"2021-03-18T00:00:00.000Z\",\n\t\t\"eqfLevel\": \"http://data.europa.eu/snb/eqf/7\",\n\t\t\"targetFrameworkName\": \"European Qualifications Framework for lifelong learning - (2008/C 111/01)\"\n\t},\n\t\"proof\": {\n\t\t\"type\": \"EcdsaSecp256k1Signature2019\",\n\t\t\"created\": \"2021-07-25T11:05:18Z\",\n\t\t\"proofPurpose\": \"assertionMethod\",\n\t\t\"verificationMethod\": \"did:ebsi:FqiyP831qX5xUD66CCAKMDs225QNb9Sp3UHvbJ9tSDn6#keys-1\",\n\t\t\"jws\": \"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..WQc2oEP0hwd1DEAicTjVRQgPpXJtogMDcsk1QedFs1Z8TX85_UrbKI9KRhX2YD7r5YwC_r8-k_tJdfezkSEBag\"\n\t}\n}\n\n{\n\t\"@context\": [\"https://www.w3.org/2018/credentials/v1\", \"https://essif.europa.eu/schemas/vc/2020/v1\"],\n\t\"type\": [\"VerifiableCredential\", \"VerifiableAttestation\", \"DiplomaCredential\"],\n\t\"issuer\": \"did:ebsi:51rzpDXXCtKExG47boFBahAgd2dtfAZbQxMHM17mYKoq\",\n\t\"issuanceDate\": \"2021-07-25T11:02:49Z\",\n\t\"credentialSubject\": {\n\t\t\"type\": \"Student\",\n\t\t\"id\": \"did:key:z6Mkk2gs7gfr1F1idzKkjie7eA4pDtRjGfG2GdGcVf9kHgQw\",\n\t\t\"studyProgram\": \"Master Studies in Strategy, Innovation, and Management Control\",\n\t\t\"immatriculationNumber\": \"00000000\",\n\t\t\"currentGivenName\": \"Eva\",\n\t\t\"currentFamilyName\": \"Musterfrau\",\n\t\t\"learningAchievement\": \"Master's Degree\",\n\t\t\"dateOfBirth\": \"1999-10-22T00:00:00.000Z\",\n\t\t\"dateOfAchievement\": \"2021-01-04T00:00:00.000Z\",\n\t\t\"overallEvaluation\": \"passed with honors\",\n\t\t\"eqfLevel\": \"http://data.europa.eu/snb/eqf/7\",\n\t\t\"targetFrameworkName\": \"European Qualifications Framework for lifelong learning - (2008/C 111/01)\"\n\t},\n\t\"proof\": {\n\t\t\"type\": \"EcdsaSecp256k1Signature2019\",\n\t\t\"created\": \"2021-07-25T11:02:49Z\",\n\t\t\"proofPurpose\": \"assertionMethod\",\n\t\t\"verificationMethod\": \"did:ebsi:51rzpDXXCtKExG47boFBahAgd2dtfAZbQxMHM17mYKoq#keys-1\",\n\t\t\"jws\": \"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..P5vQfWCetyNoCIW6-9cmmdSa1tHPiAaf_bXpQhMrLSUumR4cl5jzfMZsdttlY1HsdcOk1lHJ4nOrItDI0fVrvQ\"\n\t}\n}\n```",
-    "documentation": "https://github.com/danubetech/ebsi4austria-examples\n\nJSON-LD schema:\n```\n{\n  \"@context\": {\n    \"@version\": 1.1,\n    \"@protected\": true,\n    \"id\": \"@id\",\n    \"type\": \"@type\",\n    \"name\": \"https://schema.org/name\",\n    \"description\": \"https://schema.org/description\",\n    \"identifier\": \"http://schema.org/identifier\",\n    \"image\": {\"@id\": \"http://schema.org/image\", \"@type\": \"@id\"},\n\n    \"essif\": \"https://essif.europa.eu/schemas/vc/2020/v1#\",\n    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n\n    \"VerifiableAttestation\": \"essif:VerifiableAttestation\",\n    \"DiplomaCredential\": \"essif:DiplomaCredential\",\n\n    \"Student\": {\n        \"@id\": \"essif:Student\",\n        \"@context\": {\n\n            \"essif\": \"https://essif.europa.eu/schemas/vc/2020/v1#\",\n            \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n\n            \"@version\": 1.1,\n            \"@protected\": true,\n            \"id\": \"@id\",\n            \"type\": \"@type\",\n            \"studyProgram\": \"essif:studyProgram\",\n            \"immatriculationNumber\": \"essif:immatriculationNumber\",\n            \"currentGivenName\": \"essif:currentGivenName\",\n            \"currentFamilyName\": \"essif:currentFamilyName\",\n            \"learningAchievement\": \"essif:learningAchievement\",\n            \"dateOfBirth\": { \"@id\": \"essif:dateOfBirth\", \"@type\": \"xsd:dateTime\" },\n            \"dateOfAchievement\": { \"@id\": \"essif:dateOfAchievement\", \"@type\": \"xsd:dateTime\" },\n            \"overallEvaluation\": \"essif:overallEvaluation\",\n            \"eqfLevel\": \"essif:eqfLevel\",\n            \"targetFrameworkName\": \"essif:targetFrameworkName\"\n        }\n    }\n  }\n}\n```",
-    "supportedProts": [
+    "description": "Credential made for EBSI4Austria that asserts a student has a diploma.\n",
+    "attributes": [
       {
-        "protocol": "None"
+        "title": "type",
+        "key": "",
+        "type": "Array",
+        "description": ""
+      },
+      {
+        "title": "studyProgram",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "immatriculationNumber",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "currentGivenName",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "learningAchievement",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "dateOfBirth",
+        "key": "",
+        "type": "Date",
+        "description": ""
+      },
+      {
+        "title": "dateOfAchievement",
+        "key": "",
+        "type": "Date",
+        "description": ""
+      },
+      {
+        "title": "overallEvaluation",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "eqfLevel",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
+        "title": "targetFrameworkName",
+        "key": "",
+        "type": "String",
+        "description": ""
       }
     ],
+    "example": "```\n{\n\t\"@context\": [\"https://www.w3.org/2018/credentials/v1\", \"https://essif.europa.eu/schemas/vc/2020/v1\"],\n\t\"type\": [\"VerifiableCredential\", \"VerifiableAttestation\", \"DiplomaCredential\"],\n\t\"issuer\": \"did:ebsi:FqiyP831qX5xUD66CCAKMDs225QNb9Sp3UHvbJ9tSDn6\",\n\t\"issuanceDate\": \"2021-07-25T11:05:18Z\",\n\t\"credentialSubject\": {\n\t\t\"type\": \"Student\",\n\t\t\"id\": \"did:key:z6MkqyYXcBQZ5hZ9BFHBiVnmrZ1C1HCpesgZQoTdgjLdU6Ah\",\n\t\t\"studyProgram\": \"Master Studies in Computer Science\",\n\t\t\"learningAchievement\": \"Master of Science\",\n\t\t\"dateOfAchievement\": \"2021-03-18T00:00:00.000Z\",\n\t\t\"eqfLevel\": \"http://data.europa.eu/snb/eqf/7\",\n\t\t\"targetFrameworkName\": \"European Qualifications Framework for lifelong learning - (2008/C 111/01)\"\n\t},\n\t\"proof\": {\n\t\t\"type\": \"EcdsaSecp256k1Signature2019\",\n\t\t\"created\": \"2021-07-25T11:05:18Z\",\n\t\t\"proofPurpose\": \"assertionMethod\",\n\t\t\"verificationMethod\": \"did:ebsi:FqiyP831qX5xUD66CCAKMDs225QNb9Sp3UHvbJ9tSDn6#keys-1\",\n\t\t\"jws\": \"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..WQc2oEP0hwd1DEAicTjVRQgPpXJtogMDcsk1QedFs1Z8TX85_UrbKI9KRhX2YD7r5YwC_r8-k_tJdfezkSEBag\"\n\t}\n}\n\n{\n\t\"@context\": [\"https://www.w3.org/2018/credentials/v1\", \"https://essif.europa.eu/schemas/vc/2020/v1\"],\n\t\"type\": [\"VerifiableCredential\", \"VerifiableAttestation\", \"DiplomaCredential\"],\n\t\"issuer\": \"did:ebsi:51rzpDXXCtKExG47boFBahAgd2dtfAZbQxMHM17mYKoq\",\n\t\"issuanceDate\": \"2021-07-25T11:02:49Z\",\n\t\"credentialSubject\": {\n\t\t\"type\": \"Student\",\n\t\t\"id\": \"did:key:z6Mkk2gs7gfr1F1idzKkjie7eA4pDtRjGfG2GdGcVf9kHgQw\",\n\t\t\"studyProgram\": \"Master Studies in Strategy, Innovation, and Management Control\",\n\t\t\"immatriculationNumber\": \"00000000\",\n\t\t\"currentGivenName\": \"Eva\",\n\t\t\"currentFamilyName\": \"Musterfrau\",\n\t\t\"learningAchievement\": \"Master's Degree\",\n\t\t\"dateOfBirth\": \"1999-10-22T00:00:00.000Z\",\n\t\t\"dateOfAchievement\": \"2021-01-04T00:00:00.000Z\",\n\t\t\"overallEvaluation\": \"passed with honors\",\n\t\t\"eqfLevel\": \"http://data.europa.eu/snb/eqf/7\",\n\t\t\"targetFrameworkName\": \"European Qualifications Framework for lifelong learning - (2008/C 111/01)\"\n\t},\n\t\"proof\": {\n\t\t\"type\": \"EcdsaSecp256k1Signature2019\",\n\t\t\"created\": \"2021-07-25T11:02:49Z\",\n\t\t\"proofPurpose\": \"assertionMethod\",\n\t\t\"verificationMethod\": \"did:ebsi:51rzpDXXCtKExG47boFBahAgd2dtfAZbQxMHM17mYKoq#keys-1\",\n\t\t\"jws\": \"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..P5vQfWCetyNoCIW6-9cmmdSa1tHPiAaf_bXpQhMrLSUumR4cl5jzfMZsdttlY1HsdcOk1lHJ4nOrItDI0fVrvQ\"\n\t}\n}\n```",
+    "documentation": "https://github.com/danubetech/ebsi4austria-examples\n\nJSON-LD schema:\n```\n{\n  \"@context\": {\n    \"@version\": 1.1,\n    \"@protected\": true,\n    \"id\": \"@id\",\n    \"type\": \"@type\",\n    \"name\": \"https://schema.org/name\",\n    \"description\": \"https://schema.org/description\",\n    \"identifier\": \"http://schema.org/identifier\",\n    \"image\": {\"@id\": \"http://schema.org/image\", \"@type\": \"@id\"},\n\n    \"essif\": \"https://essif.europa.eu/schemas/vc/2020/v1#\",\n    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n\n    \"VerifiableAttestation\": \"essif:VerifiableAttestation\",\n    \"DiplomaCredential\": \"essif:DiplomaCredential\",\n\n    \"Student\": {\n        \"@id\": \"essif:Student\",\n        \"@context\": {\n\n            \"essif\": \"https://essif.europa.eu/schemas/vc/2020/v1#\",\n            \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n\n            \"@version\": 1.1,\n            \"@protected\": true,\n            \"id\": \"@id\",\n            \"type\": \"@type\",\n            \"studyProgram\": \"essif:studyProgram\",\n            \"immatriculationNumber\": \"essif:immatriculationNumber\",\n            \"currentGivenName\": \"essif:currentGivenName\",\n            \"currentFamilyName\": \"essif:currentFamilyName\",\n            \"learningAchievement\": \"essif:learningAchievement\",\n            \"dateOfBirth\": { \"@id\": \"essif:dateOfBirth\", \"@type\": \"xsd:dateTime\" },\n            \"dateOfAchievement\": { \"@id\": \"essif:dateOfAchievement\", \"@type\": \"xsd:dateTime\" },\n            \"overallEvaluation\": \"essif:overallEvaluation\",\n            \"eqfLevel\": \"essif:eqfLevel\",\n            \"targetFrameworkName\": \"essif:targetFrameworkName\"\n        }\n    }\n  }\n}\n```",
+    "supportedProts": [],
     "maturity": "pilot",
     "contact": "markus@danubetech.com",
     "id": 1006,

@@ -5,8 +5,10 @@ import CredentialSearch from "@/views/CredentialSearch"
 import CredentialDetail from "@/views/CredentialDetail"
 import CredentialDetailNew from "@/views/credential-detail/CredentialDetailNew"
 import CredentialOfferDetail from "@/views/CredentialOfferDetail"
+import CredentialImplementationDetail from "@/views/CredentialImplementationDetail"
 import CredentialEdit from "@/views/CredentialEdit"
 import CredentialOfferEdit from "@/views/CredentialOfferEdit"
+import CredentialImplementationEdit from "@/views/CredentialImplementationEdit"
 import CredentialChangeLog from "@/views/CredentialChangeLog"
 
 import BundleOverview from "@/views/BundleOverview"
@@ -46,6 +48,12 @@ const routes = [
     path: "/edit-offer/:id",
     name: "edit-offer",
     component: CredentialOfferEdit,
+    props: castRouteParams,
+  },
+  {
+    path: "/edit-implementation/:id",
+    name: "edit-implementation",
+    component: CredentialImplementationEdit,
     props: castRouteParams,
   },
   {
@@ -92,6 +100,12 @@ const routes = [
     path: "/offers/:id",
     name: "offer",
     component: CredentialOffer,
+    props: castRouteParams,
+  },
+  {
+    path: "/credentialimplementations/:id",
+    name: "implementationDetails",
+    component: CredentialImplementationDetail,
     props: castRouteParams,
   },
   {

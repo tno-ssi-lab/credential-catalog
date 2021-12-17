@@ -47,7 +47,7 @@
               v-model="attr"
               no-resize
               auto-grow
-              v-bind="fieldProps('attr')"
+              v-bind="fieldProps('attributes')"
             />
           </v-col>
         </v-row>

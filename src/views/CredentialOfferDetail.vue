@@ -56,8 +56,12 @@
         <h3 class="text-muted">issued</h3>
       </v-col>
 
-      <v-col lg="8" md="10" cols="12">
+      <v-col v-if="!credentialOffer.example" lg="8" md="10" cols="12">
         <credential-type-card :id="credentialOffer.credentialType"></credential-type-card>
+      </v-col>
+
+      <v-col v-if="credentialOffer.example" lg="8" md="10" cols="12">
+        <credential-example-card :id="credentialOffer.id"></credential-example-card>
       </v-col>
 
       <v-col lg="8" md="10" cols="12">
@@ -94,6 +98,7 @@ import Reviews from "@/components/credential/Reviews"
 // import MarkdownDisplay from "@/components/common/MarkdownDisplay"
 import OrganizationCard from "@/components/organization/OrganizationCard"
 import CredentialTypeCard from "@/components/credential/CredentialTypeCard"
+import CredentialExampleCard from "@/components/credential/CredentialExampleCard"
 
 export default {
   name: "CredentialOfferDetail",
@@ -103,6 +108,7 @@ export default {
     // MarkdownDisplay,
     OrganizationCard,
     CredentialTypeCard,
+    CredentialExampleCard,
   },
   props: {
     id: {

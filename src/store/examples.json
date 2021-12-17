@@ -101,6 +101,12 @@
         "description": ""
       },
       {
+        "title": "currentFamilyName",
+        "key": "",
+        "type": "String",
+        "description": ""
+      },
+      {
         "title": "learningAchievement",
         "key": "",
         "type": "String",

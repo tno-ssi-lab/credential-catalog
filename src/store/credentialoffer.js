@@ -180,27 +180,58 @@ export const credentialoffers = [
     example: [
       {
         title: "type",
-        value: '["Student"]',
+        type: "Array",
+        example: '["Student"]',
       },
       {
         title: "studyProgram",
-        value: "Master Studies in Computer Science",
+        type: "String",
+        example: "Master Studies in Computer Science",
+      },
+      {
+        title: "immatriculationNumber",
+        type: "String",
+        example: "",
+      },
+      {
+        title: "currentGivenName",
+        type: "String",
+        example: ""
+      },
+      {
+        title: "currentFamilyName",
+        type: "String",
+        example: "Musterfrau",
       },
       {
         title: "learningAchievement",
-        value: "Master of Science",
+        type: "String",
+        example: "Master of Science",
+      },
+      {
+        title: "dateOfBirth",
+        type: "Date",
+        example: "",
       },
       {
         title: "dateOfAchievement",
-        value: "2021-03-18T00:00:00.000Z",
+        type: "Date",
+        example: "2021-03-18T00:00:00.000Z",
+      },
+      {
+        title: "overallEvaluation",
+        type: "String",
+        example: ""
       },
       {
         title: "eqfLevel",
-        value: "http://data.europa.eu/snb/eqf/7",
+        type: "String",
+        example: "http://data.europa.eu/snb/eqf/7",
       },
       {
         title: "targetFrameworkName",
-        value: "European Qualifications Framework for lifelong learning - (2008/C 111/01)"
+        type: "String",
+        example: "European Qualifications Framework for lifelong learning - (2008/C 111/01)"
       },
     ],
   },
@@ -216,47 +247,58 @@ export const credentialoffers = [
     example: [
       {
         title: "type",
-        value: '["Student"]',
+        type: "Array",
+        example: '["Student"]',
       },
       {
         title: "studyProgram",
-        value: "Master Studies in Strategy, Innovation, and Management Control",
+        type: "String",
+        example: "Master Studies in Strategy, Innovation, and Management Control",
       },
       {
         title: "immatriculationNumber",
-        value: "00000000",
+        type: "String",
+        example: "00000000",
       },
       {
         title: "currentGivenName",
-        value: "Eva",
+        type: "String",
+        example: "Eva",
       },
       {
         title: "currentFamilyName",
-        value: "Musterfrau",
+        type: "String",
+        example: "Musterfrau",
       },
       {
         title: "learningAchievement",
-        value: "Master's Degree",
+        type: "String",
+        example: "Master's Degree",
       },
       {
         title: "dateOfBirth",
-        value: "1999-10-22T00:00:00.000Z",
+        type: "Date",
+        example: "1999-10-22T00:00:00.000Z",
       },
       {
         title: "dateOfAchievement",
-        value: "2021-01-04T00:00:00.000Z",
+        type: "Date",
+        example: "2021-01-04T00:00:00.000Z",
       },
       {
         title: "overallEvaluation",
-        value: "passed with honors",
+        type: "String",
+        example: "passed with honors",
       },
       {
         title: "eqfLevel",
-        value: "http://data.europa.eu/snb/eqf/7",
+        type: "String",
+        example: "http://data.europa.eu/snb/eqf/7",
       },
       {
         title: "targetFrameworkName",
-        value: "European Qualifications Framework for lifelong learning - (2008/C 111/01)"
+        type: "String",
+        example: "European Qualifications Framework for lifelong learning - (2008/C 111/01)"
       },
     ],
   },

@@ -171,6 +171,13 @@ export const organizations = [
     description: "Vienna University of Economics and Business, public university in Vienna, Austria.",
     contactPerson: "-",
   },
+  {
+    id: 303,
+    logo: "https://pbs.twimg.com/profile_images/1041641458065920004/uY3xSSzt_400x400.jpg", // Twitter profile image
+    name: "Saxion University",
+    description: "Saxion University of Applied Sciences is a Dutch university of applied sciences with three campuses in the eastern Netherlands.",
+    contactPerson: "-",
+  },
 
 
 

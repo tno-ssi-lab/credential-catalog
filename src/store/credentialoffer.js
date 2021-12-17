@@ -304,4 +304,71 @@ export const credentialoffers = [
       },
     ],
   },
+  {
+    id: 303,
+    name: "",
+    credentialType: 1006,
+    organization: 303,
+    description: "Saxion University Diploma",
+    assurances: "Conformant to EBSI4Austria diploma definition",
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
+    reviews: [],
+    example: [
+      {
+        title: "type",
+        type: "Array",
+        example: '["Student"]',
+      },
+      {
+        title: "studyProgram",
+        type: "String",
+        example: "Ad Entrepreneurship & Retail Management",
+      },
+      {
+        title: "immatriculationNumber",
+        type: "String",
+        example: "311242",
+      },
+      {
+        title: "currentGivenName",
+        type: "String",
+        example: "Yannick",
+      },
+      {
+        title: "currentFamilyName",
+        type: "String",
+        example: "Meijer",
+      },
+      {
+        title: "learningAchievement",
+        type: "String",
+        example: "Associate degree (Ad)",
+      },
+      {
+        title: "dateOfBirth",
+        type: "Date",
+        example: "1992-01-31T00:00:00.000Z",
+      },
+      {
+        title: "dateOfAchievement",
+        type: "Date",
+        example: "2020-03-26T00:00:00.000Z",
+      },
+      {
+        title: "overallEvaluation",
+        type: "String",
+        example: "",
+      },
+      {
+        title: "eqfLevel",
+        type: "String",
+        example: "",
+      },
+      {
+        title: "targetFrameworkName",
+        type: "String",
+        example: ""
+      },
+    ],
+  },
 ]

@@ -30,6 +30,16 @@
             <MarkdownDisplay :markdown="attributes.assurances" />
           </v-col> -->
         </v-row>
+        <v-row>
+          <v-col cols="12" sm="12">
+            <v-textarea
+              v-model="example"
+              no-resize
+              auto-grow
+              v-bind="fieldProps('example')"
+            />
+          </v-col>
+        </v-row>
       </v-col>
 
       <v-col cols="4">
@@ -89,6 +99,7 @@ const KEY_TO_FIELD_NAME = {
   credentialType: "Credential Type ID",
   organization: "Organization",
   description: "Description",
+  example: "Example",
   assurances: "Assurances",
 }
 
@@ -124,9 +135,13 @@ export default {
   },
   data() {
     const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid ? this.typeid : ""}
+
+    const example = JSON.stringify(attributes.example)
+
     return {
       valid: null,
       attributes,
+      example,
       issuers: constants.PROCESS_ITEMS,
       sidebarFields: SIDEBAR_FIELDS,
       organizations: organizations,
@@ -174,6 +189,10 @@ export default {
       Vue.set(this.attributes, "credentialType", newName)
     },
     emitValue() {
+      console.log(this.attributes.example)
+      // JSON.parse twice to convert to Array
+      this.attributes.example = JSON.parse(JSON.parse(JSON.stringify(this.example)))
+      console.log(this.attributes.example)
       this.$emit("input", this.attributes)
     },
   },

@@ -7,6 +7,7 @@ export class CredentialOffer {
         credentialType: null, // ID
         organization: null, // organization ID
         description: null, // free text field for now
+        example: [],
         assurances: null, // free text field for now
         reviews: null, // Reviews about the credential offer
       },
@@ -20,6 +21,7 @@ export class CredentialOffer {
       credentialType: this.credentialType,
       organization: this.organization,
       description: this.description,
+      example: this.example,
       assurances: this.assurances,
       reviews: this.reviews,
     }

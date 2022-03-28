@@ -144,6 +144,27 @@
       </v-col>
 
       <v-col lg="8" md="10" cols="12">
+        <h3>Implementations</h3>
+        <v-chip-group v-if="credentialImplementations.length > 0">
+          <router-link
+            v-for="implementation in credentialImplementations"
+            :key="implementation"
+            :to="{
+              name: 'implementationDetails',
+              params: { id: implementation },
+            }"
+          >
+            <v-chip>
+              {{
+                credentialImplementationById(implementation).implementationType
+              }}
+            </v-chip>
+          </router-link>
+        </v-chip-group>
+        <div v-else class="grey--text">-</div>
+      </v-col>
+
+      <v-col lg="8" md="10" cols="12">
         <h3>Issuers</h3>
         <v-col v-for="offer in credentialOffers" :key="offer" cols="12">
           <offer-card :id="offer"></offer-card>
@@ -237,9 +258,17 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getCredentialById", "getCredentialOffersByTypeId"]),
+    ...mapGetters([
+      "getCredentialById",
+      "getCredentialImplementationById",
+      "getCredentialImplementationsByTypeId",
+      "getCredentialOffersByTypeId",
+    ]),
     credential() {
       return this.getCredentialById(this.id)
+    },
+    credentialImplementations() {
+      return this.getCredentialImplementationsByTypeId(this.id)
     },
     credentialOffers() {
       return this.getCredentialOffersByTypeId(this.id)
@@ -260,6 +289,9 @@ export default {
   methods: {
     credentialById(id) {
       return this.getCredentialById(id)
+    },
+    credentialImplementationById(id) {
+      return this.getCredentialImplementationById(id)
     },
   },
 }

@@ -5,6 +5,7 @@ export class CredentialOffer {
       {
         id: null,
         credentialType: null, // ID
+        supportedImplementations: [], // IDs of supported credential implementations
         organization: null, // organization ID
         description: null, // free text field for now
         example: [],
@@ -19,6 +20,7 @@ export class CredentialOffer {
     return {
       id: this.id,
       credentialType: this.credentialType,
+      supportedImplementations: this.supportedImplementations,
       organization: this.organization,
       description: this.description,
       example: this.example,
@@ -174,6 +176,7 @@ export const credentialoffers = [
     id: 301,
     name: "",
     credentialType: 1006,
+    supportedImplementations: [301],
     organization: 301,
     description: "TU Graz Diploma",
     assurances: "Conformant to EBSI4Austria diploma definition",

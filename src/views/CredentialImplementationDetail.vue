@@ -53,7 +53,7 @@
       </v-col> -->
 
       <v-col cols="12">
-        <h3 class="text-muted">implemented</h3>
+        <h3 class="text-muted">implements</h3>
       </v-col>
 
       <v-col class="section" lg="8" md="10" cols="12">
@@ -181,7 +181,9 @@ export default {
           to: { name: "details", params: { id: this.credential.id } },
         },
         {
-          text: "Implementation " + this.organization.name,
+          text:
+            "Implementation: " +
+            this.credentialImplementation.implementationType,
           disabled: true,
         },
         // {

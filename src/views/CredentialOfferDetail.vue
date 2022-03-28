@@ -57,11 +57,38 @@
       </v-col>
 
       <v-col v-if="!credentialOffer.example" lg="8" md="10" cols="12">
-        <credential-type-card :id="credentialOffer.credentialType"></credential-type-card>
+        <credential-type-card
+          :id="credentialOffer.credentialType"
+        ></credential-type-card>
       </v-col>
 
       <v-col v-if="credentialOffer.example" lg="8" md="10" cols="12">
-        <credential-example-card :id="credentialOffer.id"></credential-example-card>
+        <credential-example-card
+          :id="credentialOffer.id"
+        ></credential-example-card>
+      </v-col>
+
+      <v-col lg="8" md="10" cols="12">
+        <h3 class="section">Supported implementations</h3>
+        <v-chip-group
+          v-if="credentialOffer.supportedImplementations.length > 0"
+        >
+          <router-link
+            v-for="implementation in credentialOffer.supportedImplementations"
+            :key="implementation"
+            :to="{
+              name: 'implementationDetails',
+              params: { id: implementation },
+            }"
+          >
+            <v-chip>
+              {{
+                credentialImplementationById(implementation).implementationType
+              }}
+            </v-chip>
+          </router-link>
+        </v-chip-group>
+        <div v-else class="grey--text">-</div>
       </v-col>
 
       <v-col lg="8" md="10" cols="12">
@@ -87,7 +114,10 @@
       </v-col>
     </v-row>
 
-    <reviews :id="credentialOffer.id" :reviews="credentialOffer.reviews"></reviews>
+    <reviews
+      :id="credentialOffer.id"
+      :reviews="credentialOffer.reviews"
+    ></reviews>
   </div>
 </template>
 
@@ -145,6 +175,7 @@ export default {
   computed: {
     ...mapGetters([
       "getCredentialById",
+      "getCredentialImplementationById",
       "getCredentialOfferById",
       "getOrganizationById",
     ]),
@@ -169,7 +200,7 @@ export default {
         },
         {
           text: this.credential.name + " type",
-          to: { name: "details", params: {id: this.credential.id}},
+          to: { name: "details", params: { id: this.credential.id } },
         },
         {
           text: "Offer by " + this.organization.name,
@@ -186,14 +217,17 @@ export default {
     credentialOfferById(id) {
       return this.getCredentialOfferById(id)
     },
+    credentialImplementationById(id) {
+      return this.getCredentialImplementationById(id)
+    },
   },
 }
 </script>
 
 <style scoped>
-.section:first-child {
+/* .section:first-child {
   margin-top: 60px;
-}
+} */
 .section {
   margin-top: 20px;
 }

@@ -54,6 +54,20 @@
           v-bind="fieldProps('credentialType')"
         />
 
+        <!-- <select-dropdown
+          v-model="attributes.supportedImplementations"
+          :items="credentialImplementations"
+          v-bind="fieldProps('supportedImplementations')"
+          item-value="id"
+          item-text="implementationType"
+        ></select-dropdown> -->
+        <v-combobox
+          v-model="attributes.supportedImplementations"
+          :items="[]"
+          multiple
+          v-bind="fieldProps('supportedImplementations')"
+        ></v-combobox>
+
         <!-- <v-text-field
           v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
@@ -85,7 +99,7 @@
 import Vue from "vue"
 import { mapGetters } from "vuex"
 
-import {organizations} from "@/store/organization"
+import { organizations } from "@/store/organization"
 
 // import SelectDropdown from "@/components/common/SelectDropdown"
 // import MarkdownDisplay from "@/components/common/MarkdownDisplay"
@@ -97,6 +111,7 @@ const KEY_TO_FIELD_NAME = {
   id: "Credential Offer ID",
   name: "Name",
   credentialType: "Credential Type ID",
+  supportedImplementations: "Supported Implementations",
   organization: "Organization",
   description: "Description",
   example: "Example",
@@ -109,7 +124,7 @@ const REQUIRED_FIELDS = [
   "organization",
 ]
 
-const SIDEBAR_FIELDS = []//["version", "contact", "documentation", "location"]
+const SIDEBAR_FIELDS = [] //["version", "contact", "documentation", "location"]
 
 function getRandomInt(min, max) {
   min = Math.ceil(min)
@@ -130,11 +145,13 @@ export default {
     },
     typeid: {
       type: Number,
-      default: null
+      default: null,
     },
   },
   data() {
-    const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid ? this.typeid : ""}
+    const attributes = JSON.parse(JSON.stringify(this.value)) || {
+      credentialType: this.typeid ? this.typeid : "",
+    }
 
     const example = JSON.stringify(attributes.example)
 
@@ -190,8 +207,16 @@ export default {
     },
     emitValue() {
       console.log(this.attributes.example)
+
+      // Fix for combobox's inability to store as array of ints
+      this.attributes.supportedImplementations = this.attributes.supportedImplementations.map(
+        Number
+      )
+
       // JSON.parse twice to convert to Array
-      this.attributes.example = JSON.parse(JSON.parse(JSON.stringify(this.example)))
+      this.attributes.example = JSON.parse(
+        JSON.parse(JSON.stringify(this.example))
+      )
       console.log(this.attributes.example)
       this.$emit("input", this.attributes)
     },

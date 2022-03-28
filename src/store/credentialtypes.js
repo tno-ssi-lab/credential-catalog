@@ -103,6 +103,7 @@ const democredentialtypes = [
         title: "Name",
         key: "name",
         type: "String",
+        description: "Your full name, as it is known to the government."
       },
       {
         title: "Date of Birth",

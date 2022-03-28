@@ -1,11 +1,12 @@
 <template>
   <v-card v-if="credentialType" class="main-card">
     <v-app-bar flat color="rgba(0, 0, 0, 0)">
-      <v-avatar rounded size="38" color="gray">
-      </v-avatar>
+      <v-avatar rounded size="38" color="gray"> </v-avatar>
       <div class="card-title-wrapper d-flex flex-column">
         <v-card-title class="center">
-          <router-link :to="{ name: 'details', params: { id: credentialType.id } }">
+          <router-link
+            :to="{ name: 'details', params: { id: credentialType.id } }"
+          >
             {{ credentialType.name }}
           </router-link>
         </v-card-title>
@@ -26,7 +27,9 @@
             <tr
               v-for="attribute in credentialOffer.example"
               :key="attribute.title"
-              v-bind:class="{ excluded: !attribute.example}"
+              v-bind:class="{ excluded: !attribute.example }"
+              v-b-tooltip.hover
+              :title="attribute.description"
             >
               <td>{{ attribute.title }}</td>
               <td>
@@ -74,7 +77,7 @@ export default {
     getCredType() {
       return this.getCredentialById(this.credentialOffer.credentialType)
     },
-    ...mapGetters(["getCredentialById","getCredentialOfferById"]),
+    ...mapGetters(["getCredentialById", "getCredentialOfferById"]),
   },
   mounted() {
     this.credentialOffer = this.getCredOffer
@@ -91,7 +94,8 @@ td {
   font-size: 13px !important;
   color: #6e7299;
 }
-.excluded td, .excluded td em {
+.excluded td,
+.excluded td em {
   color: #6e729957;
 }
 </style>

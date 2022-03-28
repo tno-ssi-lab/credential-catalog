@@ -1,11 +1,12 @@
 <template>
   <v-card v-if="credentialType" class="main-card">
     <v-app-bar flat color="rgba(0, 0, 0, 0)">
-      <v-avatar rounded size="38" color="gray">
-      </v-avatar>
+      <v-avatar rounded size="38" color="gray"> </v-avatar>
       <div class="card-title-wrapper d-flex flex-column">
         <v-card-title class="center">
-          <router-link :to="{ name: 'details', params: { id: credentialType.id } }">
+          <router-link
+            :to="{ name: 'details', params: { id: credentialType.id } }"
+          >
             {{ credentialType.name }}
           </router-link>
         </v-card-title>
@@ -26,6 +27,8 @@
             <tr
               v-for="attribute in credentialType.attributes"
               :key="attribute.title"
+              v-b-tooltip.hover
+              :title="attribute.description"
             >
               <td>{{ attribute.title }}</td>
               <td>

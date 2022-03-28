@@ -217,6 +217,7 @@ export const credentialoffers = [
         title: "dateOfBirth",
         type: "Date",
         example: "",
+        description: "Your date of birth."
       },
       {
         title: "dateOfAchievement",

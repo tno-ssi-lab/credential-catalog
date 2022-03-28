@@ -56,8 +56,15 @@
         <h3 class="text-muted">implemented</h3>
       </v-col>
 
-      <v-col lg="8" md="10" cols="12">
-        <credential-type-card :id="credentialImplementation.credentialType"></credential-type-card>
+      <v-col class="section" lg="8" md="10" cols="12">
+        <credential-type-card
+          :id="credentialImplementation.credentialType"
+        ></credential-type-card>
+      </v-col>
+
+      <v-col class="section" lg="8" md="10" cols="12">
+        <h3>Implementation Type</h3>
+        <p>{{ credentialImplementation.implementationType }}</p>
       </v-col>
 
       <v-col lg="8" md="10" cols="12">
@@ -72,10 +79,10 @@
         <!-- todo table -->
       </v-col>
 
-      <v-col class="section" lg="8" md="10" cols="12">
+      <!-- <v-col class="section" lg="8" md="10" cols="12">
         <h3>Contact information</h3>
         <p>{{ organization.contactPerson }}</p>
-      </v-col>
+      </v-col> -->
     </v-row>
 
     <v-row>
@@ -84,7 +91,10 @@
       </v-col>
     </v-row>
 
-    <reviews :id="credentialImplementation.id" :reviews="credentialImplementation.reviews"></reviews>
+    <reviews
+      :id="credentialImplementation.id"
+      :reviews="credentialImplementation.reviews"
+    ></reviews>
   </div>
 </template>
 
@@ -168,10 +178,10 @@ export default {
         },
         {
           text: this.credential.name + " type",
-          to: { name: "details", params: {id: this.credential.id}},
+          to: { name: "details", params: { id: this.credential.id } },
         },
         {
-          text: "Offer by " + this.organization.name,
+          text: "Implementation " + this.organization.name,
           disabled: true,
         },
         // {
@@ -193,9 +203,9 @@ export default {
 </script>
 
 <style scoped>
-.section:first-child {
+/* .section:first-child {
   margin-top: 60px;
-}
+} */
 .section {
   margin-top: 20px;
 }

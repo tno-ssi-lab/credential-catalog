@@ -63,12 +63,16 @@
           v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
         /> -->
-        <v-select
+        <!-- <v-select
           v-model.number="attributes.organization"
           v-bind="fieldProps('organization')"
           :items="organizations"
           item-value="id"
           item-text="name"
+        /> -->
+        <v-text-field
+          v-model.number="attributes.implementationType"
+          v-bind="fieldProps('implementationType')"
         />
 
         <v-text-field
@@ -90,7 +94,7 @@
 import Vue from "vue"
 import { mapGetters } from "vuex"
 
-import {organizations} from "@/store/organization"
+// import {organizations} from "@/store/organization"
 
 // import SelectDropdown from "@/components/common/SelectDropdown"
 import MarkdownDisplay from "@/components/common/MarkdownDisplay"
@@ -102,7 +106,7 @@ const KEY_TO_FIELD_NAME = {
   id: "Credential Implementation ID",
   name: "Name",
   credentialType: "Credential Type ID",
-  organization: "Organization",
+  implementationType: "Implementation Type",
   description: "Description",
   assurances: "Assurances",
 }
@@ -111,14 +115,14 @@ const REQUIRED_FIELDS = [
   // "name",
   "description",
   "credentialType",
-  "organization",
+  "implementationType",
 ]
 
 const JSON_FIELDS = [
   // "description",
 ]
 
-const SIDEBAR_FIELDS = []//["version", "contact", "documentation", "location"]
+const SIDEBAR_FIELDS = [] //["version", "contact", "documentation", "location"]
 
 function getRandomInt(min, max) {
   min = Math.ceil(min)
@@ -139,17 +143,19 @@ export default {
     },
     typeid: {
       type: Number,
-      default: null
+      default: null,
     },
   },
   data() {
-    const attributes = JSON.parse(JSON.stringify(this.value)) || {"credentialType": this.typeid ? this.typeid : ""}
+    const attributes = JSON.parse(JSON.stringify(this.value)) || {
+      credentialType: this.typeid ? this.typeid : "",
+    }
     return {
       valid: null,
       attributes,
       issuers: constants.PROCESS_ITEMS,
       sidebarFields: SIDEBAR_FIELDS,
-      organizations: organizations,
+      // organizations: organizations,
       demo: null,
       demoState: null,
     }
@@ -174,7 +180,7 @@ export default {
       if (this.isJson(field)) {
         rules.push(v => {
           try {
-            JSON.parse(v);
+            JSON.parse(v)
           } catch {
             return `Please enter valid JSON`
           }
@@ -228,7 +234,7 @@ export default {
     // },
   },
   mounted() {
-    console.log(this.organizations)
+    // console.log(this.organizations)
     // this.demo = this.attributes.description;
   },
 }

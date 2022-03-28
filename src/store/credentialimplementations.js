@@ -5,6 +5,7 @@ export class CredentialImplementation {
       {
         id: null,
         credentialType: null, // ID
+        implementationType: null, // free text field for now
         description: null, // free text field for now
       },
       attrs
@@ -15,6 +16,7 @@ export class CredentialImplementation {
     return {
       id: this.id,
       credentialType: this.credentialType,
+      implementationType: this.implementationType,
       description: this.description,
     }
   }
@@ -26,7 +28,7 @@ export const credentialimplementations = [
     id: 301,
     name: "",
     credentialType: 1006,
-    organization: 301,
+    implementationType: "Gataca",
     description: `\`\`\`json
 {
     "@context": [
@@ -70,61 +72,5 @@ export const credentialimplementations = [
     assurances: "Conformant to EBSI4Austria diploma definition",
     publishedAt: new Date().toLocaleDateString().split('T')[0],
     reviews: [],
-  },
-  {
-    id: 302,
-    name: "",
-    credentialType: 1006,
-    organization: 302,
-    description: "WU Wien Diploma",
-    assurances: "Conformant to EBSI4Austria diploma definition",
-    publishedAt: new Date().toLocaleDateString().split('T')[0],
-    reviews: [],
-    example: [
-      {
-        title: "type",
-        value: '["Student"]',
-      },
-      {
-        title: "studyProgram",
-        value: "Master Studies in Strategy, Innovation, and Management Control",
-      },
-      {
-        title: "immatriculationNumber",
-        value: "00000000",
-      },
-      {
-        title: "currentGivenName",
-        value: "Eva",
-      },
-      {
-        title: "currentFamilyName",
-        value: "Musterfrau",
-      },
-      {
-        title: "learningAchievement",
-        value: "Master's Degree",
-      },
-      {
-        title: "dateOfBirth",
-        value: "1999-10-22T00:00:00.000Z",
-      },
-      {
-        title: "dateOfAchievement",
-        value: "2021-01-04T00:00:00.000Z",
-      },
-      {
-        title: "overallEvaluation",
-        value: "passed with honors",
-      },
-      {
-        title: "eqfLevel",
-        value: "http://data.europa.eu/snb/eqf/7",
-      },
-      {
-        title: "targetFrameworkName",
-        value: "European Qualifications Framework for lifelong learning - (2008/C 111/01)"
-      },
-    ],
   },
 ]

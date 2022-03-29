@@ -185,9 +185,13 @@ export const organizations = [
     description: "Short for 'Dienst Uitvoering Onderwijs', this Dutch agency is responsible for the execution of several acts and regulations, such as student grants and information management. These acts are commissioned by the Minister of Education, Culture, and Science.",
     contactPerson: "-",
   },
-
-
-
+  {
+    id: 305,
+    logo: "https://pbs.twimg.com/profile_images/917356871102746624/hJzgyc8j_400x400.jpg",
+    name: "Privacy by Design Foundation",
+    description: "The Privacy by Design Foundation creates and maintains free and open source software in which the privacy of the user is the most important. The most important application of the foundation is the identity platform IRMA, an acronym of I Reveal my Attributes. The foundation also aims to generally improve the development and usage of open, privacy-friendly and well secured ICT.",
+    contactPerson: "info@privacybydesign.foundation",
+  },
   {
     id: 2000,
     logo:

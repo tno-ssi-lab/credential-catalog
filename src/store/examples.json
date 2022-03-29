@@ -626,7 +626,7 @@
     "deploymentRequirements": null
   },
   {
-    "name": "Demo Diploma",
+    "name": "Demo Diplomas",
     "version": "None",
     "description": "Information from your diploma, obtained through DUO.\n",
     "attributes": [
@@ -701,8 +701,128 @@
     "supportedProts": [],
     "maturity": "pilot",
     "contact": "-",
-    "id": 1015,
+    "id": 1017,
     "credentialType": "Diploma",
+    "category": "category-two",
+    "organization": [],
+    "location": "",
+    "visibility": "unclassified",
+    "constituents": [],
+    "reviews": [],
+    "offers": [],
+    "deploymentRequirements": null
+  },
+  {
+    "name": "Diploma",
+    "version": "None",
+    "description": "Information from your diploma, obtained through DUO.\n",
+    "attributes": [
+      {
+        "title": "First name",
+        "key": "",
+        "type": "String",
+        "description": "Your first name from your diploma."
+      },
+      {
+        "title": "Prefix",
+        "key": "",
+        "type": "String",
+        "description": "Your prefix from your diploma."
+      },
+      {
+        "title": "Family name",
+        "key": "",
+        "type": "String",
+        "description": "Your family name from your diploma."
+      },
+      {
+        "title": "Date of birth",
+        "key": "",
+        "type": "Date",
+        "description": "Your date of birth from your diploma."
+      },
+      {
+        "title": "Gender",
+        "key": "",
+        "type": "String",
+        "description": "Your gender from your diploma."
+      },
+      {
+        "title": "Education",
+        "key": "",
+        "type": "String",
+        "description": "Completed education."
+      },
+      {
+        "title": "Degree",
+        "key": "",
+        "type": "String",
+        "description": "Kind of education."
+      },
+      {
+        "title": "Profile",
+        "key": "",
+        "type": "Date",
+        "description": "Education profile."
+      },
+      {
+        "title": "Achieved",
+        "key": "",
+        "type": "String",
+        "description": "Month in whitch this diploma was obtained."
+      },
+      {
+        "title": "Institute",
+        "key": "",
+        "type": "String",
+        "description": "The institute where this diploma was obtained."
+      },
+      {
+        "title": "City",
+        "key": "",
+        "type": "String",
+        "description": "City of the institute where this diploma was obtained."
+      }
+    ],
+    "documentation": "https://privacybydesign.foundation/attribute-index/nl/pbdf.pbdf.ageLimits.html",
+    "supportedProts": [],
+    "maturity": "production",
+    "contact": "-",
+    "id": 1018,
+    "credentialType": "Diploma",
+    "category": "category-two",
+    "organization": [],
+    "location": "",
+    "visibility": "unclassified",
+    "constituents": [],
+    "reviews": [],
+    "offers": [],
+    "deploymentRequirements": null
+  },
+  {
+    "name": "Email",
+    "version": "None",
+    "description": "Your verified email address.\n",
+    "attributes": [
+      {
+        "title": "Email",
+        "key": "",
+        "type": "String",
+        "description": "Your verified email address."
+      },
+      {
+        "title": "Domain",
+        "key": "",
+        "type": "String",
+        "description": "The domain of your email address."
+      }
+    ],
+    "documentation": "https://privacybydesign.foundation/attribute-index/nl/pbdf.pbdf.email.html",
+    "supportedProts": [],
+    "maturity": "production",
+    "contact": "-",
+    "id": 1100,
+    "credentialType": "Email",
     "category": "category-two",
     "organization": [],
     "location": "",

@@ -380,7 +380,7 @@ export const credentialoffers = [
   {
     id: 304,
     name: "",
-    credentialType: 1015,
+    credentialType: 1017,
     supportedImplementations: [304],
     organization: 304,
     description: "Information from your diploma, obtained through DUO.",
@@ -389,11 +389,6 @@ export const credentialoffers = [
     publishedAt: new Date().toLocaleDateString().split('T')[0],
     reviews: [],
     example: [
-      // {
-      //   title: "type",
-      //   type: "Array",
-      //   example: '["Student"]',
-      // },
       {
         title: "First name",
         type: "String",
@@ -458,6 +453,112 @@ export const credentialoffers = [
         title: "City",
         type: "String",
         description: "City of the institute where this diploma was obtained.",
+        example: ""
+      }
+    ],
+  },
+  {
+    id: 305,
+    name: "",
+    credentialType: 1018,
+    supportedImplementations: [305],
+    organization: 305,
+    description: "Information from your diploma, obtained through DUO.",
+    assurances: "This credential is meant for production.",
+    revocation: "No. Instances of this credential cannot be revoked by the issuer.",
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
+    reviews: [],
+    example: [
+      {
+        title: "First name",
+        type: "String",
+        description: "Your first name from your diploma.",
+        example: ""
+      },
+      {
+        title: "Prefix",
+        type: "String",
+        description: "Your prefix from your diploma.",
+        example: ""
+      },
+      {
+        title: "Family name",
+        type: "String",
+        description: "Your family name from your diploma.",
+        example: ""
+      },
+      {
+        title: "Date of birth",
+        type: "Date",
+        description: "Your date of birth from your diploma.",
+        example: ""
+      },
+      {
+        title: "Gender",
+        type: "String",
+        description: "Your gender from your diploma.",
+        example: ""
+      },
+      {
+        title: "Education",
+        type: "String",
+        description: "Completed education.",
+        example: ""
+      },
+      {
+        title: "Degree",
+        type: "String",
+        description: "Kind of education.",
+        example: ""
+      },
+      {
+        title: "Profile",
+        type: "Date",
+        description: "Education profile.",
+        example: ""
+      },
+      {
+        title: "Achieved",
+        type: "String",
+        description: "Month in whitch this diploma was obtained.",
+        example: ""
+      },
+      {
+        title: "Institute",
+        type: "String",
+        description: "The institute where this diploma was obtained.",
+        example: ""
+      },
+      {
+        title: "City",
+        type: "String",
+        description: "City of the institute where this diploma was obtained.",
+        example: ""
+      }
+    ],
+  },
+  {
+    id: 310,
+    name: "",
+    credentialType: 1100,
+    supportedImplementations: [310],
+    organization: 305,
+    description: "Your verified email address.",
+    assurances: "This credential is deprecated since 2020-11-30 00:00:00: users cannot obtain it anymore (although they might still possess old instances). When using this credential, please provide users with a non-deprecated alternative.",
+    revocation: "No. Instances of this credential cannot be revoked by the issuer.",
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
+    reviews: [],
+    example: [
+      {
+        title: "Email",
+        type: "String",
+        description: "Your verified email address.",
+        example: ""
+      },
+      {
+        title: "Domain",
+        type: "String",
+        description: "The domain of your email address.",
         example: ""
       }
     ],

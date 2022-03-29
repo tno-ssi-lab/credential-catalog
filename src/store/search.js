@@ -52,7 +52,7 @@ export function buildIndex(data) {
 export function buildQueryString(search) {
   let query = search.query ? `${search.query}` : ""
 
-  ;["organization", "category", "maturity", "visibility","description", "attr"].forEach(field => {
+  ;["name", "credentialType", "organization", "category", "maturity", "visibility","description", "attr"].forEach(field => {
     if (search[field]) {
       search[field].forEach(val => {
         query += ` ${field}:${val}`
@@ -85,7 +85,10 @@ function compareField(haystack, needle) {
 export function filterByField(credential, search) {
   let match = true
 
-  ;["organization", "category", "maturity", "visibility", "description", "attr"].forEach(field => {
+  // Quick fix for filtering attr field (stringified attributes)
+  credential.attr = JSON.stringify(credential.attributes).replaceAll('"', " ")
+
+  ;["name", "credentialType", "organization", "category", "maturity", "visibility", "description", "attr"].forEach(field => {
     if (match && search[field] && search[field].length) {
       if (!search[field].some(val => compareField(credential[field], val))) {
         match = false

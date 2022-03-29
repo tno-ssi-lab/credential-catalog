@@ -19,15 +19,71 @@
         ></v-btn>
       </template>
     </v-text-field>
+
+    <v-switch
+      v-if="incremental"
+      v-model="incrementalSearch"
+      :label="
+        incrementalSearch
+          ? `${commitTitle} while typing`
+          : `Don't ${commitTitle.toLowerCase()} while typing`
+      "
+      dense
+    ></v-switch>
+
+    <!-- <v-row>
+      <v-col cols="12" sm="4">
+        <version-select2
+          v-model="search.supportedVersions"
+          :choice-categories="['protChoices']"
+          label="Supported protocols"
+          @input="$emit('input', search)"
+        >
+        </version-select2>
+      </v-col>
+
+      <v-col cols="12" sm="4">
+        <select-dropdown
+          v-model="search.organization"
+          :items="processIssuers"
+          label="organization"
+          @input="$emit('input', search)"
+        ></select-dropdown>
+      </v-col>
+
+      <v-col cols="12" sm="4">
+        <select-dropdown
+          v-model="search.category"
+          :items="categories"
+          label="Category"
+          @input="$emit('input', search)"
+        ></select-dropdown>
+      </v-col>
+
+      <v-col cols="12" sm="4">
+        <select-dropdown
+          v-model="search.maturity"
+          :items="maturityLevels"
+          label="Maturity"
+          @input="$emit('input', search)"
+        ></select-dropdown>
+      </v-col>
+    </v-row> -->
   </div>
 </template>
 
 <script>
 import constants from "@/constants"
 
+// import SelectDropdown from "../common/SelectDropdown"
+// import VersionSelect2 from "../deprecated/VersionSelect2"
+
 export default {
   name: "SearchForm",
-  components: {},
+  components: {
+    // SelectDropdown,
+    // VersionSelect2,
+  },
   props: {
     incremental: {
       type: Boolean,
@@ -67,8 +123,14 @@ export default {
       this.search = event
 
       if (this.incrementalSearchEnabled) {
-        this.$store.commit("updateQuery", event)
+        this.commitQuery()
       }
+    },
+    commitQuery() {
+      this.updateQuery(this.search)
+    },
+    updateQuery(event) {
+      this.$store.commit("updateQuery", event)
     },
   },
 }

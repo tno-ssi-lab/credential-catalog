@@ -10,12 +10,15 @@
     </v-row>
 
     <v-row>
+      <v-col md="4">
+        <search-filters
+          :value="search.currentSearch"
+          @input="input => updateSearch(input)"
+        ></search-filters>
+      </v-col>
       <v-col cols="12" md="8">
         <h3>Results ({{ resultCount }})</h3>
         <result-table :credentials="credentials"></result-table>
-      </v-col>
-      <v-col md="4">
-        <search-filters></search-filters>
       </v-col>
     </v-row>
   </div>

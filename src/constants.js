@@ -198,26 +198,34 @@ const VISIBILITY_MAP = VISIBILITIES.reduce((acc, { text, value }) => {
 }, {})
 
 const MATURITY_LEVELS = [
+  // {
+  //   text: "Proposed",
+  //   value: "proposed",
+  // },
+  // {
+  //   text: "Planned",
+  //   value: "planned",
+  // },
+  // {
+  //   text: "In Development",
+  //   value: "in-development",
+  // },
+  // {
+  //   text: "Ready for Review",
+  //   value: "ready-for-review",
+  // },
+  // {
+  //   text: "Complete",
+  //   value: "complete",
+  // },
   {
-    text: "Proposed",
-    value: "proposed",
+    text: "Pilot",
+    value: "pilot",
   },
   {
-    text: "Planned",
-    value: "planned",
-  },
-  {
-    text: "In Development",
-    value: "in-development",
-  },
-  {
-    text: "Ready for Review",
-    value: "ready-for-review",
-  },
-  {
-    text: "Complete",
-    value: "complete",
-  },
+    text: "Production",
+    value: "production",
+  },  
 ]
 
 const MATURITY_MAP = MATURITY_LEVELS.reduce((acc, { text, value }) => {

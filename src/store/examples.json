@@ -149,7 +149,7 @@
     "maturity": "pilot",
     "contact": "markus@danubetech.com",
     "id": 1006,
-    "credentialType": "DiplomaCredentialCredential",
+    "credentialType": "Diploma",
     "category": "category-two",
     "organization": [],
     "location": "",

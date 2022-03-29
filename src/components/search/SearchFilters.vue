@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field
+    <!-- <v-text-field
       v-model="search.query"
       label="Type to search"
       type="text"
@@ -28,36 +28,50 @@
           : `Don't ${commitTitle.toLowerCase()} while typing`
       "
       dense
-    ></v-switch>
+    ></v-switch> -->
 
     <v-row>
       <v-col cols="12" sm="4">
-        <version-select2
-          v-model="search.supportedVersions"
-          :choice-categories="['protChoices']"
-          label="Supported protocols"
+        <v-combobox
+          v-model="search.name"
+          :items="[]"
+          multiple
+          chips
+          label="Name"
           @input="$emit('input', search)"
-        >
-        </version-select2>
+        ></v-combobox>
       </v-col>
 
       <v-col cols="12" sm="4">
-        <select-dropdown
-          v-model="search.organization"
-          :items="processIssuers"
-          label="organization"
+        <v-combobox
+          v-model="search.credentialType"
+          :items="[]"
+          multiple
+          chips
+          label="Credential Type"
           @input="$emit('input', search)"
-        ></select-dropdown>
+        ></v-combobox>
       </v-col>
 
       <v-col cols="12" sm="4">
+        <v-combobox
+          v-model="search.attr"
+          :items="[]"
+          multiple
+          chips
+          label="Attributes"
+          @input="$emit('input', search)"
+        ></v-combobox>
+      </v-col>
+
+      <!-- <v-col cols="12" sm="4">
         <select-dropdown
-          v-model="search.category"
-          :items="categories"
-          label="Category"
+          v-model="search.attr"
+          :items="[{ text: 'name', value: 'name' }]"
+          label="attributes"
           @input="$emit('input', search)"
         ></select-dropdown>
-      </v-col>
+      </v-col> -->
 
       <v-col cols="12" sm="4">
         <select-dropdown
@@ -75,13 +89,13 @@
 import constants from "@/constants"
 
 import SelectDropdown from "../common/SelectDropdown"
-import VersionSelect2 from "../deprecated/VersionSelect2"
+// import VersionSelect2 from "../deprecated/VersionSelect2"
 
 export default {
   name: "SearchForm",
   components: {
     SelectDropdown,
-    VersionSelect2,
+    // VersionSelect2,
   },
   props: {
     incremental: {
@@ -115,6 +129,7 @@ export default {
   watch: {
     value() {
       this.search = JSON.parse(JSON.stringify(this.value))
+      console.log(this.maturityLevels)
     },
   },
   methods: {

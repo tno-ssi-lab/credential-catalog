@@ -178,6 +178,13 @@ export const organizations = [
     description: "Saxion University of Applied Sciences is a Dutch university of applied sciences with three campuses in the eastern Netherlands.",
     contactPerson: "-",
   },
+  {
+    id: 304,
+    logo: "https://pbs.twimg.com/profile_images/575613015287951361/2Db8UMcb_400x400.jpeg", // Twitter profile image
+    name: "DUO",
+    description: "Short for 'Dienst Uitvoering Onderwijs', this Dutch agency is responsible for the execution of several acts and regulations, such as student grants and information management. These acts are commissioned by the Minister of Education, Culture, and Science.",
+    contactPerson: "-",
+  },
 
 
 

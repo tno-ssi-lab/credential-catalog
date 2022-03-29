@@ -103,6 +103,11 @@
       </v-col>
 
       <v-col class="section" lg="8" md="10" cols="12">
+        <h3>Revocation?</h3>
+        <p>{{ credentialOffer.revocation }}</p>
+      </v-col>
+
+      <v-col class="section" lg="8" md="10" cols="12">
         <h3>Contact information</h3>
         <p>{{ organization.contactPerson }}</p>
       </v-col>

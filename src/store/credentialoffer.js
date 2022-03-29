@@ -8,6 +8,7 @@ export class CredentialOffer {
         supportedImplementations: [], // IDs of supported credential implementations
         organization: null, // organization ID
         description: null, // free text field for now
+        revocation: null,
         example: [],
         assurances: null, // free text field for now
         reviews: null, // Reviews about the credential offer
@@ -23,6 +24,7 @@ export class CredentialOffer {
       supportedImplementations: this.supportedImplementations,
       organization: this.organization,
       description: this.description,
+      revocation: this.revocation,
       example: this.example,
       assurances: this.assurances,
       reviews: this.reviews,
@@ -373,6 +375,91 @@ export const credentialoffers = [
         type: "String",
         example: ""
       },
+    ],
+  },
+  {
+    id: 304,
+    name: "",
+    credentialType: 1015,
+    supportedImplementations: [304],
+    organization: 304,
+    description: "Information from your diploma, obtained through DUO.",
+    assurances: "This is a testing credential. The issuer's IRMA private key is public, so anyone can issue this credential. Use it for testing and demo purposes only.",
+    revocation: "No. Instances of this credential cannot be revoked by the issuer.",
+    publishedAt: new Date().toLocaleDateString().split('T')[0],
+    reviews: [],
+    example: [
+      // {
+      //   title: "type",
+      //   type: "Array",
+      //   example: '["Student"]',
+      // },
+      {
+        title: "First name",
+        type: "String",
+        description: "Your first name from your diploma.",
+        example: ""
+      },
+      {
+        title: "Prefix",
+        type: "String",
+        description: "Your prefix from your diploma.",
+        example: ""
+      },
+      {
+        title: "Family name",
+        type: "String",
+        description: "Your family name from your diploma.",
+        example: ""
+      },
+      {
+        title: "Date of birth",
+        type: "Date",
+        description: "Your date of birth from your diploma.",
+        example: ""
+      },
+      {
+        title: "Gender",
+        type: "String",
+        description: "Your gender from your diploma.",
+        example: ""
+      },
+      {
+        title: "Education",
+        type: "String",
+        description: "Completed education.",
+        example: ""
+      },
+      {
+        title: "Degree",
+        type: "String",
+        description: "Kind of education.",
+        example: ""
+      },
+      {
+        title: "Profile",
+        type: "Date",
+        description: "Education profile.",
+        example: ""
+      },
+      {
+        title: "Achieved",
+        type: "String",
+        description: "Month in whitch this diploma was obtained.",
+        example: ""
+      },
+      {
+        title: "Institute",
+        type: "String",
+        description: "The institute where this diploma was obtained.",
+        example: ""
+      },
+      {
+        title: "City",
+        type: "String",
+        description: "City of the institute where this diploma was obtained.",
+        example: ""
+      }
     ],
   },
 ]

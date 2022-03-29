@@ -73,12 +73,6 @@
         <MarkdownDisplay :markdown="credentialImplementation.description" />
       </v-col>
 
-      <v-col class="section" lg="8" md="10" cols="12">
-        <h3>Assurances</h3>
-        <p>{{ credentialImplementation.assurances }}</p>
-        <!-- todo table -->
-      </v-col>
-
       <!-- <v-col class="section" lg="8" md="10" cols="12">
         <h3>Contact information</h3>
         <p>{{ organization.contactPerson }}</p>

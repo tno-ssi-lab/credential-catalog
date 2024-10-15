@@ -1,4 +1,4 @@
-FROM node:lts AS build-stage
+FROM node:16 AS build-stage
 
 # Create Directory for the Container
 WORKDIR /app
